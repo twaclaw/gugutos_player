@@ -6,13 +6,15 @@ import re
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-from app.nfc import PN532
+from app.nfc import PN532, Status
 
 logger = logging.getLogger('guguto-main')
 
 curr_reg = re.compile(
     r'^https\:\/\/open\.spotify\.com\/(?P<type>(?:track|album))?[/](?P<id>.*)$')
 tag_reg = re.compile(r'^spotify[:](?P<type>(?:track|album))?[:](?P<id>.*)$')
+
+_ID = '32010607e800'
 
 
 def compare_tracks(current: str, tag: str) -> bool:
@@ -29,6 +31,23 @@ def compare_tracks(current: str, tag: str) -> bool:
         return (c_type == t_type) and (c_id == t_id)
 
     return False
+
+
+# global object
+pn532 = PN532()
+
+
+async def reset_device(ntries: int = 4, delay: float = 1) -> str:
+    for _ in range(ntries):
+        await pn532._reset()
+        await pn532.wakeup()
+        status, response = await pn532.get_firmware_version()
+        if status == Status.OK:
+            resp = response.hex()
+            if (resp == _ID):
+                return resp
+        else:
+            await asyncio.sleep(delay)
 
 
 async def main():
@@ -62,32 +81,33 @@ async def main():
 
     tags = conf['tags']
     prev_tag = None
+    await pn532.ainit()
+    devId = await reset_device()
+    print(f"Initilized PN532 {devId}")
+    logger.info(f"Initilized PN532 {devId}")
+
+    nStat = 10
+    stats = [0] * nStat
+    i = 0
+
     while True:
-        pn532 = await PN532().ainit()
-        tag_id_ = await pn532.read_passive_target(timeout=3)
-        if tag_id_:
-            tag_id = tag_id_.hex()
+        status, response = await pn532.read_passive_target(timeout=3)
+        stats[i] = status
+        i = (i + 1) % nStat
+        # TODO: implement reset strategy
+
+        if status == Status.OK:
+            tag_id = response.hex()
             tag = tags.get(tag_id, None)
             if tag and tag_id != prev_tag:
-                # current = sp.currently_playing()
-                # if current:
-                #     current_track = current['item']['external_urls']['spotify']
-                #     progress = current['progress_ms']
-                #     duration = current['item']['duration_ms']
-                #     print(f"Progress: {progress} {duration}")
-                #     if compare_tracks(current_track, tag['uri']):
-                #         # ignore, it is the same track already playing
-                #         print("IGNORING")
-                #     else:
-                #         print(f"current track: {current_track}")
                 logger.info(f"Playing {tag['name']} {tag['uri']}")
-                print(f"Playing {tag['name']} {tag['uri']}")
+                # print(f"Playing {tag['name']} {tag['uri']}")
                 sp.start_playback(device_id=device_id, uris=[tag['uri']])
                 prev_tag = tag_id
         else:
             prev_tag = None
 
-        await asyncio.sleep(3)
+        await asyncio.sleep(1)
 
 if __name__ == '__main__':
     asyncio.run(main())
