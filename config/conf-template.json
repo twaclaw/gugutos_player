@@ -1,0 +1,52 @@
+{
+   "secrets": {
+      "client_id": "",
+      "client_secret": ""
+   },
+   "sound": {
+      "device_id": "",
+      "volume": 80
+   },
+   "tags": {
+      "04bb9ca7100289": {
+         "name": "Saint Saens: Lion",
+         "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso"
+      },
+      "04b648a7100289": {
+         "name": "Saint Saens: Elephant",
+         "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5"
+      },
+      "04bdb2a7100289": {
+         "name": "Saint Saens: Donkey",
+         "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI"
+      },
+      "0469a7a7100289": {
+         "name": "Saint Saens: Kangooro",
+         "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN"
+      },
+      "04b07ba7100289": {
+         "name": "Saint Saens: Aquarium",
+         "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9"
+      },
+      "043ea7a7100289": {
+         "name": "Saint Saens: Poultry",
+         "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK"
+      },
+      "0405a4a7100289": {
+         "name": "Las ruedas del autobus",
+         "uri": "spotify:track:7JBgY8u5HOzhGb8YE55mSt"
+      },
+      "0424b3a7100289": {
+         "name": "Vivaldi: Le quattro staggioni",
+         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+      },
+      "049371a7100289": {
+         "name": "cats",
+         "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el"
+      },
+      "c6a6031b": {
+         "name": "mario",
+         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+      }
+   }
+}

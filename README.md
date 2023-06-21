@@ -1,21 +1,16 @@
-sudo systemctl mask serial-getty@ttyS0.service
+# Le carnaval des animaux
 
+<img src="./img/animmals.jpg"></img>
+## Motivation
+I wanted my kid to have a way of playing his favorite music. I already had a Raspberry Pi running [Raspotify](https://github.com/dtcooper/raspotify) connected to my amplifier (which has a built-in USB sound card). Essentially, Raspotify implements a device for [Spotify Connect](https://support.spotify.com/us/article/spotify-connect/).
 
-/etc/udev/rules.d/99-com.rules
-ACTION=="add", KERNEL="tty", MODE="0660"
-ACTION=="add", KERNEL="ttyS0", MODE="0660"
+## Implementation
 
-## Initial authentication from the Raspberry Pi
+* Attach an [NFC reader hat](https://www.waveshare.com/wiki/PN532_NFC_HAT) to the Raspberry Pi
+* Build a set of figurines, each with an RFID tag
+* Associate tracks (or albums) to each figurine
+* Run a process that plays the track associated to the figurine 🐘🦘🐢 whenever it is placed over the reader.
 
-* Run a modified version of the application on the PC
-* `spotipy` will ask to follow a link. Open the link on a browser.
-* Once the authentication is done, a `.cache` file is created.
-* Copy the file to the raspberry pi to `cache.txt`
+The whole thing runs as a `systemd` process that constantly polls the NFC reader and plays the track if a valid RFID is detected.
 
-
-Default USB sound card
-diego@raspberrypi:~ $ cat /etc/asound.conf
-defaults.pcm.card 3
-defaults.ctl.card 3
-defaults.pcm.dmix.rate 32000
-defaults.pcm.dmix.format S16_LE
+See additional details [here](./src/app).
