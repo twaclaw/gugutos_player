@@ -11,6 +11,6 @@ I wanted my kid to have a way of playing his favorite music. I already had a Ras
 * Associate tracks (or albums) to each figurine
 * Run a process that plays the track associated to the figurine 🐘🦘🐢 whenever it is placed over the reader.
 
-The whole thing runs as a `systemd` process that constantly polls the NFC reader and plays the track if a valid RFID is detected.
+The whole thing runs as a `systemd` process that constantly polls the NFC reader and plays the track if a valid, configured RFID is detected.
 
-See additional details [here](./src/app).
+See additional details [here](./src/app/README.md).
