@@ -5,7 +5,7 @@ import logging
 import re
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-
+from typing import Optional
 from app.nfc import PN532, Status
 
 logger = logging.getLogger('guguto-main')
@@ -15,6 +15,14 @@ curr_reg = re.compile(
 tag_reg = re.compile(r'^spotify[:](?P<type>(?:track|album))?[:](?P<id>.*)$')
 
 _ID = '32010607e800'
+
+
+def get_type(uri: str) -> Optional[str]:
+    m = tag_reg.match(uri)
+    if m:
+        md = m.groupdict()
+        return md['type']
+    return None
 
 
 def compare_tracks(current: str, tag: str) -> bool:
@@ -92,7 +100,7 @@ async def main():
     i = 0
 
     while True:
-        status, response = await pn532.read_passive_target(timeout=3)
+        status, response = await pn532.read_passive_target(timeout=1)
         stats[i] = status > Status.TIMEOUT
         i = (i + 1) % nStat
         if sum(stats) > nStat * 0.75:
@@ -103,9 +111,15 @@ async def main():
             tag_id = response.hex()
             tag = tags.get(tag_id, None)
             if tag and tag_id != prev_tag:
-                # TODO: play albums as well
                 logger.debug(f"Playing {tag['name']} {tag['uri']}")
-                sp.start_playback(device_id=device_id, uris=[tag['uri']])
+                t = get_type(tag['uri'])
+                if t == "track":
+                    sp.start_playback(device_id=device_id, uris=[tag['uri']])
+
+                if t == "album":
+                    sp.start_playback(device_id=device_id,
+                                      context_uri=tag['uri'])
+
                 prev_tag = tag_id
         else:
             prev_tag = None

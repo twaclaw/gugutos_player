@@ -1,52 +1,58 @@
 {
    "secrets": {
-      "client_id": "",
-      "client_secret": ""
+      "client_id": "get from developer.spotify.com app",
+      "client_secret": "get from developer.spotify.com app"
    },
    "sound": {
-      "device_id": "",
+      "device_id": "Your Spotify connect device id",
       "volume": 80
    },
    "tags": {
       "04bb9ca7100289": {
          "name": "Saint Saens: Lion",
-         "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso"
+         "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso?si=49206e51f9984b18"
       },
       "04b648a7100289": {
          "name": "Saint Saens: Elephant",
-         "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5"
+         "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5?si=5dc87c6a93fc4db4"
       },
       "04bdb2a7100289": {
          "name": "Saint Saens: Donkey",
-         "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI"
+         "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI?si=27603eb813f94d1e"
       },
       "0469a7a7100289": {
          "name": "Saint Saens: Kangooro",
-         "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN"
+         "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN?si=6d25bf960db7466f"
       },
       "04b07ba7100289": {
          "name": "Saint Saens: Aquarium",
-         "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9"
+         "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9?si=b5c1d395719b437f"
       },
       "043ea7a7100289": {
          "name": "Saint Saens: Poultry",
-         "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK"
+         "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK?si=59fd86a6057f432f"
       },
+      "0420aca7100289": {
+         "name": "Saint Saens: Birds",
+         "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj?si=2bbab3cc50d142b5"
+      },
+
       "0405a4a7100289": {
          "name": "Las ruedas del autobus",
-         "uri": "spotify:track:7JBgY8u5HOzhGb8YE55mSt"
+         "uri": "spotify:track:7JBgY8u5HOzhGb8YE55mSt?si=123541bd64e746de"
       },
       "0424b3a7100289": {
          "name": "Vivaldi: Le quattro staggioni",
-         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+         "figurine": "bambies",
+         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z?si=qmg8T1ptQ1avJBK84bw9Bg"
       },
       "049371a7100289": {
          "name": "cats",
-         "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el"
+         "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el?si=9598cf21ef16404c"
       },
       "c6a6031b": {
          "name": "mario",
-         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+         "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj?si=bd142bfad4664e8d"
       }
    }
 }
