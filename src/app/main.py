@@ -49,6 +49,8 @@ async def reset_device(ntries: int = 4, delay: float = 1) -> str:
         else:
             await asyncio.sleep(delay)
 
+    raise RuntimeError("Unable to initialize PN532 device!")
+
 
 async def main():
     parser = argparse.ArgumentParser()
@@ -83,7 +85,6 @@ async def main():
     prev_tag = None
     await pn532.ainit()
     devId = await reset_device()
-    print(f"Initilized PN532 {devId}")
     logger.info(f"Initilized PN532 {devId}")
 
     nStat = 10
@@ -92,16 +93,18 @@ async def main():
 
     while True:
         status, response = await pn532.read_passive_target(timeout=3)
-        stats[i] = status
+        stats[i] = status > Status.TIMEOUT
         i = (i + 1) % nStat
-        # TODO: implement reset strategy
+        if sum(stats) > nStat * 0.75:
+            await reset_device()
+            continue
 
         if status == Status.OK:
             tag_id = response.hex()
             tag = tags.get(tag_id, None)
             if tag and tag_id != prev_tag:
-                logger.info(f"Playing {tag['name']} {tag['uri']}")
-                # print(f"Playing {tag['name']} {tag['uri']}")
+                # TODO: play albums as well
+                logger.debug(f"Playing {tag['name']} {tag['uri']}")
                 sp.start_playback(device_id=device_id, uris=[tag['uri']])
                 prev_tag = tag_id
         else:
