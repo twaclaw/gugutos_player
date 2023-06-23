@@ -121,6 +121,9 @@ async def main():
                                       context_uri=tag['uri'])
 
                 prev_tag = tag_id
+
+            if tag is None:
+                logger.warning(f"Unrecognized tag: {tag_id}")
         else:
             prev_tag = None
 
