@@ -7,8 +7,12 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from typing import Optional
 from app.nfc import PN532, Status
+from systemd import journal
 
 logger = logging.getLogger('guguto-main')
+logger.propagate = False
+logger.addHandler(journal.JournaldLogHandler())
+logger.setLevel(logging.INFO)
 
 curr_reg = re.compile(
     r'^https\:\/\/open\.spotify\.com\/(?P<type>(?:track|album))?[/](?P<id>.*)$')
@@ -46,6 +50,7 @@ pn532 = PN532()
 
 
 async def reset_device(ntries: int = 4, delay: float = 1) -> str:
+    logger.debug("Resetting PN532")
     for _ in range(ntries):
         await pn532._reset()
         await pn532.wakeup()
@@ -113,6 +118,7 @@ async def main():
             if tag and tag_id != prev_tag:
                 logger.debug(f"Playing {tag['name']} {tag['uri']}")
                 t = get_type(tag['uri'])
+                sp.volume(100, device_id=device_id)
                 if t == "track":
                     sp.start_playback(device_id=device_id, uris=[tag['uri']])
 

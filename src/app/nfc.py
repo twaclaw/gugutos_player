@@ -3,6 +3,7 @@ from enum import IntEnum
 import logging
 from serial_asyncio import open_serial_connection
 import RPi.GPIO as GPIO
+from systemd import journal
 from typing import cast, Optional, Tuple
 
 _HOSTTOPN532 = 0xD4
@@ -20,6 +21,9 @@ _COMMAND_INLISTPASSIVETARGET = 0x4A
 _MIFARE_ISO14443A = 0x00
 
 logger = logging.getLogger('guguto-nfc')
+logger.propagate = False
+logger.addHandler(journal.JournaldLogHandler())
+logger.setLevel(logging.WARNING)
 
 
 class Status(IntEnum):
@@ -136,20 +140,20 @@ class PN532():
             return Status.MALFORMED, data
 
         if data[:3] != bytearray([0, 0, 255]):
-            logger.error(
+            logger.debug(
                 'Response frame preamble does not contain 0x00FF!')
             return Status.MALFORMED, data
 
         # Check length & length checksum match.
         frame_len = data[3]
         if (frame_len + data[4]) & 0xFF != 0:
-            logger.error('Response length checksum did not match length!')
+            logger.debug('Response length checksum did not match length!')
             return Status.MALFORMED, data
 
         # Check frame checksum value matches bytes.
         checksum = sum(data[5:5 + frame_len + 1]) & 0xFF
         if checksum != 0:
-            logger.error(
+            logger.debug(
                 'Response checksum did not match expected value: ', checksum)
             return Status.CHECKSUM_ERROR, data
 
@@ -185,7 +189,7 @@ class PN532():
             return status, data
 
         if not (data[0] == _PN532TOHOST and data[1] == (command + 1)):
-            logger.error('Received unexpected command response!')
+            logger.debug('Received unexpected command response!')
             return Status.MALFORMED, data
 
         return Status.OK, data[2:]
@@ -229,10 +233,10 @@ class PN532():
             return status, data
 
         if data[0] != 0x01:
-            logger.error('More than one card detected!')
+            logger.debug('More than one card detected!')
             return Status.CARD_ERROR, data
         if data[5] > 7:
-            logger.error('Found card with unexpectedly long UID!')
+            logger.debug('Found card with unexpectedly long UID!')
             return Status.CARD_ERROR, data
 
         # Return UID of card.
