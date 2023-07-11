@@ -7,6 +7,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from typing import Optional
 from app.nfc import PN532, Status
+import random
 from systemd import journal
 
 logger = logging.getLogger('guguto-main')
@@ -116,15 +117,17 @@ async def main():
             tag_id = response.hex()
             tag = tags.get(tag_id, None)
             if tag and tag_id != prev_tag:
-                logger.debug(f"Playing {tag['name']} {tag['uri']}")
-                t = get_type(tag['uri'])
+                tracks = tag['tracks']
+                piece = random.choice(tracks)
+                logger.debug(f"Playing {piece['name']} {piece['uri']}")
+                t = get_type(piece['uri'])
                 sp.volume(100, device_id=device_id)
                 if t == "track":
-                    sp.start_playback(device_id=device_id, uris=[tag['uri']])
+                    sp.start_playback(device_id=device_id, uris=[piece['uri']])
 
                 if t == "album":
                     sp.start_playback(device_id=device_id,
-                                      context_uri=tag['uri'])
+                                      context_uri=piece['uri'])
 
                 prev_tag = tag_id
 

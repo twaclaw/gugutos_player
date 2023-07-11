@@ -9,50 +9,206 @@
    },
    "tags": {
       "04bb9ca7100289": {
-         "name": "Saint Saens: Lion",
-         "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso?si=49206e51f9984b18"
+         "tracks": [
+            {
+               "name": "Saint Saens: Lion",
+               "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso?si=49206e51f9984b18"
+            }
+         ]
       },
       "04b648a7100289": {
-         "name": "Saint Saens: Elephant",
-         "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5?si=5dc87c6a93fc4db4"
+         "tracks": [
+            {
+               "name": "Saint Saens: Elephant",
+               "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5?si=5dc87c6a93fc4db4"
+            }
+         ]
       },
       "04bdb2a7100289": {
-         "name": "Saint Saens: Donkey",
-         "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI?si=27603eb813f94d1e"
+         "tracks": [
+            {
+               "name": "Saint Saens: Donkey",
+               "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI?si=27603eb813f94d1e"
+            }
+         ]
       },
       "0469a7a7100289": {
-         "name": "Saint Saens: Kangooro",
-         "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN?si=6d25bf960db7466f"
+         "tracks": [
+            {
+               "name": "Saint Saens: Kangooro",
+               "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN?si=6d25bf960db7466f"
+            }
+         ]
       },
       "04b07ba7100289": {
-         "name": "Saint Saens: Aquarium",
-         "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9?si=b5c1d395719b437f"
+         "tracks": [
+            {
+               "name": "Saint Saens: Aquarium",
+               "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9?si=b5c1d395719b437f"
+            }
+         ]
       },
       "043ea7a7100289": {
-         "name": "Saint Saens: Poultry",
-         "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK?si=59fd86a6057f432f"
+         "tracks": [
+            {
+               "name": "Saint Saens: Poultry",
+               "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK?si=59fd86a6057f432f"
+            }
+         ]
       },
       "0420aca7100289": {
-         "name": "Saint Saens: Birds",
-         "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj?si=2bbab3cc50d142b5"
+         "tracks": [
+            {
+               "name": "Saint Saens: Birds",
+               "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj?si=2bbab3cc50d142b5"
+            }
+         ]
       },
-
+      "04556ca7100289": {
+         "tracks": [
+            {
+               "name": "Saint Saens: Swan",
+               "uri": "spotify:track:5Aa3InQJHLUtSvTDtXXMsW?si=53fb34b1f6aa4407"
+            }
+         ]
+      },
+      "04f687a7100289": {
+         "tracks": [
+            {
+               "name": "Saint Saens: tortoise",
+               "uri": "spotify:track:5Un9h6xPqnHSvguexXnbEg?si=f6a0c3d5ac974c3d"
+            }
+         ]
+      },
       "0405a4a7100289": {
-         "name": "Las ruedas del autobus",
-         "uri": "spotify:track:7JBgY8u5HOzhGb8YE55mSt?si=123541bd64e746de"
+         "tracks": [
+            {
+               "name": "Las ruedas del autobus",
+               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn?si=74f5348513df43ef"
+            }
+         ]
       },
       "0424b3a7100289": {
-         "name": "Vivaldi: Le quattro staggioni",
          "figurine": "bambies",
-         "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z?si=qmg8T1ptQ1avJBK84bw9Bg"
+         "tracks": [
+            {
+               "name": "Vivaldi: Le quattro staggioni",
+               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z?si=qmg8T1ptQ1avJBK84bw9Bg"
+            }
+         ]
       },
       "049371a7100289": {
-         "name": "cats",
-         "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el?si=9598cf21ef16404c"
+         "tracks": [
+            {
+               "name": "cats",
+               "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el?si=9598cf21ef16404c"
+            }
+         ]
       },
       "c6a6031b": {
-         "name": "mario",
-         "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj?si=bd142bfad4664e8d"
+         "tracks": [
+            {
+               "name": "mario",
+               "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj?si=bd142bfad4664e8d"
+            }
+         ]
+      },
+      "04f68ca7100289": {
+         "tracks": [
+            {
+               "name": "los pollitos",
+               "uri": "spotify:track:3BH1DnweCx9nUHVAMa6QKW?si=e4491de18ae24f59"
+            }
+         ]
+      },
+      "042971a7100289": {
+         "figurine": "horse",
+         "tracks": [
+            {
+               "name": "Sibelius violin concerto 3rd movement",
+               "uri": "spotify:track:2RxOM1Q9AYXnXlMoesQiaM?si=402703577cde4154"
+            }
+         ]
+      },
+      "041e5ca7100289": {
+         "figurine": "peresozo",
+         "tracks": [
+            {
+               "name": "La iguana y el peresozo",
+               "uri": "spotify:track:2ETOzVqvINFXbWVwhkUqyw?si=d7323a423a1d4fa9"
+            }
+         ]
+      },
+      "04c7bfa7100289": {
+         "figurine": "piano",
+         "tracks": [
+            {
+               "name": "",
+               "uri": ""
+            }
+         ]
+      },
+      "04523ea7100289": {
+         "figurine": "violin",
+         "tracks": [
+            {
+               "name": "",
+               "uri": ""
+            }
+         ]
+      },
+      "04c35aa7100289": {
+         "figurine": "saxofon",
+         "tracks": [
+            {
+               "name": "",
+               "uri": ""
+            }
+         ]
+      },
+      "041430aa100289": {
+         "figurine": "trumpet",
+         "tracks": [
+            {
+               "name": "Florence sur le champs elysees Miles Davis",
+               "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q?si=71b6548551ca4132"
+            },
+            {
+               "name": "Mahler 5th",
+               "uri": "spotify:track:2McwRJ1l1hi1E8RJh0vFRS?si=7636fb015ffd42be"
+            },
+            {
+               "name": "Musorski, pictures at an exhibition",
+               "uri": "spotify:track:4edX8xopbaXGJN8n1rW7Vk?si=b2da074c46244ade"
+            }
+         ]
+      },
+      "045562a7100289": {
+         "figurine": "guitar",
+         "tracks": [
+            {
+               "name": "Julian Bream, Granada",
+               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN?si=54ccbdb5bb0a4feb"
+            }
+         ]
+      },
+      "042190a7100289": {
+         "figurine": "electric guitar",
+         "tracks": [
+            {
+               "name": "",
+               "uri": "spotify:track:"
+            }
+         ]
+      },
+      "049da1a7100289": {
+         "figurine": "tambor",
+         "tracks": [
+            {
+               "name": "",
+               "uri": "spotify:track:5STDVTFO7ziu4LDaaRCx2n?si=c74617b5192d4412"
+            }
+         ]
       }
    }
 }
