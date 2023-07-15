@@ -2,6 +2,8 @@
 
 ## PN532 driver
 
+**Make sure the jumpers in the PN532 NCF hat are in the "serial" configuration.**
+
 The Python code provided by [Waveshare](https://www.waveshare.com/wiki/PN532_NFC_HAT)
 is a bit buggy. I didn't manage to get the SPI version working and I didn't want to spend too much time on it; basically, I wanted a working version without having to read any datasheet or spec. I ended up using their UART version but rewrote the low level part.
 
@@ -18,6 +20,47 @@ Besides the credentials provided in the configuration file, Spotify requires add
 * Once the authentication is done, a `.cache` file is created.
 * Copy the file to the raspberry pi to `cache.txt` (which is passed as an option to the script.)
 
+## Installation
+
+Clone this repo and install the Python dependencies.
+
+```bash
+git clone git@github.com:twaclaw/gugutos_player.git guguto
+
+cd guguto`
+
+# create a virtual env
+virtualenv venv
+. venv/bin/activate
+
+# install the dependencies
+pip install -e src/
+```
+
+Copy the configuration file and edit it (add the credentials, and edit the list of tags and their associated tags.)
+
+```bash
+cp config/conf-template.json conf.json
+```
+
+Make sure this location, `$HOME/guguto`, contains also the `cache.txt` file mentioned in the previous section.,
+
+### Systemd service
+
+```bash
+cp $HOME/guguto/config/systemd/user/player.service $HOME/.config/systemd/user
+
+# enable the service
+systemctl --user enable player.service
+
+# start the service
+systemctl --user start player.service
+
+# check the status with
+systemctl --user status player.service
+```
+
+The status can also be checked with `journalctl`. For instance, new RFID tags can be identified by scanning the tag and looking to log output with `journalctl -e`.
 
 # System configuration
 
