@@ -43,7 +43,7 @@ Copy the configuration file and edit it (add the credentials, and edit the list 
 cp config/conf-template.json conf.json
 ```
 
-Make sure this location, `$HOME/guguto`, contains also the `cache.txt` file mentioned in the previous section.,
+Make sure this location, `$HOME/guguto`, contains also the `cache.txt` file mentioned in the previous section.
 
 ### Systemd service
 
