@@ -60,7 +60,7 @@ systemctl --user start player.service
 systemctl --user status player.service
 ```
 
-The status can also be checked with `journalctl`. For instance, new RFID tags can be identified by scanning the tag and looking to log output with `journalctl -e`.
+The status can also be checked with `journalctl`. For instance, new RFID tags can be identified by scanning the tag and looking at the log output with `journalctl -e`.
 
 # System configuration
 
