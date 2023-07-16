@@ -20,6 +20,24 @@ Besides the credentials provided in the configuration file, Spotify requires add
 * Once the authentication is done, a `.cache` file is created.
 * Copy the file to the raspberry pi to `cache.txt` (which is passed as an option to the script.)
 
+On your PC (not on the RPi) go through the following steps in the project directory:
+
+```bash
+# Create a virtual environment, for instance
+virtualenv -p python3.8 venv
+
+# activate the venv
+. venv/bin/activate
+
+# install Spotipy (other dependendencies are not required)
+pip install spotipy
+
+# run the following script
+python src/scripts/get_cache.py conf.json
+
+# the latter should create a .cache file
+```
+
 ## Installation
 
 Clone this repo and install the Python dependencies.
