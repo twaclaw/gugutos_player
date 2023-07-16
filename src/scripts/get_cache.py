@@ -21,7 +21,6 @@ except Exception as ex:
 secrets = conf['secrets']
 device_id = conf['sound']['device_id']
 
-print(secrets)
 scope = "user-read-playback-state,user-modify-playback-state"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=secrets['client_id'],
                                                client_secret=secrets['client_secret'],
