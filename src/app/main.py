@@ -121,7 +121,7 @@ async def main():
                 piece = random.choice(tracks)
                 logger.debug(f"Playing {piece['name']} {piece['uri']}")
                 t = get_type(piece['uri'])
-                sp.volume(100, device_id=device_id)
+                sp.volume(conf['sound']['volume'], device_id=device_id)
                 if t == "track":
                     sp.start_playback(device_id=device_id, uris=[piece['uri']])
 
@@ -136,7 +136,8 @@ async def main():
         else:
             prev_tag = None
 
-        await asyncio.sleep(1)
+        delay = conf['sound']['polling_delay_secs']
+        await asyncio.sleep(delay)
 
 if __name__ == '__main__':
     asyncio.run(main())
