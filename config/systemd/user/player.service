@@ -3,7 +3,7 @@ Description=Guguto's player (RFID + Spotify)
 After=default.target
 
 [Service]
-ExecStart=$HOME/guguto/venv/bin/python -m app.main $HOME/guguto/conf.json $HOME/guguto/cache.txt
+ExecStart=$HOME/guguto/venv/bin/python -m app.main $HOME/guguto/conf.json $HOME/guguto/secrets.json $HOME/guguto/cache.txt
 Restart=always
 RestartSec=5s
 

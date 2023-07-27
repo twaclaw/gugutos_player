@@ -69,6 +69,8 @@ async def reset_device(ntries: int = 4, delay: float = 1) -> str:
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", type=str, help="JSON configuration file")
+    parser.add_argument("secrets", type=str,
+                        help="JSON secrets configuration file")
     parser.add_argument("cache", type=str, help="authentication cache")
 
     try:
@@ -80,12 +82,15 @@ async def main():
     try:
         with open(args.config, "rb") as f:
             conf = json.load(f)
+
+        with open(args.secrets, "rb") as f:
+            secrets = json.load(f)
     except Exception as ex:
         logging.error("Invalid configuration file!")
         raise ex
 
-    secrets = conf['secrets']
-    device_id = conf['sound']['device_id']
+    secrets = secrets['secrets']
+    device_id = secrets['device_id']
     scope = "user-read-playback-state,user-modify-playback-state"
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=secrets['client_id'],
                                                    client_secret=secrets['client_secret'],

@@ -1,10 +1,5 @@
 {
-   "secrets": {
-      "client_id": "get from developer.spotify.com app",
-      "client_secret": "get from developer.spotify.com app"
-   },
    "sound": {
-      "device_id": "Your Spotify connect device id",
       "volume": 100,
       "polling_delay_secs": 1
    },
