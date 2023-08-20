@@ -96,6 +96,9 @@ ACTION=="add", KERNEL="tty", MODE="0660"
 ACTION=="add", KERNEL="ttyS0", MODE="0660"
 ```
 
+# Moode
+[Download](https://moodeaudio.org/) the image and create an SD card.
+
 # Raspotify configuration
 
 Follow the instructions from the [basic setup](https://github.com/dtcooper/raspotify/wiki/Basic-Setup-Guide)

@@ -4,9 +4,8 @@
 ## Motivation
 I wanted to give my kid a way of playing his favorite music.
 
-I already had a Raspberry Pi running [Raspotify](https://github.com/dtcooper/raspotify) connected to my amplifier (which has a built-in USB sound card). Raspotify implements a device for [Spotify Connect](https://support.spotify.com/us/article/spotify-connect/).
+I already had a Raspberry Pi running [Moode](https://moodeaudio.org/) connected to my amplifier (which has a built-in USB sound card). Moode audio (and other projects as [Raspotify](https://github.com/dtcooper/raspotify)) implements a device for [Spotify Connect](https://support.spotify.com/us/article/spotify-connect/). Spotify premium is required in this setup.
 
-The same setup can however be used with any other Spotify connect device (in this case, Raspotify might not be required.)
 
 ## Implementation
 

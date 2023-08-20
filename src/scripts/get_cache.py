@@ -4,7 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 parser = argparse.ArgumentParser()
-parser.add_argument("config", type=str, help="JSON configuration file")
+parser.add_argument("secrets", type=str, help="JSON secrets file")
 
 try:
     args = parser.parse_args()
@@ -13,13 +13,14 @@ except Exception as ex:
     raise ex
 
 try:
-    with open(args.config, "rb") as f:
-        conf = json.load(f)
+    with open(args.secrets, "rb") as f:
+        secrets = json.load(f)
+
 except Exception as ex:
     raise ex
 
-secrets = conf['secrets']
-device_id = conf['sound']['device_id']
+secrets = secrets['secrets']
+device_id = secrets['device_id']
 
 scope = "user-read-playback-state,user-modify-playback-state"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=secrets['client_id'],

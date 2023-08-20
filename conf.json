@@ -102,10 +102,23 @@
          ]
       },
       "c6a6031b": {
+         "figurine": "mario",
          "tracks": [
             {
-               "name": "mario",
+               "name": "ramei ramei",
                "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj?si=bd142bfad4664e8d"
+            },
+            {
+               "name": "Sussana",
+               "uri": "spotify:track:4l98tfzW8CBK1swuanoUal?si=c51006933eb44fae"
+            },
+            {
+               "name": "Don't worry be happy, Bobby McFerrin",
+               "uri": "spotify:track:4hObp5bmIJ3PP3cKA9K9GY"
+            },
+            {
+               "name": "Ave Maria, Bobby McFerrin & Yoyo Ma",
+               "uri": "spotify:track:6k86KdUqx8tLNqtl0mIiKR"
             }
          ]
       },
@@ -132,6 +145,14 @@
             {
                "name": "La iguana y el peresozo",
                "uri": "spotify:track:2ETOzVqvINFXbWVwhkUqyw?si=d7323a423a1d4fa9"
+            },
+            {
+               "name": "Las ruedas del autobus",
+               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn?si=74f5348513df43ef"
+            },
+            {
+               "name": "Du gaideliai",
+               "uri": "spotify:track:4M84qr6ZnzkQ0jQYYR0R2j?si=e25a97b9b8cb4f10"
             }
          ]
       },
@@ -165,22 +186,24 @@
                "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx?si=e86afaefc6d84904"
             },
             {
-               "name": "Schumann, Kinderszenen, Hasche Mann, Martha Argerich",
-               "uri": "spotify:track:1X1cDlKXuZVATlQuVSGK0m?si=c0a1dbd636164fd2"
-            },
-            {
                "name": "Schubert, impromptu, Sokolov",
                "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq?si=7be8b8b4d4d04c8a"
+            },
+            {
+               "name": "Maria Joao Pires, Sonata C Major",
+               "uri": "spotify:track:06Q05yj10rtSviyzQynKMc?si=7f9da821383c47fb"
             }
          ]
       },
       "04523ea7100289": {
          "figurine": "violin",
-         "tracks": [
+         "tracks_unplayed": [
             {
                "name": "Vivaldi, La follia",
                "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn?si=b55e59f312bd4e26"
-            },
+            }
+         ],
+         "tracks": [
             {
                "name": "Paganici capriccio, Itzhak Perlman",
                "uri": "spotify:track:6cC6h5E351deEGFd7Kh9uy?si=8983e0c817164e5f"
@@ -241,10 +264,6 @@
                "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN?si=54ccbdb5bb0a4feb"
             },
             {
-               "name": "Recuerdos de la alhambra, John Williams",
-               "uri": "spotify:track:7nTCpSPOBnuxwWIbfG2hzq?si=01bf43a83d264ad1"
-            },
-            {
                "name": "Danza del altiplano, Leo Brouwer",
                "uri": "spotify:track:5LvazPzyHzfe39dk82RL2W?si=cbd455a07d49472a"
             },
@@ -255,12 +274,24 @@
             {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",
                "uri": "spotify:track:5roP6hv94wnrjulyqPaTIe?si=7c781b2ee35d4d9c"
+            },
+            {
+               "name": "Garota de Ipanema, Toquihno, Vinicius de Moraes",
+               "uri": "spotify:track:4fz5scGzatrI7trZIshpys?si=3f6c47f717da4bc3"
             }
          ]
       },
       "042190a7100289": {
          "figurine": "electric guitar",
          "tracks": [
+            {
+               "name": "Don't stop me now, Queen",
+               "uri": "spotify:track:0LPMWPwCHrIorXSdpnPVyv?si=5f50be1c153a45a7"
+            },
+            {
+               "name": "Hotel California, Eagles",
+               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv?si=73b579de718d4035"
+            },
             {
                "name": "Hotel California, Eagles",
                "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv?si=73b579de718d4035"
@@ -285,14 +316,10 @@
             {
                "name": "El pescador, Toto la moposina",
                "uri": "spotify:track:5STDVTFO7ziu4LDaaRCx2n?si=72b9e55c30a745a3"
-            },
-            {
-               "name": "Mapale, Toto la moposina",
-               "uri": "spotify:track:7untxuz52jrCLnm3T8jkV6?si=730d7178b985497b"
             }
          ]
       },
-      "beethoven": {
+      "040339a7100289": {
          "figurine": "beethoven",
          "tracks": [
             {
@@ -300,20 +327,67 @@
                "uri": "spotify:track:4mw5oRBKNBfNV0dXAOIcne?si=07137c6179c943b7"
             },
             {
-               "name": "9th, choral, Wiener Phil, Rattle",
-               "uri": "spotify:track:1Ne9vOV5ux6ZVyBxFtjoOP?si=7b5cbf3afb8e42b8"
+               "name": "Piano concerto 5, Zimerman, Berstein",
+               "uri": "spotify:album:071ZoYVL38NR1WnPP6jAHz?si=3oWXiNQ8Qym-L79N51Un4Q"
+            }
+         ]
+      },
+      "042ab3a7100289": {
+         "figurine": "bach",
+         "tracks": [
+            {
+               "name": "Cello Suite No 1 in G, Yo Yo Ma",
+               "uri": "spotify:track:17i5jLpzndlQhbS4SrTd0B?si=3ac24db1ec184552"
             },
             {
-               "name": "",
-               "uri": "spotify:track:"
+               "name": "Goldberg variations, Aria, Glenn Gould",
+               "uri": "spotify:track:5bu9A6uphPWg39RC3ZKeku?si=634e22eca7474d44"
             },
             {
-               "name": "",
-               "uri": "spotify:track:"
+               "name": "Goldberg variations, Aria, Variation 1",
+               "uri": "spotify:track:14V6VqJXHZ08pM6Fu3vUsO?si=7d36c4fcc8f449e5"
             },
             {
-               "name": "",
-               "uri": "spotify:track:"
+               "name": "Toccata & Fugue, Simon Preston",
+               "uri": "spotify:track:4HE2Ex0bjbj3YNXmV01OoM?si=4dcb86adbe8d4465"
+            },
+            {
+               "name": "Violin Concertos, Hillary Hahn",
+               "uri": "spotify:album:6sPuKS6aPWv0FIzkE5dxTS?si=Wi4fw08ARVmWuzJQ3m6K1w"
+            }
+         ]
+      },
+      "040aaba7100289": {
+         "figurine": "mozart",
+         "tracks": [
+            {
+               "name": "Piano concerto No. 21, II Andante, Geza Anda, Camerata Salzburg",
+               "uri": "spotify:track:1hqhfsPSftPIaXjtcGYF1N?si=cdaf985c71954173"
+            },
+            {
+               "name": "Symphony 40, I, Molto allegro Rene Jacobs, Freiburger Barockorchester",
+               "uri": "spotify:track:5ZYEyAKw6SF4ApF5oI7Hue?si=37f46c301c9d4c77"
+            },
+            {
+               "name": "Boris Apostolov, turkisch march",
+               "uri": "spotify:track:0yacFoupTf2z0Hk5QDFPGn?si=4706b780302447b9"
+            },
+            {
+               "name": "Maria Joao Pires, Sonata C Major",
+               "uri": "spotify:track:7ocrveI493K9g5nL4yDG8D?si=c374b3ae32794ccb"
+            },
+            {
+               "name": "Violin Sonatas, Hillary Hahn, Natalie Zhu",
+               "uri": "spotify:album:7DZRSmDymLWsJhFf3f1p6q?si=CtAAeFyvQn6QukPMyKEa3A"
+            }
+         ]
+      },
+      "04f541a7100289": {
+         "figurine": "Schubert",
+         "tracks": [
+            {
+               "name": "Schubert, impromptu, Sokolov",
+               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq?si=7be8b8b4d4d04c8a"
             }
          ]
       }
