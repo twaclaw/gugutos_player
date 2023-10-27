@@ -8,6 +8,7 @@ from spotipy.oauth2 import SpotifyOAuth
 from typing import Optional
 from app.nfc import PN532, Status
 import random
+import subprocess
 from systemd import journal
 
 logger = logging.getLogger('guguto-main')
@@ -122,6 +123,8 @@ async def main():
             tag_id = response.hex()
             tag = tags.get(tag_id, None)
             if tag and tag_id != prev_tag:
+                if conf['sound']['restart_spotify']:
+                    subprocess.Popen(['moodeutl', '-R', '--spotify'])
                 tracks = tag['tracks']
                 piece = random.choice(tracks)
                 logger.debug(f"Playing {piece['name']} {piece['uri']}")

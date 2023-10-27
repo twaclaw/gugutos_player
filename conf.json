@@ -1,14 +1,15 @@
 {
    "sound": {
       "volume": 100,
-      "polling_delay_secs": 1
+      "polling_delay_secs": 1,
+      "restart_spotify": false
    },
    "tags": {
       "04bb9ca7100289": {
          "tracks": [
             {
                "name": "Saint Saens: Lion",
-               "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso?si=49206e51f9984b18"
+               "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso"
             }
          ]
       },
@@ -16,7 +17,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Elephant",
-               "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5?si=5dc87c6a93fc4db4"
+               "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5"
             }
          ]
       },
@@ -24,7 +25,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Donkey",
-               "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI?si=27603eb813f94d1e"
+               "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI"
             }
          ]
       },
@@ -32,7 +33,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Kangooro",
-               "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN?si=6d25bf960db7466f"
+               "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN"
             }
          ]
       },
@@ -40,7 +41,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Aquarium",
-               "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9?si=b5c1d395719b437f"
+               "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9"
             }
          ]
       },
@@ -48,7 +49,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Poultry",
-               "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK?si=59fd86a6057f432f"
+               "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK"
             }
          ]
       },
@@ -56,7 +57,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Birds",
-               "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj?si=2bbab3cc50d142b5"
+               "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj"
             }
          ]
       },
@@ -64,7 +65,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Swan",
-               "uri": "spotify:track:5Aa3InQJHLUtSvTDtXXMsW?si=53fb34b1f6aa4407"
+               "uri": "spotify:track:5Aa3InQJHLUtSvTDtXXMsW"
             }
          ]
       },
@@ -72,7 +73,7 @@
          "tracks": [
             {
                "name": "Saint Saens: tortoise",
-               "uri": "spotify:track:5Un9h6xPqnHSvguexXnbEg?si=f6a0c3d5ac974c3d"
+               "uri": "spotify:track:5Un9h6xPqnHSvguexXnbEg"
             }
          ]
       },
@@ -80,7 +81,7 @@
          "tracks": [
             {
                "name": "Las ruedas del autobus",
-               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn?si=74f5348513df43ef"
+               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn"
             }
          ]
       },
@@ -89,7 +90,7 @@
          "tracks": [
             {
                "name": "Vivaldi: Le quattro staggioni",
-               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z?si=qmg8T1ptQ1avJBK84bw9Bg"
+               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
             }
          ]
       },
@@ -97,7 +98,7 @@
          "tracks": [
             {
                "name": "cats",
-               "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el?si=9598cf21ef16404c"
+               "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el"
             }
          ]
       },
@@ -106,19 +107,15 @@
          "tracks": [
             {
                "name": "ramei ramei",
-               "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj?si=bd142bfad4664e8d"
+               "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj"
             },
             {
                "name": "Sussana",
-               "uri": "spotify:track:4l98tfzW8CBK1swuanoUal?si=c51006933eb44fae"
+               "uri": "spotify:track:4l98tfzW8CBK1swuanoUal"
             },
             {
                "name": "Don't worry be happy, Bobby McFerrin",
                "uri": "spotify:track:4hObp5bmIJ3PP3cKA9K9GY"
-            },
-            {
-               "name": "Ave Maria, Bobby McFerrin & Yoyo Ma",
-               "uri": "spotify:track:6k86KdUqx8tLNqtl0mIiKR"
             }
          ]
       },
@@ -126,7 +123,7 @@
          "tracks": [
             {
                "name": "los pollitos",
-               "uri": "spotify:track:3BH1DnweCx9nUHVAMa6QKW?si=e4491de18ae24f59"
+               "uri": "spotify:track:3BH1DnweCx9nUHVAMa6QKW"
             }
          ]
       },
@@ -135,7 +132,7 @@
          "tracks": [
             {
                "name": "Sibelius violin concerto 3rd movement",
-               "uri": "spotify:track:2RxOM1Q9AYXnXlMoesQiaM?si=402703577cde4154"
+               "uri": "spotify:track:2RxOM1Q9AYXnXlMoesQiaM"
             }
          ]
       },
@@ -144,15 +141,15 @@
          "tracks": [
             {
                "name": "La iguana y el peresozo",
-               "uri": "spotify:track:2ETOzVqvINFXbWVwhkUqyw?si=d7323a423a1d4fa9"
+               "uri": "spotify:track:2ETOzVqvINFXbWVwhkUqyw"
             },
             {
                "name": "Las ruedas del autobus",
-               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn?si=74f5348513df43ef"
+               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn"
             },
             {
                "name": "Du gaideliai",
-               "uri": "spotify:track:4M84qr6ZnzkQ0jQYYR0R2j?si=e25a97b9b8cb4f10"
+               "uri": "spotify:track:4M84qr6ZnzkQ0jQYYR0R2j"
             }
          ]
       },
@@ -161,37 +158,37 @@
          "tracks_unplayed": [
             {
                "name": "Ravel Concerto, Argerich",
-               "uri": "spotify:track:66btq9ev5iKT2tOwmCZPXY?si=c3023af642274b3a"
+               "uri": "spotify:track:66btq9ev5iKT2tOwmCZPXY"
             },
             {
                "name": "Fantasie in C, Robert Schumman, Argerich",
-               "uri": "spotify:track:10Fa2uIIzRulY9XZkVc7Lc?si=e79ade8700be4f03"
+               "uri": "spotify:track:10Fa2uIIzRulY9XZkVc7Lc"
             },
             {
                "name": "Brahms Waltzes, Op. 39, Dinu Lipatti",
-               "uri": "spotify:track:395PFXG18ydC6T4RoFcrqI?si=6b8b387df1b84d4b"
+               "uri": "spotify:track:395PFXG18ydC6T4RoFcrqI"
             }
          ],
          "tracks": [
             {
                "name": "French Suite No. 6, Bach, Andy Rangell",
-               "uri": "spotify:track:45i3AfC4qGV0QkfsobaKyi?si=z99vYDBnRy6k6evAOX_KmQ"
+               "uri": "spotify:track:45i3AfC4qGV0QkfsobaKyi_KmQ"
             },
             {
                "name": "Herz und Mund unt Tat und Leben, Cantata BWV 147.  Bach, Lucas & Arthur Jussen",
-               "uri": "spotify:track:6BJ0xszwxIpt2pESY8goEk?si=GEi7aqKQQSq7wirwT1pwVQ"
+               "uri": "spotify:track:6BJ0xszwxIpt2pESY8goEk"
             },
             {
                "name": "Chopin Prelude in D minor, allegro appassionato, Martha Argerich",
-               "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx?si=e86afaefc6d84904"
+               "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx"
             },
             {
                "name": "Schubert, impromptu, Sokolov",
-               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq?si=7be8b8b4d4d04c8a"
+               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq"
             },
             {
                "name": "Maria Joao Pires, Sonata C Major",
-               "uri": "spotify:track:06Q05yj10rtSviyzQynKMc?si=7f9da821383c47fb"
+               "uri": "spotify:track:06Q05yj10rtSviyzQynKMc"
             }
          ]
       },
@@ -200,21 +197,17 @@
          "tracks_unplayed": [
             {
                "name": "Vivaldi, La follia",
-               "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn?si=b55e59f312bd4e26"
+               "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn"
             }
          ],
          "tracks": [
             {
                "name": "Paganici capriccio, Itzhak Perlman",
-               "uri": "spotify:track:6cC6h5E351deEGFd7Kh9uy?si=8983e0c817164e5f"
+               "uri": "spotify:track:6cC6h5E351deEGFd7Kh9uy"
             },
             {
                "name": "Bach Partita No. 3, prelude. Hilary Hahn",
-               "uri": "spotify:track:2sqhid2MBYJCZWPrLjsUbP?si=366db3419394487d"
-            },
-            {
-               "name": "Mendelson Concerto, Vengerov",
-               "uri": "spotify:track:1KpZV5L3I2PWFi1zIXFLkI?si=84cc273bd9964be0"
+               "uri": "spotify:track:2sqhid2MBYJCZWPrLjsUbP"
             }
          ]
       },
@@ -223,19 +216,19 @@
          "tracks": [
             {
                "name": "Autum Leves, Cannonball",
-               "uri": "spotify:track:0X5DcGkbxCXSadgj01ZXd7?si=00f268e795fe415f"
+               "uri": "spotify:track:0X5DcGkbxCXSadgj01ZXd7"
             },
             {
                "name": "One for daddy o, Cannonball",
-               "uri": "spotify:track:4f0D7T8yswXUJ62AKLoMtS?si=5143135003344693"
+               "uri": "spotify:track:4f0D7T8yswXUJ62AKLoMtS"
             },
             {
                "name": "My one and only love, John Coltrane",
-               "uri": "spotify:track:0uPkCpuoERqrkBL06Art50?si=280dc77014d74d72"
+               "uri": "spotify:track:0uPkCpuoERqrkBL06Art50"
             },
             {
                "name": "My little suede shoes, Charlie Parker",
-               "uri": "spotify:track:1ZW76KMJy8DUwl3WDUm7HO?si=7bc7652b246f4cf5"
+               "uri": "spotify:track:1ZW76KMJy8DUwl3WDUm7HO"
             }
          ]
       },
@@ -244,15 +237,15 @@
          "tracks": [
             {
                "name": "Florence sur le champs elysees Miles Davis",
-               "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q?si=71b6548551ca4132"
+               "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q"
             },
             {
                "name": "Mahler 5th",
-               "uri": "spotify:track:2McwRJ1l1hi1E8RJh0vFRS?si=7636fb015ffd42be"
+               "uri": "spotify:track:2McwRJ1l1hi1E8RJh0vFRS"
             },
             {
                "name": "Musorski, pictures at an exhibition",
-               "uri": "spotify:track:4edX8xopbaXGJN8n1rW7Vk?si=b2da074c46244ade"
+               "uri": "spotify:track:4edX8xopbaXGJN8n1rW7Vk"
             }
          ]
       },
@@ -261,23 +254,23 @@
          "tracks": [
             {
                "name": "Julian Bream, Granada",
-               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN?si=54ccbdb5bb0a4feb"
+               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN"
             },
             {
                "name": "Danza del altiplano, Leo Brouwer",
-               "uri": "spotify:track:5LvazPzyHzfe39dk82RL2W?si=cbd455a07d49472a"
+               "uri": "spotify:track:5LvazPzyHzfe39dk82RL2W"
             },
             {
                "name": "Capricho arabe, Ana Vidovic",
-               "uri": "spotify:track:75USfOeOoSnQnhaWR3Dxt7?si=54812143458e4107"
+               "uri": "spotify:track:75USfOeOoSnQnhaWR3Dxt7"
             },
             {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",
-               "uri": "spotify:track:5roP6hv94wnrjulyqPaTIe?si=7c781b2ee35d4d9c"
+               "uri": "spotify:track:5roP6hv94wnrjulyqPaTIe"
             },
             {
                "name": "Garota de Ipanema, Toquihno, Vinicius de Moraes",
-               "uri": "spotify:track:4fz5scGzatrI7trZIshpys?si=3f6c47f717da4bc3"
+               "uri": "spotify:track:4fz5scGzatrI7trZIshpys"
             }
          ]
       },
@@ -286,23 +279,23 @@
          "tracks": [
             {
                "name": "Don't stop me now, Queen",
-               "uri": "spotify:track:0LPMWPwCHrIorXSdpnPVyv?si=5f50be1c153a45a7"
+               "uri": "spotify:track:0LPMWPwCHrIorXSdpnPVyv"
             },
             {
                "name": "Hotel California, Eagles",
-               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv?si=73b579de718d4035"
+               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv"
             },
             {
                "name": "Hotel California, Eagles",
-               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv?si=73b579de718d4035"
+               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv"
             },
             {
                "name": "Sweet Child O'Mine, Guns N' Roses",
-               "uri": "spotify:track:7o2CTH4ctstm8TNelqjb51?si=720e246731e94ee1"
+               "uri": "spotify:track:7o2CTH4ctstm8TNelqjb51"
             },
             {
                "name": "Sultans of Swing, Dire Straits",
-               "uri": "spotify:track:37Tmv4NnfQeb0ZgUC4fOJj?si=b739b991b87d4466"
+               "uri": "spotify:track:37Tmv4NnfQeb0ZgUC4fOJj"
             }
          ]
       },
@@ -310,75 +303,76 @@
          "figurine": "tambor",
          "tracks": [
             {
-               "name": "Tembandumba, Toto la moposina",
-               "uri": "spotify:track:6WMDT8Kn0e0V9oxijORYzX?si=6020f813f0e14369"
-            },
-            {
                "name": "El pescador, Toto la moposina",
-               "uri": "spotify:track:5STDVTFO7ziu4LDaaRCx2n?si=72b9e55c30a745a3"
+               "uri": "spotify:track:5STDVTFO7ziu4LDaaRCx2n"
             }
          ]
       },
-      "040339a7100289": {
+      "049270a7100289": {
          "figurine": "beethoven",
          "tracks": [
             {
                "name": "5th, allegro con brio, Wiener Phil, Rattle",
-               "uri": "spotify:track:4mw5oRBKNBfNV0dXAOIcne?si=07137c6179c943b7"
+               "uri": "spotify:track:4mw5oRBKNBfNV0dXAOIcne"
             },
             {
                "name": "Piano concerto 5, Zimerman, Berstein",
-               "uri": "spotify:album:071ZoYVL38NR1WnPP6jAHz?si=3oWXiNQ8Qym-L79N51Un4Q"
+               "uri": "spotify:album:071ZoYVL38NR1WnPP6jAHz-L79N51Un4Q"
             }
          ]
       },
-      "042ab3a7100289": {
+      "046196a7100289": {
          "figurine": "bach",
          "tracks": [
             {
                "name": "Cello Suite No 1 in G, Yo Yo Ma",
-               "uri": "spotify:track:17i5jLpzndlQhbS4SrTd0B?si=3ac24db1ec184552"
-            },
-            {
-               "name": "Goldberg variations, Aria, Glenn Gould",
-               "uri": "spotify:track:5bu9A6uphPWg39RC3ZKeku?si=634e22eca7474d44"
-            },
-            {
-               "name": "Goldberg variations, Aria, Variation 1",
-               "uri": "spotify:track:14V6VqJXHZ08pM6Fu3vUsO?si=7d36c4fcc8f449e5"
+               "uri": "spotify:track:17i5jLpzndlQhbS4SrTd0B"
             },
             {
                "name": "Toccata & Fugue, Simon Preston",
-               "uri": "spotify:track:4HE2Ex0bjbj3YNXmV01OoM?si=4dcb86adbe8d4465"
+               "uri": "spotify:track:4HE2Ex0bjbj3YNXmV01OoM"
             },
             {
                "name": "Violin Concertos, Hillary Hahn",
-               "uri": "spotify:album:6sPuKS6aPWv0FIzkE5dxTS?si=Wi4fw08ARVmWuzJQ3m6K1w"
+               "uri": "spotify:album:6sPuKS6aPWv0FIzkE5dxTS"
             }
          ]
       },
-      "040aaba7100289": {
+      "042ab3a7100289": {
+         "figurine": "tschaikovski",
+         "tracks": [
+            {
+               "name": "Waltz of the flowers",
+               "uri": "spotify:track:0PnjW4QVZFpU27VvmWH1LC"
+            },
+            {
+               "name": "Waltz of the snowflakes",
+               "uri": "spotify:track:2BQihUnEbJOuBLndGgrD17"
+            }
+         ]
+      },
+      "049ebda7100289": {
          "figurine": "mozart",
          "tracks": [
             {
                "name": "Piano concerto No. 21, II Andante, Geza Anda, Camerata Salzburg",
-               "uri": "spotify:track:1hqhfsPSftPIaXjtcGYF1N?si=cdaf985c71954173"
+               "uri": "spotify:track:1hqhfsPSftPIaXjtcGYF1N"
             },
             {
                "name": "Symphony 40, I, Molto allegro Rene Jacobs, Freiburger Barockorchester",
-               "uri": "spotify:track:5ZYEyAKw6SF4ApF5oI7Hue?si=37f46c301c9d4c77"
+               "uri": "spotify:track:5ZYEyAKw6SF4ApF5oI7Hue"
             },
             {
                "name": "Boris Apostolov, turkisch march",
-               "uri": "spotify:track:0yacFoupTf2z0Hk5QDFPGn?si=4706b780302447b9"
+               "uri": "spotify:track:0yacFoupTf2z0Hk5QDFPGn"
             },
             {
                "name": "Maria Joao Pires, Sonata C Major",
-               "uri": "spotify:track:7ocrveI493K9g5nL4yDG8D?si=c374b3ae32794ccb"
+               "uri": "spotify:track:7ocrveI493K9g5nL4yDG8D"
             },
             {
                "name": "Violin Sonatas, Hillary Hahn, Natalie Zhu",
-               "uri": "spotify:album:7DZRSmDymLWsJhFf3f1p6q?si=CtAAeFyvQn6QukPMyKEa3A"
+               "uri": "spotify:album:7DZRSmDymLWsJhFf3f1p6q"
             }
          ]
       },
@@ -387,7 +381,7 @@
          "tracks": [
             {
                "name": "Schubert, impromptu, Sokolov",
-               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq?si=7be8b8b4d4d04c8a"
+               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq"
             }
          ]
       }
