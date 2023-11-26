@@ -116,6 +116,10 @@
             {
                "name": "Don't worry be happy, Bobby McFerrin",
                "uri": "spotify:track:4hObp5bmIJ3PP3cKA9K9GY"
+            },
+            {
+               "name": "Leonard Cohen, Hallellujah",
+               "uri": "spotify:track:7yzbimr8WVyAtBX3Eg6UL9"
             }
          ]
       },
@@ -331,10 +335,6 @@
             {
                "name": "Toccata & Fugue, Simon Preston",
                "uri": "spotify:track:4HE2Ex0bjbj3YNXmV01OoM"
-            },
-            {
-               "name": "Violin Concertos, Hillary Hahn",
-               "uri": "spotify:album:6sPuKS6aPWv0FIzkE5dxTS"
             }
          ]
       },
