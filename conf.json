@@ -89,6 +89,12 @@
          "figurine": "bambies",
          "tracks": [
             {
+            "name": "erase una vez",
+            "uri": "spotify:track:5DmbHxvhIuS2oJyY1JncNm"
+            }
+         ],
+         "old_tracks": [
+            {
                "name": "Vivaldi: Le quattro staggioni",
                "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
             }
@@ -143,6 +149,13 @@
       "041e5ca7100289": {
          "figurine": "peresozo",
          "tracks": [
+            {
+               "name": "kakes makes pasakos",
+               "uri": "spotify:playlist:0ifULl7knUrRJmFzxI8thA?si=44e3ad2a9faa4b19",
+               "volume": 75
+            }
+         ],
+         "old_tracks": [
             {
                "name": "La iguana y el peresozo",
                "uri": "spotify:track:2ETOzVqvINFXbWVwhkUqyw"
@@ -245,7 +258,7 @@
             },
             {
                "name": "Mahler 5th",
-               "uri": "spotify:track:2McwRJ1l1hi1E8RJh0vFRS"
+               "uri": "spotify:track:0feot4RtdLkq2NWs4ePjcP"
             },
             {
                "name": "Musorski, pictures at an exhibition",
@@ -263,10 +276,6 @@
             {
                "name": "Danza del altiplano, Leo Brouwer",
                "uri": "spotify:track:5LvazPzyHzfe39dk82RL2W"
-            },
-            {
-               "name": "Capricho arabe, Ana Vidovic",
-               "uri": "spotify:track:75USfOeOoSnQnhaWR3Dxt7"
             },
             {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",

@@ -18,7 +18,7 @@ logger.setLevel(logging.INFO)
 
 curr_reg = re.compile(
     r'^https\:\/\/open\.spotify\.com\/(?P<type>(?:track|album))?[/](?P<id>.*)$')
-tag_reg = re.compile(r'^spotify[:](?P<type>(?:track|album))?[:](?P<id>.*)$')
+tag_reg = re.compile(r'^spotify[:](?P<type>(?:track|album|playlist))?[:](?P<id>.*)$')
 
 _ID = '32010607e800'
 
@@ -127,13 +127,14 @@ async def main():
                     subprocess.Popen(['moodeutl', '-R', '--spotify'])
                 tracks = tag['tracks']
                 piece = random.choice(tracks)
+                volume = piece['volume'] if 'volume' in piece else conf['sound']['volume']
                 logger.debug(f"Playing {piece['name']} {piece['uri']}")
                 t = get_type(piece['uri'])
-                sp.volume(conf['sound']['volume'], device_id=device_id)
+                sp.volume(volume, device_id=device_id)
                 if t == "track":
                     sp.start_playback(device_id=device_id, uris=[piece['uri']])
 
-                if t == "album":
+                if t == "album" or t == "playlist":
                     sp.start_playback(device_id=device_id,
                                       context_uri=piece['uri'])
 
