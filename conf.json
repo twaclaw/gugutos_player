@@ -17,7 +17,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Elephant",
-               "uri": "spotify:track:21lk0NjSsITdtQRBQQmRf5"
+               "uri": "spotify:track:0AAA8euDxW02tnZJ8uHone"
             }
          ]
       },
@@ -25,7 +25,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Donkey",
-               "uri": "spotify:track:3O6FnfOnvdJR9WR83yM8CI"
+               "uri": "spotify:track:5ZIl0Hw6PwfF4vUaEuKAQd"
             }
          ]
       },
@@ -33,7 +33,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Kangooro",
-               "uri": "spotify:track:74gNNhoekPbEOjfX9Fo9UN"
+               "uri": "spotify:track:3b7djnIW8rCOdzGpSg7WOI"
             }
          ]
       },
@@ -41,15 +41,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Aquarium",
-               "uri": "spotify:track:0W4kuUA1ZoBrJ6ELXRgLE9"
-            }
-         ]
-      },
-      "043ea7a7100289": {
-         "tracks": [
-            {
-               "name": "Saint Saens: Poultry",
-               "uri": "spotify:track:6Uz3BfWPO4yvfOHbjQmJYK"
+               "uri": "spotify:track:4oKF3MO0cXDgBBV6LGCRJZ"
             }
          ]
       },
@@ -57,7 +49,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Birds",
-               "uri": "spotify:track:6mS8a9UG3TxgAurTrUhiYj"
+               "uri": "spotify:track:7Ei00moMpYWZ1My6qcLrsu"
             }
          ]
       },
@@ -73,7 +65,7 @@
          "tracks": [
             {
                "name": "Saint Saens: tortoise",
-               "uri": "spotify:track:5Un9h6xPqnHSvguexXnbEg"
+               "uri": "spotify:track:7ovPZPlxjpInuAhgAkU8DJ"
             }
          ]
       },
@@ -152,7 +144,7 @@
             {
                "name": "kakes makes pasakos",
                "uri": "spotify:playlist:0ifULl7knUrRJmFzxI8thA?si=44e3ad2a9faa4b19",
-               "volume": 75
+               "volume": 80
             }
          ],
          "old_tracks": [
@@ -198,10 +190,6 @@
             {
                "name": "Chopin Prelude in D minor, allegro appassionato, Martha Argerich",
                "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx"
-            },
-            {
-               "name": "Schubert, impromptu, Sokolov",
-               "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq"
             },
             {
                "name": "Maria Joao Pires, Sonata C Major",
@@ -272,10 +260,6 @@
             {
                "name": "Julian Bream, Granada",
                "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN"
-            },
-            {
-               "name": "Danza del altiplano, Leo Brouwer",
-               "uri": "spotify:track:5LvazPzyHzfe39dk82RL2W"
             },
             {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",
