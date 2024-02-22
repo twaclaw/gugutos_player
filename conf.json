@@ -37,6 +37,14 @@
             }
          ]
       },
+     "043ea7a7100289": {
+         "tracks": [
+            {
+               "name": "Saint Saens: poulets et coqs",
+               "uri": "spotify:track:1ePh2DIxtY4YMPwRpwthUy"
+            }
+         ]
+      },
       "04b07ba7100289": {
          "tracks": [
             {
@@ -78,17 +86,19 @@
          ]
       },
       "0424b3a7100289": {
-         "figurine": "bambies",
+         "tracks": [
+            {
+               "name": "Vivaldi: Le quattro staggioni",
+               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+            }
+         ]
+      },
+      "04a07aa7100289": {
+         "figurine": "wolf",
          "tracks": [
             {
             "name": "erase una vez",
             "uri": "spotify:track:5DmbHxvhIuS2oJyY1JncNm"
-            }
-         ],
-         "old_tracks": [
-            {
-               "name": "Vivaldi: Le quattro staggioni",
-               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
             }
          ]
       },
@@ -375,6 +385,15 @@
             {
                "name": "Schubert, impromptu, Sokolov",
                "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq"
+            }
+         ]
+      },
+      "04fe73a7100289": {
+         "figurine": "ballerina",
+         "tracks": [
+            {
+               "name": "Offenbach, Olympia",
+               "uri": "spotify:track:3yzAU86O09fpqmWGZditIh"
             }
          ]
       }
