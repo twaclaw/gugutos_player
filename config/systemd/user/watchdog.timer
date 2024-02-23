@@ -1,0 +1,6 @@
+[Unit]
+Description=Guguto's player (RFID + Spotify) timer
+
+[Timer]
+OnUnitActiveSec=10s
+OnBootSec=10s
