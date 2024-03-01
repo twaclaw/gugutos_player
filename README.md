@@ -4,9 +4,8 @@
 ## Motivation
 To give my kid a way of playing his favorite music.
 
-<video controls>
-  <source src="./img/video.mp4" type="video/mp4">
-</video>
+
+<!-- <video src="./img/video.mov"></video> -->
 
 I already had a Raspberry Pi running an audiophile image connected to my amplifier (which has a built-in USB sound card). [Moode](https://moodeaudio.org) (and other projects such as [Raspotify](https://github.com/dtcooper/raspotify)) implements a device for [Spotify Connect](https://support.spotify.com/us/article/spotify-connect/). **Spotify premium is required in this setup.**
 
