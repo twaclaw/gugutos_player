@@ -4,3 +4,6 @@ Description=Guguto's player (RFID + Spotify) watchdog
 [Service]
 Type=oneshot
 ExecStart=/home/diego/guguto/venv/bin/python -m app.watchdog /home/diego/guguto/conf.json /home/diego/guguto/secrets.json /home/diego/guguto/cache.txt
+
+[Install]
+RequiredBy=default.target

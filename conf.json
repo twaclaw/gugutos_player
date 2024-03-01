@@ -113,23 +113,26 @@
       "c6a6031b": {
          "figurine": "mario",
          "tracks": [
-            {
-               "name": "ramei ramei",
-               "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj"
-            },
-            {
+           {
                "name": "Sussana",
                "uri": "spotify:track:4l98tfzW8CBK1swuanoUal"
             },
             {
-               "name": "Don't worry be happy, Bobby McFerrin",
-               "uri": "spotify:track:4hObp5bmIJ3PP3cKA9K9GY"
+               "name": "sugar man",
+               "uri": "spotify:track:17nOJOcPbcl4sKzM2yyYDp"
+            }
+        ],
+         "old_tracks": [
+            {
+               "name": "ramei ramei",
+               "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj"
             },
             {
                "name": "Leonard Cohen, Hallellujah",
                "uri": "spotify:track:7yzbimr8WVyAtBX3Eg6UL9"
             }
          ]
+
       },
       "04f68ca7100289": {
          "tracks": [
