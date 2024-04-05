@@ -9,7 +9,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Lion",
-               "uri": "spotify:track:3lGHKpgbLIF7rdK4ubZLso"
+               "uri": "spotify:track:3YpeB5eXfcrnzzwYIqKbUf"
             }
          ]
       },
@@ -65,7 +65,7 @@
          "tracks": [
             {
                "name": "Saint Saens: Swan",
-               "uri": "spotify:track:5Aa3InQJHLUtSvTDtXXMsW"
+               "uri": "spotify:track:5BHswjvVvNLycB3O8YLIGc"
             }
          ]
       },
@@ -189,10 +189,8 @@
             {
                "name": "Brahms Waltzes, Op. 39, Dinu Lipatti",
                "uri": "spotify:track:395PFXG18ydC6T4RoFcrqI"
-            }
-         ],
-         "tracks": [
-            {
+            },
+           {
                "name": "French Suite No. 6, Bach, Andy Rangell",
                "uri": "spotify:track:45i3AfC4qGV0QkfsobaKyi_KmQ"
             },
@@ -203,6 +201,14 @@
             {
                "name": "Chopin Prelude in D minor, allegro appassionato, Martha Argerich",
                "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx"
+            }
+
+         ],
+         "tracks": [
+            {
+               "name": "Rubestein, Chopin Fantasy",
+               "uri": "spotify:track:5BijFryhTEnghWx91jYoVR"
+
             },
             {
                "name": "Maria Joao Pires, Sonata C Major",
@@ -252,11 +258,7 @@
       },
       "041430aa100289": {
          "figurine": "trumpet",
-         "tracks": [
-            {
-               "name": "Florence sur le champs elysees Miles Davis",
-               "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q"
-            },
+         "tracks_uplayed": [
             {
                "name": "Mahler 5th",
                "uri": "spotify:track:0feot4RtdLkq2NWs4ePjcP"
@@ -265,7 +267,13 @@
                "name": "Musorski, pictures at an exhibition",
                "uri": "spotify:track:4edX8xopbaXGJN8n1rW7Vk"
             }
-         ]
+         ],
+         "tracks": [
+            {
+               "name": "Florence sur le champs elysees Miles Davis",
+               "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q"
+            }
+        ]
       },
       "045562a7100289": {
          "figurine": "guitar",
@@ -292,18 +300,6 @@
                "uri": "spotify:track:0LPMWPwCHrIorXSdpnPVyv"
             },
             {
-               "name": "Hotel California, Eagles",
-               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv"
-            },
-            {
-               "name": "Hotel California, Eagles",
-               "uri": "spotify:track:40riOy7x9W7GXjyGp4pjAv"
-            },
-            {
-               "name": "Sweet Child O'Mine, Guns N' Roses",
-               "uri": "spotify:track:7o2CTH4ctstm8TNelqjb51"
-            },
-            {
                "name": "Sultans of Swing, Dire Straits",
                "uri": "spotify:track:37Tmv4NnfQeb0ZgUC4fOJj"
             }
@@ -322,12 +318,8 @@
          "figurine": "beethoven",
          "tracks": [
             {
-               "name": "5th, allegro con brio, Wiener Phil, Rattle",
-               "uri": "spotify:track:4mw5oRBKNBfNV0dXAOIcne"
-            },
-            {
-               "name": "Piano concerto 5, Zimerman, Berstein",
-               "uri": "spotify:album:071ZoYVL38NR1WnPP6jAHz-L79N51Un4Q"
+               "name": "5th, allegro con brio, Berliner, Carlos Kleiber",
+               "uri": "spotify:track:02EjNQRJohFLY4NaXiFdH1"
             }
          ]
       },
