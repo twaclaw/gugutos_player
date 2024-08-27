@@ -111,6 +111,8 @@ async def main():
     stats = [0] * nStat
     i = 0
 
+    cache: dict = {}
+
     while True:
         status, response = await pn532.read_passive_target(timeout=1)
         stats[i] = status > Status.TIMEOUT
@@ -125,8 +127,19 @@ async def main():
             if tag and tag_id != prev_tag:
                 if conf['sound']['restart_spotify']:
                     subprocess.Popen(['moodeutl', '-R', '--spotify'])
+
                 tracks = tag['tracks']
-                piece = random.choice(tracks)
+                track_id = cache.get(tag_id, 0)
+
+                if len(tracks) > 1:
+                    track_id = (track_id + 1) % len(tracks)
+
+                    # avoid playing the same track for figurines with multiple tracks
+                    #piece = random.choice(tracks)
+                    cache[tag_id] = track_id
+
+                piece = tracks[track_id]
+
                 volume = piece['volume'] if 'volume' in piece else conf['sound']['volume']
                 logger.debug(f"Playing {piece['name']} {piece['uri']}")
                 t = get_type(piece['uri'])

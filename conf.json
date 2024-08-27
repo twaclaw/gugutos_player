@@ -110,6 +110,19 @@
             }
          ]
       },
+      "049a55a7100289": {
+         "figurine": "totoro",
+         "tracks": [
+           {
+               "name": "Totoro",
+               "uri": "spotify:track:4IdQZXMOooaIRoP7N2qCn8"
+            },
+            {
+               "name": "Gato bus",
+               "uri": "spotify:track:0p4OoLTJu4VoAG4X9XYaoW"
+            }
+        ]
+      },
       "c6a6031b": {
          "figurine": "mario",
          "tracks": [
@@ -120,6 +133,10 @@
             {
                "name": "sugar man",
                "uri": "spotify:track:17nOJOcPbcl4sKzM2yyYDp"
+            },
+            {
+               "name": "Ma ma maria",
+               "uri": "spotify:track:7tVEeTbzEJkHP0EqUu6rmf"
             }
         ],
          "old_tracks": [
@@ -155,9 +172,8 @@
          "figurine": "peresozo",
          "tracks": [
             {
-               "name": "kakes makes pasakos",
-               "uri": "spotify:playlist:0ifULl7knUrRJmFzxI8thA?si=44e3ad2a9faa4b19",
-               "volume": 80
+               "name": "Bycicle race",
+               "uri": "spotify:track:5FYslb39kAXnPmxSsJyzC5"
             }
          ],
          "old_tracks": [
