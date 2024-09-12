@@ -80,8 +80,18 @@
       "0405a4a7100289": {
          "tracks": [
             {
-               "name": "Las ruedas del autobus",
-               "uri": "spotify:track:7mtHcRaMMUAUkUT55masPn"
+               "figurine": "peresozo",
+               "name": "Piccolino",
+               "uri": "spotify:album:0SKE5hYhhFFWKTAYrRbtEF"
+            }
+         ]
+      },
+      "04d893a7100289": {
+         "tracks": [
+            {
+               "figurine": "Barbapapa",
+               "name": "Miles Davis, kind of blues",
+               "uri": "spotify:album:1weenld61qoidwYuZ1GESA"
             }
          ]
       },
@@ -362,6 +372,33 @@
             {
                "name": "Waltz of the snowflakes",
                "uri": "spotify:track:2BQihUnEbJOuBLndGgrD17"
+            }
+         ]
+      },
+      "040e8ba7100289": {
+         "figurine": "Chopin",
+         "tracks": [
+            {
+               "name": "Nocturns, Maria Joao Pirez",
+               "uri": "spotify:album:5sJtW03dyXYGzd7WRqT4Zk"
+            }
+         ]
+      },
+      "046fa8a7100289": {
+         "figurine": "Shostakovich",
+         "tracks": [
+            {
+               "name": "The Jazz album, Ronald Brautigam ...",
+               "uri": "spotify:album:2Mo2TzMxaeAnOvdHsiBHtO"
+            }
+         ]
+      },
+      "04de57a7100289": {
+         "figurine": "Paganini",
+         "tracks": [
+            {
+               "name": "Fantasia, Nemanja Radulovic",
+               "uri": "spotify:album:1dksgm6bFDPofWg34V76vs"
             }
          ]
       },
