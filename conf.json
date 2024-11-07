@@ -78,11 +78,15 @@
          ]
       },
       "0405a4a7100289": {
+         "figurine": "peresozo",
          "tracks": [
             {
-               "figurine": "peresozo",
                "name": "Piccolino",
                "uri": "spotify:album:0SKE5hYhhFFWKTAYrRbtEF"
+            },
+            {
+               "name": "Piccolino Italiano",
+               "uri": "spotify:album:4ym8xitzVtzcUDaOeWXiDm"
             }
          ]
       },
@@ -130,6 +134,10 @@
             {
                "name": "Gato bus",
                "uri": "spotify:track:0p4OoLTJu4VoAG4X9XYaoW"
+            },
+            {
+               "name": "All totoro",
+               "uri": "spotify:album:2Dn4ABFUYJbrlMF7K12RT3"
             }
         ]
       },
@@ -406,8 +414,8 @@
          "figurine": "mozart",
          "tracks": [
             {
-               "name": "Piano concerto No. 21, II Andante, Geza Anda, Camerata Salzburg",
-               "uri": "spotify:track:1hqhfsPSftPIaXjtcGYF1N"
+               "name": "Piano concerti 20, 21, Gulda",
+               "uri": "spotify:album:6CA92VxwdlPHgtNwCkJHcS"
             },
             {
                "name": "Symphony 40, I, Molto allegro Rene Jacobs, Freiburger Barockorchester",
