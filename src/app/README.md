@@ -9,22 +9,21 @@ is a bit buggy. I didn't manage to get the SPI version working and I didn't want
 
 I would like to have an interrupt driven setup but that's something I would look at in the future. Right now, I am polling, and some details of the implementation are rather brute-force.
 
-
 ## Spotipy
 
 [Spotipy](https://spotipy.readthedocs.io/en/latest/) is a Python library for the Spotify web API. To use this API, it is necessary to create an app at [https://developer.spotify.com/](https://developer.spotify.com/).
 
 Besides the credentials provided in the configuration file, Spotify requires additional tokens to authorize a device. The first time you access a device in `spotipy`, you get a URL to authorize the client device for the given scope. The problem is that doing that on headless systems is not straightfoward. What I did was:
 
-* Run the `spotipy` part of the application on my PC: `spotipy` will ask to follow a link. Open the link on a browser.
-* Once the authentication is done, a `.cache` file is created.
-* Copy the file to the raspberry pi to `cache.txt` (which is passed as an option to the script.)
+- Run the `spotipy` part of the application on my PC: `spotipy` will ask to follow a link. Open the link on a browser.
+- Once the authentication is done, a `.cache` file is created.
+- Copy the file to the raspberry pi to `cache.txt` (which is passed as an option to the script.)
 
 On your PC (not on the RPi) go through the following steps in the project directory:
 
 ```bash
 # Create a virtual environment, for instance
-virtualenv -p python3.8 venv
+virtualenv -p python3.11 venv
 
 # activate the venv
 . venv/bin/activate
@@ -52,6 +51,10 @@ virtualenv venv
 . venv/bin/activate
 
 # install the dependencies
+
+# in case the systemd Python package cannot be installed
+sudo apt install libsystemd-dev
+
 pip install -e src/
 ```
 
@@ -61,12 +64,12 @@ Copy the configuration file and edit it (add the credentials, and edit the list 
 cp config/conf-template.json conf.json
 ```
 
-Make sure this location, `$HOME/guguto`, contains also the `cache.txt` file mentioned in the previous section.
+Make sure this location, `/home/pi/guguto`, contains also the `cache.txt` file mentioned in the previous section.
 
 ### Systemd service
 
 ```bash
-cp $HOME/guguto/config/systemd/user/player.service $HOME/.config/systemd/user
+cp /home/pi/guguto/config/systemd/user/player.service /home/pi/.config/systemd/user
 
 # enable the service
 systemctl --user enable player.service
@@ -97,6 +100,7 @@ ACTION=="add", KERNEL="ttyS0", MODE="0660"
 ```
 
 # Moode
+
 [Download](https://moodeaudio.org/) the image and create an SD card.
 
 # Raspotify configuration

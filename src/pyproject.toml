@@ -6,7 +6,8 @@ dependencies = [
 	"spotipy >= 2.23.0, < 3.0.0",
 	"pyserial >=3.5, < 4.0",
 	"pyserial-asyncio >= 0.6, < 1.0",
-	"RPi.GPIO >= 0.7.1, < 1.0.0",
+	"lgpio",
+	"gpiozero",
 	"systemd >= 0.17.1, < 1.0.0",
 	"PyYAML >= 6.0, < 7.0"
 ]

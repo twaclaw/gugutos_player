@@ -1,10 +1,12 @@
 import asyncio
-from enum import IntEnum
 import logging
+from enum import IntEnum
+from typing import Optional, Tuple, cast
+
+from gpiozero import LED as Output
+from gpiozero import Button as Input
 from serial_asyncio import open_serial_connection
-import RPi.GPIO as GPIO
 from systemd import journal
-from typing import cast, Optional, Tuple
 
 _HOSTTOPN532 = 0xD4
 _PN532TOHOST = 0xD5
@@ -37,7 +39,7 @@ class Status(IntEnum):
 
 class PN532():
     def __init__(self,
-                 port: str = '/dev/ttyS0',
+                 port: str = '/dev/ttyAMA0',
                  baudrate: int = 115200,
                  reset: int = 20,
                  irq: Optional[int] = 16
@@ -45,11 +47,10 @@ class PN532():
 
         self.port = port
         self.baudrate = baudrate
-        self.reset = reset
-        self.irq = irq
+        self.reset = Output(reset)
+        self.irq = Input(irq)
         self.reader: Optional[asyncio.StreamReader] = None
         self.writer: Optional[asyncio.StreamWriter] = None
-        GPIO.setmode(GPIO.BCM)
 
     async def ainit(self) -> Tuple[asyncio.StreamReader, asyncio.StreamWriter]:
         await self._gpio_init()
@@ -66,25 +67,15 @@ class PN532():
             self.writer.close()
             await self.writer.wait_closed()
 
-    async def setPin(self, pin: int) -> None:
-        GPIO.output(pin, True)
-
-    async def clearPin(self, pin: int) -> None:
-        GPIO.output(pin, False)
-
     async def _gpio_init(self):
-        GPIO.setup(self.reset, GPIO.OUT)
-        await self.setPin(self.reset)
-
-        GPIO.setup(self.irq, GPIO.IN)
+        self.reset.on()
 
     async def _reset(self):
-        pin = self.reset
-        await self.setPin(pin)
+        self.reset.on()
         await asyncio.sleep(0.1)
-        await self.clearPin(pin)
+        self.reset.off()
         await asyncio.sleep(0.5)
-        await self.setPin(pin)
+        self.reset.on()
         await asyncio.sleep(0.1)
 
     async def _write_data(self, framebytes: bytearray):

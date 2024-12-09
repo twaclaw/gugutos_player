@@ -1,15 +1,17 @@
-import asyncio
 import argparse
+import asyncio
 import json
 import logging
+import random
 import re
+import subprocess
+from typing import Optional
+
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from typing import Optional
-from app.nfc import PN532, Status
-import random
-import subprocess
 from systemd import journal
+
+from app.nfc import PN532, Status
 
 logger = logging.getLogger('guguto-main')
 logger.propagate = False
