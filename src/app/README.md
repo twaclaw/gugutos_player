@@ -73,9 +73,12 @@ cp /home/pi/guguto/config/systemd/user/player.service /home/pi/.config/systemd/u
 
 # enable the service
 systemctl --user enable player.service
+systemctl --user enable watchdog.service
+loginctl enable-linger
 
 # start the service
 systemctl --user start player.service
+systemctl --user start watchdog.service
 
 # check the status with
 systemctl --user status player.service
@@ -103,7 +106,10 @@ ACTION=="add", KERNEL="ttyS0", MODE="0660"
 
 [Download](https://moodeaudio.org/) the image and create an SD card.
 
-# Raspotify configuration
+<details>
+<summary>
+Raspotify configuration (outdated)
+</summary>
 
 Follow the instructions from the [basic setup](https://github.com/dtcooper/raspotify/wiki/Basic-Setup-Guide)
 
@@ -112,3 +118,4 @@ defaults.pcm.card 3
 defaults.ctl.card 3
 defaults.pcm.dmix.rate 32000
 defaults.pcm.dmix.format S16_LE -->
+</details>

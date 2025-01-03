@@ -37,7 +37,7 @@
             }
          ]
       },
-     "043ea7a7100289": {
+      "043ea7a7100289": {
          "tracks": [
             {
                "name": "Saint Saens: poulets et coqs",
@@ -46,10 +46,15 @@
          ]
       },
       "04b07ba7100289": {
+         "figurine": "fish",
          "tracks": [
             {
                "name": "Saint Saens: Aquarium",
                "uri": "spotify:track:4oKF3MO0cXDgBBV6LGCRJZ"
+            },
+            {
+               "name": "ponyo",
+               "uri": "spotify:album:15rOJIfBtL56saE9EIlocm"
             }
          ]
       },
@@ -102,8 +107,8 @@
       "0424b3a7100289": {
          "tracks": [
             {
-               "name": "Vivaldi: Le quattro staggioni",
-               "uri": "spotify:album:6C6a2lqcgoIHMtTpTAOT5z"
+               "name": "Vivaldi, La follia",
+               "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn"
             }
          ]
       },
@@ -111,23 +116,37 @@
          "figurine": "wolf",
          "tracks": [
             {
-            "name": "erase una vez",
-            "uri": "spotify:track:5DmbHxvhIuS2oJyY1JncNm"
+               "name": "erase una vez",
+               "uri": "spotify:track:5DmbHxvhIuS2oJyY1JncNm"
             }
          ]
       },
       "049371a7100289": {
+         "figurine": "cat",
          "tracks": [
             {
                "name": "cats",
                "uri": "spotify:track:0zMNQplAdq18TPDoaJZ7el"
+            },
+            {
+               "name": "Arriety",
+               "uri": "spotify:album:0ldESLoQyyP80ynVU2gych"
+            }
+         ]
+      },
+      "04e63ea7100289": {
+         "figurine": "kiki",
+         "tracks": [
+            {
+               "name": "kiki",
+               "uri": "spotify:album:2NO5lYWs4aWpsmHOjF4JHk"
             }
          ]
       },
       "049a55a7100289": {
          "figurine": "totoro",
          "tracks": [
-           {
+            {
                "name": "Totoro",
                "uri": "spotify:track:4IdQZXMOooaIRoP7N2qCn8"
             },
@@ -139,25 +158,29 @@
                "name": "All totoro",
                "uri": "spotify:album:2Dn4ABFUYJbrlMF7K12RT3"
             }
-        ]
+         ]
       },
       "c6a6031b": {
          "figurine": "mario",
          "tracks": [
-           {
+            {
                "name": "Sussana",
                "uri": "spotify:track:4l98tfzW8CBK1swuanoUal"
             },
             {
-               "name": "sugar man",
-               "uri": "spotify:track:17nOJOcPbcl4sKzM2yyYDp"
+               "name": "Perfect Day, Lou Reed",
+               "uri": "spotify:track:4TOMI010Sd4ZAX4aZ5TS85"
             },
             {
                "name": "Ma ma maria",
                "uri": "spotify:track:7tVEeTbzEJkHP0EqUu6rmf"
             }
-        ],
+         ],
          "old_tracks": [
+            {
+               "name": "sugar man",
+               "uri": "spotify:track:17nOJOcPbcl4sKzM2yyYDp"
+            },
             {
                "name": "ramei ramei",
                "uri": "spotify:track:6p3kDqESgqdEuOUrPZLRJj"
@@ -167,7 +190,6 @@
                "uri": "spotify:track:7yzbimr8WVyAtBX3Eg6UL9"
             }
          ]
-
       },
       "04f68ca7100289": {
          "tracks": [
@@ -224,7 +246,7 @@
                "name": "Brahms Waltzes, Op. 39, Dinu Lipatti",
                "uri": "spotify:track:395PFXG18ydC6T4RoFcrqI"
             },
-           {
+            {
                "name": "French Suite No. 6, Bach, Andy Rangell",
                "uri": "spotify:track:45i3AfC4qGV0QkfsobaKyi_KmQ"
             },
@@ -236,13 +258,11 @@
                "name": "Chopin Prelude in D minor, allegro appassionato, Martha Argerich",
                "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx"
             }
-
          ],
          "tracks": [
             {
                "name": "Rubestein, Chopin Fantasy",
                "uri": "spotify:track:5BijFryhTEnghWx91jYoVR"
-
             },
             {
                "name": "Maria Joao Pires, Sonata C Major",
@@ -307,7 +327,7 @@
                "name": "Florence sur le champs elysees Miles Davis",
                "uri": "spotify:track:3RrMz0NxIfR8jZvoi1ID1Q"
             }
-        ]
+         ]
       },
       "045562a7100289": {
          "figurine": "guitar",
