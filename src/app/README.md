@@ -5,9 +5,9 @@
 **Make sure the jumpers in the PN532 NCF hat are in the "serial" configuration.**
 
 The Python code provided by [Waveshare](https://www.waveshare.com/wiki/PN532_NFC_HAT)
-is a bit buggy. I didn't manage to get the SPI version working and I didn't want to spend too much time on it; basically, I wanted a working version without having to read any datasheet or spec. I ended up using their UART version but rewrote the low level part.
+is a bit buggy. I couldn't get the SPI version to work and I didn't want to spend too much time on it; basically, I wanted a working version without having to read a datasheet or spec. I ended up using their UART version but rewrote the low level part.
 
-I would like to have an interrupt driven setup but that's something I would look at in the future. Right now, I am polling, and some details of the implementation are rather brute-force.
+I'd like to have an interrupt-driven setup, but that's something I'll look into in the future. Right now, I am polling, and some details of the implementation are rather brute force.
 
 ## Spotipy
 
