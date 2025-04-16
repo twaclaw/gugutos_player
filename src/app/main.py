@@ -4,8 +4,6 @@ import json
 import logging
 import random
 import re
-import subprocess
-from typing import Optional
 
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -13,67 +11,30 @@ from systemd import journal
 
 from app.nfc import PN532, Status
 
-logger = logging.getLogger('guguto-main')
+logger = logging.getLogger("guguto-player")
 logger.propagate = False
 logger.addHandler(journal.JournaldLogHandler())
 logger.setLevel(logging.INFO)
 
-curr_reg = re.compile(
-    r'^https\:\/\/open\.spotify\.com\/(?P<type>(?:track|album))?[/](?P<id>.*)$')
-tag_reg = re.compile(r'^spotify[:](?P<type>(?:track|album|playlist))?[:](?P<id>.*)$')
 
-_ID = '32010607e800'
+def get_type(uri: str | list[str]) -> str | None:
+    if isinstance(uri, list):
+        return "list"
 
-
-def get_type(uri: str) -> Optional[str]:
+    tag_reg = re.compile(
+        r"^spotify[:](?P<type>(?:track|album|playlist))?[:](?P<id>.*)$"
+    )
     m = tag_reg.match(uri)
     if m:
         md = m.groupdict()
-        return md['type']
+        return md["type"]
     return None
-
-
-def compare_tracks(current: str, tag: str) -> bool:
-    curr_match = curr_reg.match(current)
-    tag_match = tag_reg.match(tag)
-    if curr_match and tag_match:
-        c_dict = curr_match.groupdict()
-        t_dict = tag_match.groupdict()
-        c_type = c_dict.get('type', 'c')
-        t_type = t_dict.get('type', 't')
-        c_id = c_dict.get('id', 'c')
-        t_id = t_dict.get('id', 't')
-
-        return (c_type == t_type) and (c_id == t_id)
-
-    return False
-
-
-# global object
-pn532 = PN532()
-
-
-async def reset_device(ntries: int = 4, delay: float = 1) -> str:
-    logger.debug("Resetting PN532")
-    for _ in range(ntries):
-        await pn532._reset()
-        await pn532.wakeup()
-        status, response = await pn532.get_firmware_version()
-        if status == Status.OK:
-            resp = response.hex()
-            if (resp == _ID):
-                return resp
-        else:
-            await asyncio.sleep(delay)
-
-    raise RuntimeError("Unable to initialize PN532 device!")
 
 
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", type=str, help="JSON configuration file")
-    parser.add_argument("secrets", type=str,
-                        help="JSON secrets configuration file")
+    parser.add_argument("secrets", type=str, help="JSON secrets configuration file")
     parser.add_argument("cache", type=str, help="authentication cache")
 
     try:
@@ -92,21 +53,26 @@ async def main():
         logging.error("Invalid configuration file!")
         raise ex
 
-    secrets = secrets['secrets']
-    device_id = secrets['device_id']
+    secrets = secrets["secrets"]
+    device_id = secrets["device_id"]
     scope = "user-read-playback-state,user-modify-playback-state"
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=secrets['client_id'],
-                                                   client_secret=secrets['client_secret'],
-                                                   scope=scope,
-                                                   open_browser=False,
-                                                   redirect_uri="http://localhost:8080",
-                                                   cache_path=args.cache
-                                                   ))
+    sp = spotipy.Spotify(
+        auth_manager=SpotifyOAuth(
+            client_id=secrets["client_id"],
+            client_secret=secrets["client_secret"],
+            scope=scope,
+            open_browser=False,
+            redirect_uri="http://localhost:8080",
+            cache_path=args.cache,
+        )
+    )
 
-    tags = conf['tags']
+    pn532 = PN532()
+
+    tags = conf["tags"]
     prev_tag = None
     await pn532.ainit()
-    devId = await reset_device()
+    devId = await pn532.reset_device()
     logger.info(f"Initilized PN532 {devId}")
 
     nStat = 10
@@ -120,38 +86,38 @@ async def main():
         stats[i] = status > Status.TIMEOUT
         i = (i + 1) % nStat
         if sum(stats) > nStat * 0.75:
-            await reset_device()
+            await pn532.reset_device()
             continue
+
+        # XXX: noisy, spurious statusses comming from the RFID reader
+        status &= 0x1  # ignore statusses other than 0x1
 
         if status == Status.OK:
             tag_id = response.hex()
-            tag = tags.get(tag_id, None)
+            tag = tags.get(tag_id)
             if tag and tag_id != prev_tag:
-                if conf['sound']['restart_spotify']:
-                    subprocess.Popen(['moodeutl', '-R', '--spotify'])
-
-                tracks = tag['tracks']
+                tracks = tag["tracks"]
                 track_id = cache.get(tag_id, 0)
 
                 if len(tracks) > 1:
                     track_id = (track_id + 1) % len(tracks)
 
                     # avoid playing the same track for figurines with multiple tracks
-                    #piece = random.choice(tracks)
+                    # piece = random.choice(tracks)
                     cache[tag_id] = track_id
 
                 piece = tracks[track_id]
 
-                volume = piece['volume'] if 'volume' in piece else conf['sound']['volume']
-                logger.debug(f"Playing {piece['name']} {piece['uri']}")
-                t = get_type(piece['uri'])
-                sp.volume(volume, device_id=device_id)
-                if t == "track":
-                    sp.start_playback(device_id=device_id, uris=[piece['uri']])
+                t = get_type(piece["uri"])
+                uris = piece["uri"] if t == "list" else [piece["uri"]]
+                if piece.get("shuffle", False) and len(uris) > 1:
+                    uris = random.sample(uris, len(uris))
+                logger.debug(f"Playing {piece['name']}: {len(uris)} pieces")
 
                 if t == "album" or t == "playlist":
-                    sp.start_playback(device_id=device_id,
-                                      context_uri=piece['uri'])
+                    sp.start_playback(device_id=device_id, context_uri=uris)
+                else:
+                    sp.start_playback(device_id=device_id, uris=uris)
 
                 prev_tag = tag_id
 
@@ -160,8 +126,9 @@ async def main():
         else:
             prev_tag = None
 
-        delay = conf['sound']['polling_delay_secs']
+        delay = conf["sound"].get("polling_delay_secs", 1.0)
         await asyncio.sleep(delay)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     asyncio.run(main())

@@ -86,6 +86,12 @@
          "figurine": "peresozo",
          "tracks": [
             {
+               "name": "Yellow Submarine",
+               "uri": "spotify:track:1tdltVUBkiBCW1C3yB4zyD"
+            }
+         ],
+         "tracks_old": [
+            {
                "name": "Piccolino",
                "uri": "spotify:album:0SKE5hYhhFFWKTAYrRbtEF"
             },
@@ -116,8 +122,31 @@
          "figurine": "wolf",
          "tracks": [
             {
-               "name": "erase una vez",
-               "uri": "spotify:track:5DmbHxvhIuS2oJyY1JncNm"
+               "name": "Pedro y el lobo, prokofiev",
+               "uri": [
+                  "spotify:track:7lsVau0ntt4t7pC7X0pD8n",
+                  "spotify:track:6Q5OiNkNiQ2qIzoya3RXFU",
+                  "spotify:track:7z1B3OdeGlk3brnAta43Ba",
+                  "spotify:track:7hM53zPlEpeJu25Rjtgw7w",
+                  "spotify:track:6FYi6oWG2okTrwOq5vi6NI",
+                  "spotify:track:6mxRoIpQlLEVbL8jR1Wt3s",
+                  "spotify:track:5PlWo3K9sqhf8WeRf0YV59",
+                  "spotify:track:6hBs52gtSPt9NRELMdBFKL",
+                  "spotify:track:32wkGQO4JXUfZil4FkhrjG",
+                  "spotify:track:1mzIDJ1bQ4WzsG2YBD6VZT"
+               ]
+            },
+            {
+               "name": "Peter und der Wolf",
+               "uri": [
+                  "spotify:track:5OdFX00ozSrPVFxkbZzzw7",
+                  "spotify:track:6Y3fS2q6KR0dYkbPzF3huD",
+                  "spotify:track:49PfOCPWK9zBLU1Gx6xsYf",
+                  "spotify:track:2DUJjLNO3UVZ0KRMVf4zUq",
+                  "spotify:track:3Ix32pHJg2Itc3cphVbFgJ",
+                  "spotify:track:6x83KjdRbOxE1Qk93aIHpx",
+                  "spotify:track:1HkZyEYwr4dduasNmD5VJr"
+               ]
             }
          ]
       },
@@ -233,22 +262,10 @@
       },
       "04c7bfa7100289": {
          "figurine": "piano",
-         "tracks_unplayed": [
+         "tracks": [
             {
                "name": "Ravel Concerto, Argerich",
                "uri": "spotify:track:66btq9ev5iKT2tOwmCZPXY"
-            },
-            {
-               "name": "Fantasie in C, Robert Schumman, Argerich",
-               "uri": "spotify:track:10Fa2uIIzRulY9XZkVc7Lc"
-            },
-            {
-               "name": "Brahms Waltzes, Op. 39, Dinu Lipatti",
-               "uri": "spotify:track:395PFXG18ydC6T4RoFcrqI"
-            },
-            {
-               "name": "French Suite No. 6, Bach, Andy Rangell",
-               "uri": "spotify:track:45i3AfC4qGV0QkfsobaKyi_KmQ"
             },
             {
                "name": "Herz und Mund unt Tat und Leben, Cantata BWV 147.  Bach, Lucas & Arthur Jussen",
@@ -257,9 +274,7 @@
             {
                "name": "Chopin Prelude in D minor, allegro appassionato, Martha Argerich",
                "uri": "spotify:track:49T4xHpervQF8sD2mZW9Jx"
-            }
-         ],
-         "tracks": [
+            },
             {
                "name": "Rubestein, Chopin Fantasy",
                "uri": "spotify:track:5BijFryhTEnghWx91jYoVR"
@@ -272,13 +287,11 @@
       },
       "04523ea7100289": {
          "figurine": "violin",
-         "tracks_unplayed": [
+         "tracks": [
             {
                "name": "Vivaldi, La follia",
                "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn"
-            }
-         ],
-         "tracks": [
+            },
             {
                "name": "Paganici capriccio, Itzhak Perlman",
                "uri": "spotify:track:6cC6h5E351deEGFd7Kh9uy"
@@ -333,12 +346,20 @@
          "figurine": "guitar",
          "tracks": [
             {
-               "name": "Julian Bream, Granada",
-               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN"
+               "name": "La Catedral, Barrios-Mongore",
+               "uri": "spotify:album:6LAU7SNdBooa28y27NEUft"
+            },
+            {
+               "name": "Asturias, Ana Vidovic",
+               "uri": "spotify:track:1zCxgKZBWES4OnTloUUwU8"
             },
             {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",
                "uri": "spotify:track:5roP6hv94wnrjulyqPaTIe"
+            },
+            {
+               "name": "Julian Bream, Granada",
+               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN"
             },
             {
                "name": "Garota de Ipanema, Toquihno, Vinicius de Moraes",
@@ -360,11 +381,19 @@
          ]
       },
       "049da1a7100289": {
-         "figurine": "tambor",
+         "figurine": "tambor, drum",
          "tracks": [
             {
                "name": "El pescador, Toto la moposina",
                "uri": "spotify:track:5STDVTFO7ziu4LDaaRCx2n"
+            },
+            {
+               "name": "Lo Atara",
+               "uri": "spotify:track:6dlLkD6H0L72KPZVsQgVhV"
+            },
+            {
+               "name": "Que viva la musica",
+               "uri": "spotify:track:7oGFmFZaNlTQ6KmN4Nv909"
             }
          ]
       },
@@ -372,8 +401,12 @@
          "figurine": "beethoven",
          "tracks": [
             {
-               "name": "5th, allegro con brio, Berliner, Carlos Kleiber",
-               "uri": "spotify:track:02EjNQRJohFLY4NaXiFdH1"
+               "name": "Gulda, Apassionata",
+               "uri": [
+                  "spotify:track:6GyzSMfMOusADIazIf4zBi",
+                  "spotify:track:62qPffousezPJUGtKfRiiH",
+                  "spotify:track:1OEco9Nzs2Ag1JOKPSQE92"
+               ]
             }
          ]
       },
@@ -430,16 +463,21 @@
             }
          ]
       },
+      "041a97a7100289": {
+         "figurine": "Grieg",
+         "tracks": [
+            {
+               "name": "Morgenstimmung",
+               "uri": "spotify:track:5hNxhOcefbJuQcF9aooXBD"
+            }
+         ]
+      },
       "049ebda7100289": {
          "figurine": "mozart",
          "tracks": [
             {
                "name": "Piano concerti 20, 21, Gulda",
                "uri": "spotify:album:6CA92VxwdlPHgtNwCkJHcS"
-            },
-            {
-               "name": "Symphony 40, I, Molto allegro Rene Jacobs, Freiburger Barockorchester",
-               "uri": "spotify:track:5ZYEyAKw6SF4ApF5oI7Hue"
             },
             {
                "name": "Boris Apostolov, turkisch march",
@@ -452,6 +490,10 @@
             {
                "name": "Violin Sonatas, Hillary Hahn, Natalie Zhu",
                "uri": "spotify:album:7DZRSmDymLWsJhFf3f1p6q"
+            },
+            {
+               "name": "Geza anda, piano concerti",
+               "uri": "spotify:album:0jEs1MUebFYhTfexffs7mk"
             }
          ]
       },
@@ -461,6 +503,136 @@
             {
                "name": "Schubert, impromptu, Sokolov",
                "uri": "spotify:track:6BL7NSZ5sepzf7GT976tmq"
+            }
+         ]
+      },
+      "04270edb780000": {
+         "figurine": "bobo",
+         "tracks": [
+            {
+               "name": "Bobo",
+               "shuffle": true,
+               "uri": [
+                  "spotify:track:27Dm3OZ3ES3lmJTMISLXnm",
+                  "spotify:track:0GHLdlOSvYJ1wrdsaTHcNL",
+                  "spotify:track:3fZJ3wPPMtBrZDlBJJZP5p",
+                  "spotify:track:0kfGWq2U1Csvr0iDjaB8gg",
+                  "spotify:track:3GnEtNyLELovUrqIyeEJGm",
+                  "spotify:track:6nToJdXzbWQMNBj04cTwro",
+                  "spotify:track:0PWkLwyimrqrBtMnsk0tSn",
+                  "spotify:track:5YvA33JqovLlRmo5ScXRzO",
+                  "spotify:track:2PrhCOmhPHW72ICv7i87NC",
+                  "spotify:track:2pyr3aKLFT48ibTbaQzCO3",
+                  "spotify:track:3PV5tNe3nXkP2Zs3QJ9Fc6",
+                  "spotify:track:4tTqBp3OvTMW9qygZ38QSD",
+                  "spotify:track:4cgO1CORU1wjAJsol7eogm",
+                  "spotify:track:2AhpnvbHeDk9vUm5d3uxHA",
+                  "spotify:track:5GefxpsV7RtUt9oJbbjGO0",
+                  "spotify:track:1TN2BrFcQsWWfh6pq0ACJZ",
+                  "spotify:track:0ckVGuHp6ijkHJAawR4Wxd",
+                  "spotify:track:2QtpBu9yoClXiM0CA5Q2qo",
+                  "spotify:track:00Qt6WUKv45GhwASteqceK",
+                  "spotify:track:1gWoD3SHvAbCWd7sgNcEsA",
+                  "spotify:track:4a9wwVx03zBNolmWEjoShu",
+                  "spotify:track:03L4LwtLHhSy1xjzq9JBmF",
+                  "spotify:track:5PoWFXGjljNx8ubltOtZvJ",
+                  "spotify:track:33HNwVkJ37ya2Se0tZob0u",
+                  "spotify:track:5OtFmkTHaA4qrw8VG1LHOM",
+                  "spotify:track:2pogezIbGsrcTLN3Z23BgH",
+                  "spotify:track:2CJ06njCY1Mzl2tmVcdIOA",
+                  "spotify:track:73FjhM2cFkor0LvbTNhqZN",
+                  "spotify:track:6v688TWw040YUZzfmrl2ig",
+                  "spotify:track:33z8gTFzU7nE1k3gO1z6bi",
+                  "spotify:track:4VtQVWF2Z75wNqfsrV5fBK",
+                  "spotify:track:6alwsQMwnHs5OzjTtqX6Ya",
+                  "spotify:track:7kGVu9xmn6LTHhQAw50OMI",
+                  "spotify:track:3sxeLJj0oxlqqOP27KU4aP",
+                  "spotify:track:7A3bqc8ExWv8Y7sm1WubZ4",
+                  "spotify:track:5KMlN8mOMW0QJJDwErpi18",
+                  "spotify:track:43Qfs6tClaD2Mgchj7mx7C",
+                  "spotify:track:7pOOOsCzgmNOJ3qbSLMNlj",
+                  "spotify:track:6PYBb4Rfrt3iLsbROqUod6",
+                  "spotify:track:3x1tzAFtfWvy6Id07sWTCK",
+                  "spotify:track:5kkcH9XAlJB5w6WcOWDJlf",
+                  "spotify:track:13fY2SnXIGVaC0Mx0ldGm9",
+                  "spotify:track:0wZvz0r4Vyy3mAhjZRCAOd",
+                  "spotify:track:0lmWYMqAGPTCeeLN7B5PDE",
+                  "spotify:track:39c1zprgFKS2oDxe1KEfMY",
+                  "spotify:track:2l7L5DZp1LyDbcNyOfNXpu",
+                  "spotify:track:3dLSZFV5DdVaVMKS6LQW33",
+                  "spotify:track:1OdIoRriDkayTrG9husJaS",
+                  "spotify:track:2qrZHexwqdv3USF35HzEzb"
+               ]
+            }
+         ]
+      },
+      "04d243d9780000": {
+         "figurine": "monster_red: anger",
+         "tracks": [
+            {
+               "name": "Ira, vivaldi, summer, presto",
+               "uri": "spotify:track:5H4QWvy9vUJPuNdn0vwuZ1"
+            },
+            {
+               "name": "Mahler 5th, 2nd movement",
+               "uri": "spotify:track:2hkFDdW7y61Ojv5ejO1QXg"
+            }
+         ]
+      },
+      "046487da780000": {
+         "figurine": "monster_blue: sadness",
+         "tracks": [
+            {
+               "name": "Fantasie in F minor, Schubert",
+               "uri": "spotify:track:6pWoP3mTpvxst9VrBKsCYg"
+            },
+            {
+               "name": "Chopin, nocturne in E Flat major",
+               "uri": "spotify:track:0vfPup52tue8Y2wkqm4GrZ"
+            }
+         ]
+      },
+      "048c29e4780000": {
+         "figurine": "monster_green, calm",
+         "tracks": [
+            {
+               "name": "Schubert, du bist die Ruh",
+               "uri": "spotify:track:7oenWdkfvoEySYVc0rH6Cq"
+            },
+            {
+               "name": "Debussy, petite suite",
+               "uri": "spotify:track:3rL2blyeOBnUBq3yYA1KcE"
+            }
+         ]
+      },
+      "04014cd8780000": {
+         "figurine": "monster_yellow, joy",
+         "tracks": [
+            {
+               "name": "Chopin, 12 etudes, op 10",
+               "uri": "spotify:track:0y2gKMLMxCyn1hNEhvmmw8"
+            },
+            {
+               "name": "Sibelius, second sinphony, allegretto",
+               "uri": "spotify:track:0vfPup52tue8Y2wkqm4GrZ"
+            }
+         ]
+      },
+      "045a69d9780000": {
+         "figurine": "Love, monster_pink",
+         "tracks": [
+            {
+               "name": "Liebstraum, Liszt, Rubenstein",
+               "uri": "spotify:track:3Nd9wTStUxHHBWkbrENCVL"
+            }
+         ]
+      },
+      "04c95cdd780000": {
+         "figurine": "Monster gray, fear",
+         "tracks": [
+            {
+               "name": "monster_gray, Fear, Hut on Chicken legs, Mussorgsky",
+               "uri": "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
             }
          ]
       },

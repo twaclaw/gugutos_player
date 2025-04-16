@@ -6,7 +6,6 @@ from typing import Optional, Tuple, cast
 from gpiozero import LED as Output
 from gpiozero import Button as Input
 from serial_asyncio import open_serial_connection
-from systemd import journal
 
 _HOSTTOPN532 = 0xD4
 _PN532TOHOST = 0xD5
@@ -14,7 +13,7 @@ _PREAMBLE = 0x00
 _STARTCODE1 = 0x00
 _STARTCODE2 = 0xFF
 _POSTAMBLE = 0x00
-_ACK = b'\x00\x00\xFF\x00\xFF\x00'
+_ACK = b"\x00\x00\xff\x00\xff\x00"
 
 _COMMAND_GETFIRMWAREVERSION = 0x02
 _COMMAND_SAMCONFIGURATION = 0x14
@@ -22,29 +21,28 @@ _COMMAND_INLISTPASSIVETARGET = 0x4A
 
 _MIFARE_ISO14443A = 0x00
 
-logger = logging.getLogger('guguto-nfc')
-logger.propagate = False
-logger.addHandler(journal.JournaldLogHandler())
-logger.setLevel(logging.WARNING)
+logger = logging.getLogger("guguto-player")
 
 
 class Status(IntEnum):
     OK = 0
-    TIMEOUT = (1)
-    CHECKSUM_ERROR = (1 << 1)
-    MALFORMED = (1 << 2)
-    ACK_ERROR = (1 << 3)
-    CARD_ERROR = (1 << 4)
+    TIMEOUT = 1
+    CHECKSUM_ERROR = 1 << 1
+    MALFORMED = 1 << 2
+    ACK_ERROR = 1 << 3
+    CARD_ERROR = 1 << 4
 
 
-class PN532():
-    def __init__(self,
-                 port: str = '/dev/ttyAMA0',
-                 baudrate: int = 115200,
-                 reset: int = 20,
-                 irq: Optional[int] = 16
-                 ):
+class PN532:
+    _ID = "32010607e800"
 
+    def __init__(
+        self,
+        port: str = "/dev/ttyAMA0",
+        baudrate: int = 115200,
+        reset: int = 20,
+        irq: Optional[int] = 16,
+    ):
         self.port = port
         self.baudrate = baudrate
         self.reset = Output(reset)
@@ -57,7 +55,9 @@ class PN532():
 
         reader, writer = self.reader, self.writer
         if reader is None or writer is None:
-            reader, writer = await open_serial_connection(url=self.port, baudrate=self.baudrate)
+            reader, writer = await open_serial_connection(
+                url=self.port, baudrate=self.baudrate
+            )
             self.reader, self.writer = reader, writer
 
         return cast(asyncio.StreamReader, reader), cast(asyncio.StreamWriter, writer)
@@ -84,10 +84,9 @@ class PN532():
         writer.write(framebytes)
         await writer.drain()
 
-    async def _read_data(self,
-                         count: int,
-                         read_exactly: bool = True,
-                         timeout: float = 1) -> Tuple[int, bytearray]:
+    async def _read_data(
+        self, count: int, read_exactly: bool = True, timeout: float = 1
+    ) -> Tuple[int, bytearray]:
         """Read a specified count of bytes from the PN532."""
         reader, _ = await self.ainit()
         try:
@@ -118,12 +117,13 @@ class PN532():
 
         await self._write_data(bytearray(frame))
 
-    async def _read_frame(self,
-                          length: int,
-                          read_exactly: bool = True,
-                          timeout: float = 1) -> Tuple[int, bytearray]:
+    async def _read_frame(
+        self, length: int, read_exactly: bool = True, timeout: float = 1
+    ) -> Tuple[int, bytearray]:
         # Read frame with expected length of data.
-        status, data = await self._read_data(length + 7, read_exactly=read_exactly, timeout=timeout)
+        status, data = await self._read_data(
+            length + 7, read_exactly=read_exactly, timeout=timeout
+        )
         if status != Status.OK:
             return status, data
 
@@ -131,32 +131,32 @@ class PN532():
             return Status.MALFORMED, data
 
         if data[:3] != bytearray([0, 0, 255]):
-            logger.debug(
-                'Response frame preamble does not contain 0x00FF!')
+            logger.debug("Response frame preamble does not contain 0x00FF!")
             return Status.MALFORMED, data
 
         # Check length & length checksum match.
         frame_len = data[3]
         if (frame_len + data[4]) & 0xFF != 0:
-            logger.debug('Response length checksum did not match length!')
+            logger.debug("Response length checksum did not match length!")
             return Status.MALFORMED, data
 
         # Check frame checksum value matches bytes.
-        checksum = sum(data[5:5 + frame_len + 1]) & 0xFF
+        checksum = sum(data[5 : 5 + frame_len + 1]) & 0xFF
         if checksum != 0:
-            logger.debug(
-                'Response checksum did not match expected value: ', checksum)
+            logger.debug("Response checksum did not match expected value: ", checksum)
             return Status.CHECKSUM_ERROR, data
 
         # Return frame data.
-        return Status.OK, data[5:5 + 2 + frame_len]
+        return Status.OK, data[5 : 5 + 2 + frame_len]
 
-    async def call_function(self,
-                            command: int,
-                            resp_len: int = 0,
-                            params: bytearray = bytearray([]),
-                            read_exactly: bool = True,
-                            timeout: float = 1) -> Tuple[int, bytearray]:
+    async def call_function(
+        self,
+        command: int,
+        resp_len: int = 0,
+        params: bytearray = bytearray([]),
+        read_exactly: bool = True,
+        timeout: float = 1,
+    ) -> Tuple[int, bytearray]:
         """
         Sends commands to device.
         A reponse of len `resp_len` is expected
@@ -171,7 +171,9 @@ class PN532():
         if status != Status.OK:
             return status | Status.ACK_ERROR, ack
 
-        status, data = await self._read_frame(resp_len + 2, timeout=timeout, read_exactly=read_exactly)
+        status, data = await self._read_frame(
+            resp_len + 2, timeout=timeout, read_exactly=read_exactly
+        )
 
         if ack != _ACK:
             return status | Status.ACK_ERROR, data
@@ -180,7 +182,7 @@ class PN532():
             return status, data
 
         if not (data[0] == _PN532TOHOST and data[1] == (command + 1)):
-            logger.debug('Received unexpected command response!')
+            logger.debug("Received unexpected command response!")
             return Status.MALFORMED, data
 
         return Status.OK, data[2:]
@@ -197,38 +199,56 @@ class PN532():
         # - 0x01, normal mode
         # - 0x14, timeout 50ms * 20 = 1 second
         # - 0x01, use IRQ pin
-        return await self.call_function(_COMMAND_SAMCONFIGURATION,
-                                        params=bytearray([0x01, 0x14, 0x01]))
+        return await self.call_function(
+            _COMMAND_SAMCONFIGURATION, params=bytearray([0x01, 0x14, 0x01])
+        )
 
     async def wakeup(self) -> Tuple[int, bytearray]:
         await self._write_data(
-            bytearray(b'\x55\x55\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'))
+            bytearray(b"\x55\x55\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00")
+        )
         return await self.SAM_configuration()
 
-    async def read_passive_target(self,
-                                  card_baud=_MIFARE_ISO14443A,
-                                  timeout: float = 1) -> Tuple[int, bytearray]:
+    async def read_passive_target(
+        self, card_baud=_MIFARE_ISO14443A, timeout: float = 1
+    ) -> Tuple[int, bytearray]:
         """Wait for a MiFare card to be available and return its UID when found.
         Will wait up to timeout seconds and return None if no card is found,
         otherwise a bytearray with the UID of the found card is returned.
         """
         # Send passive read command for 1 card.  Expect at most a 7 byte UUID.
-        status, data = await self.call_function(_COMMAND_INLISTPASSIVETARGET,
-                                                params=bytearray(
-                                                    [0x01, card_baud]),
-                                                resp_len=19,
-                                                read_exactly=False,
-                                                timeout=timeout)
+        status, data = await self.call_function(
+            _COMMAND_INLISTPASSIVETARGET,
+            params=bytearray([0x01, card_baud]),
+            resp_len=19,
+            read_exactly=False,
+            timeout=timeout,
+        )
         # If no response is available return None to indicate no card is present.
         if status != Status.OK:
             return status, data
 
         if data[0] != 0x01:
-            logger.debug('More than one card detected!')
+            logger.debug("More than one card detected!")
             return Status.CARD_ERROR, data
         if data[5] > 7:
-            logger.debug('Found card with unexpectedly long UID!')
+            logger.debug("Found card with unexpectedly long UID!")
             return Status.CARD_ERROR, data
 
         # Return UID of card.
-        return Status.OK, data[6:6 + data[5]]
+        return Status.OK, data[6 : 6 + data[5]]
+
+    async def reset_device(self, ntries: int = 4, delay: float = 1) -> str:
+        logger.debug("Resetting PN532")
+        for _ in range(ntries):
+            await self._reset()
+            await self.wakeup()
+            status, response = await self.get_firmware_version()
+            if status == Status.OK:
+                resp = response.hex()
+                if resp == self._ID:
+                    return resp
+            else:
+                await asyncio.sleep(delay)
+
+        raise RuntimeError("Unable to initialize PN532 device!")
