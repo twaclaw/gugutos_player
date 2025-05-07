@@ -89,9 +89,6 @@ async def main():
             await pn532.reset_device()
             continue
 
-        # XXX: noisy, spurious statusses comming from the RFID reader
-        status &= 0x1  # ignore statusses other than 0x1
-
         if status == Status.OK:
             tag_id = response.hex()
             tag = tags.get(tag_id)
@@ -109,7 +106,7 @@ async def main():
                 piece = tracks[track_id]
 
                 t = get_type(piece["uri"])
-                uris = piece["uri"] if t == "list" else [piece["uri"]]
+                uris = [piece["uri"]] if t == "track" else piece["uri"]
                 if piece.get("shuffle", False) and len(uris) > 1:
                     uris = random.sample(uris, len(uris))
                 logger.debug(f"Playing {piece['name']}: {len(uris)} pieces")
