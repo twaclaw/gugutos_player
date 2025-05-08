@@ -96,14 +96,14 @@ async def main():
                 tracks = tag["tracks"]
                 track_id = cache.get(tag_id, 0)
 
+                piece = tracks[track_id]
+
                 if len(tracks) > 1:
                     track_id = (track_id + 1) % len(tracks)
 
                     # avoid playing the same track for figurines with multiple tracks
                     # piece = random.choice(tracks)
                     cache[tag_id] = track_id
-
-                piece = tracks[track_id]
 
                 t = get_type(piece["uri"])
                 uris = [piece["uri"]] if t == "track" else piece["uri"]
