@@ -22,7 +22,7 @@ def get_type(uri: str | list[str]) -> str | None:
         return "list"
 
     tag_reg = re.compile(
-        r"^spotify[:](?P<type>(?:track|album|playlist))?[:](?P<id>.*)$"
+        r"^spotify[:](?P<type>(?:track|album|playlist|show))?[:](?P<id>.*)$"
     )
     m = tag_reg.match(uri)
     if m:
@@ -111,8 +111,9 @@ async def main():
                     uris = random.sample(uris, len(uris))
                 logger.debug(f"Playing {piece['name']}: {len(uris)} pieces")
 
-                if t == "album" or t == "playlist":
-                    sp.start_playback(device_id=device_id, context_uri=uris)
+                if t in ["playlist", "album", "show"]:
+                    offset = piece.get("offset", 0)
+                    sp.start_playback(device_id=device_id, context_uri=uris, offset={"position": offset})
                 else:
                     sp.start_playback(device_id=device_id, uris=uris)
 

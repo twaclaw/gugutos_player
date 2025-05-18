@@ -519,13 +519,9 @@
          "figurine": "little prince",
          "tracks": [
             {
-               "name": "Matrimonio",
-               "uri": [
-                  "spotify:track:3RjLOFqp2qbJitNbAbJVh",
-                  "spotify:track:4aUV06koiPpop1Xvln7G5H",
-                  "spotify:track:1L9m2l2lhXgQ3GwmmCx3OK",
-                  "spotify:track:1JA28IX7z19CgLFnnpcAqE"
-               ]
+               "offset": 2,
+               "name": "El principito",
+               "uri": "spotify:show:56M6yJu5KCLo1yNvjlPmmC"
             }
          ]
       },
@@ -656,6 +652,24 @@
             {
                "name": "monster_gray, Fear, Hut on Chicken legs, Mussorgsky",
                "uri": "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
+            }
+         ]
+      },
+      "04cdffd8780000": {
+         "figurine": "linbergh",
+         "tracks": [
+            {
+               "name": "Linbergh",
+               "uri": "spotify:show:0tITL3E8ajQVJ9Di6e0fpd"
+            }
+         ]
+      },
+      "046ba6dc780000": {
+         "figurine": "armstrong",
+         "tracks": [
+            {
+               "name": "Linbergh",
+               "uri": "spotify:show:074X7Q7WaOdRaaCAnx2OBX"
             }
          ]
       },
