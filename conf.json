@@ -88,6 +88,10 @@
             {
                "name": "Yellow Submarine",
                "uri": "spotify:track:1tdltVUBkiBCW1C3yB4zyD"
+            },
+            {
+               "name": "Uptown girl",
+               "uri": "spotify:track:5zA8vzDGqPl2AzZkEYQGKh"
             }
          ],
          "tracks_old": [
@@ -118,35 +122,12 @@
             }
          ]
       },
-      "04a07aa7100289": {
+      "04efbcd9780000": {
          "figurine": "wolf",
          "tracks": [
             {
                "name": "Pedro y el lobo, prokofiev",
-               "uri": [
-                  "spotify:track:7lsVau0ntt4t7pC7X0pD8n",
-                  "spotify:track:6Q5OiNkNiQ2qIzoya3RXFU",
-                  "spotify:track:7z1B3OdeGlk3brnAta43Ba",
-                  "spotify:track:7hM53zPlEpeJu25Rjtgw7w",
-                  "spotify:track:6FYi6oWG2okTrwOq5vi6NI",
-                  "spotify:track:6mxRoIpQlLEVbL8jR1Wt3s",
-                  "spotify:track:5PlWo3K9sqhf8WeRf0YV59",
-                  "spotify:track:6hBs52gtSPt9NRELMdBFKL",
-                  "spotify:track:32wkGQO4JXUfZil4FkhrjG",
-                  "spotify:track:1mzIDJ1bQ4WzsG2YBD6VZT"
-               ]
-            },
-            {
-               "name": "Peter und der Wolf",
-               "uri": [
-                  "spotify:track:5OdFX00ozSrPVFxkbZzzw7",
-                  "spotify:track:6Y3fS2q6KR0dYkbPzF3huD",
-                  "spotify:track:49PfOCPWK9zBLU1Gx6xsYf",
-                  "spotify:track:2DUJjLNO3UVZ0KRMVf4zUq",
-                  "spotify:track:3Ix32pHJg2Itc3cphVbFgJ",
-                  "spotify:track:6x83KjdRbOxE1Qk93aIHpx",
-                  "spotify:track:1HkZyEYwr4dduasNmD5VJr"
-               ]
+               "uri": "spotify:album:0u6qXyIbIai7LSkSpSlsCk"
             }
          ]
       },
@@ -293,12 +274,8 @@
                "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn"
             },
             {
-               "name": "Paganici capriccio, Itzhak Perlman",
-               "uri": "spotify:track:6cC6h5E351deEGFd7Kh9uy"
-            },
-            {
-               "name": "Bach Partita No. 3, prelude. Hilary Hahn",
-               "uri": "spotify:track:2sqhid2MBYJCZWPrLjsUbP"
+               "name": "flight of the bumblebee",
+               "uri": "spotify:track:0nF5aQoLs2YtbWwClXvumL"
             }
          ]
       },
@@ -350,16 +327,8 @@
                "uri": "spotify:album:6LAU7SNdBooa28y27NEUft"
             },
             {
-               "name": "Asturias, Ana Vidovic",
-               "uri": "spotify:track:1zCxgKZBWES4OnTloUUwU8"
-            },
-            {
                "name": "Introducao ao poema dos olhos da amada, Baden Powells",
                "uri": "spotify:track:5roP6hv94wnrjulyqPaTIe"
-            },
-            {
-               "name": "Julian Bream, Granada",
-               "uri": "spotify:track:01vVwELrXX1bKo7wlD9XZN"
             },
             {
                "name": "Garota de Ipanema, Toquihno, Vinicius de Moraes",
@@ -508,10 +477,20 @@
       },
       "041e6fe1780000": {
          "figurine": "Alice",
-         "tracks": [
+         "tracks_old": [
             {
                "name": "Alice im Wunderland",
                "uri": "spotify:album:2nLhDKtfuK0IbTO4vfZCVB"
+            }
+         ],
+         "tracks": [
+            {
+               "name": "Tumba tumba",
+               "uri": "spotify:track:2fLuNMzz6eStLyE7OsBGmm"
+            },
+            {
+               "name": "Puppa",
+               "uri": "spotify:track:1jcLDZnkcrutKDJo0npxtN"
             }
          ]
       },
@@ -665,11 +644,41 @@
          ]
       },
       "046ba6dc780000": {
-         "figurine": "armstrong",
+         "figurine": "cello",
          "tracks": [
             {
-               "name": "Linbergh",
-               "uri": "spotify:show:074X7Q7WaOdRaaCAnx2OBX"
+               "name": "Cello pieces",
+               "shuffle": true,
+               "uri": [
+                  "spotify:track:2PSgNwpdMpQ3iDTckX7sSP",
+                  "spotify:track:0P7UwPB9vL74bD6gzYaKIu",
+                  "spotify:track:17i5jLpzndlQhbS4SrTd0B",
+                  "spotify:track:0ZlaTyVqZN0qCMOOnWigr8",
+                  "spotify:track:6sauXsrrLyr9DqsNMyUc1W"
+               ]
+            }
+
+         ]
+      },
+      "04b789a7100289": {
+         "figurine": "train",
+         "shuffle": true,
+         "tracks": [
+            {
+               "name": "Titipo German",
+               "uri": "spotify:track:3aYNr4xRfgBHFvx2nvaVAJ"
+            },
+            {
+               "name": "Titipo Spanish",
+               "uri": "spotify:track:2qn49serBIeeys33JZ5900"
+            },
+            {
+               "name": "Titipo English",
+               "uri": "spotify:track:4hxb5fVOTW0EveNTO6I1Kc"
+            },
+            {
+               "name": "Titipo Korean",
+               "uri": "spotify:track:0vii7WStMJTFhj1SVZvSfg"
             }
          ]
       },

@@ -26,6 +26,6 @@ scope = "user-read-playback-state,user-modify-playback-state"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=secrets['client_id'],
                                                client_secret=secrets['client_secret'],
                                                scope=scope,
-                                               redirect_uri="http://localhost:8080"
+                                               redirect_uri="http://127.0.0.1:8888/callback"
                                                ))
 print(sp.devices())

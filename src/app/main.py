@@ -62,7 +62,7 @@ async def main():
             client_secret=secrets["client_secret"],
             scope=scope,
             open_browser=False,
-            redirect_uri="http://localhost:8080",
+            redirect_uri="http://127.0.0.1:8888/callback",
             cache_path=args.cache,
         )
     )

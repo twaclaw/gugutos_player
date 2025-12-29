@@ -9,6 +9,12 @@ is a bit buggy. I couldn't get the SPI version to work and I didn't want to spen
 
 I'd like to have an interrupt-driven setup, but that's something I'll look into in the future. Right now, I am polling, and some details of the implementation are rather brute force.
 
+In `/boot/firmware/config.txt`, make sure to enable the UART with the following line:
+
+```bash
+dtoverlay=uart0
+```
+
 ## Spotipy
 
 [Spotipy](https://spotipy.readthedocs.io/en/latest/) is a Python library for the Spotify web API. To use this API, it is necessary to create an app at [https://developer.spotify.com/](https://developer.spotify.com/).
@@ -32,7 +38,7 @@ virtualenv -p python3.11 venv
 pip install spotipy
 
 # run the following script
-python src/scripts/get_cache.py conf.json
+python src/scripts/get_cache.py secrets_file.json
 
 # the latter should create a .cache file
 ```
@@ -78,7 +84,6 @@ loginctl enable-linger
 
 # start the service
 systemctl --user start player.service
-systemctl --user start watchdog.service
 
 # check the status with
 systemctl --user status player.service
@@ -89,6 +94,11 @@ The status can also be checked with `journalctl`. For instance, new RFID tags ca
 # System configuration
 
 Run `rasp-config` to configure the sound card and enable the serial port. The same serial port used by the NFC hat is also used for the console.
+
+<details>
+<summary>
+Additional configuration (possibly not required)
+</summary>
 
 ```bash
 sudo systemctl mask serial-getty@ttyS0.service
@@ -102,20 +112,49 @@ ACTION=="add", KERNEL="tty", MODE="0660"
 ACTION=="add", KERNEL="ttyS0", MODE="0660"
 ```
 
-# Moode
+</details>
 
-[Download](https://moodeaudio.org/) the image and create an SD card.
+Regarding the software providing the spotify connect functionality, there are several options. I have been switching between [Moode](https://moodeaudio.org) and [Raspotify](https://github.com/dtcooper/raspotify). Moode is a very nice, self-contained audiophile project with a lot of features and a nice web user interface. If you want more control over the version of the operating system and packages, then Raspotify is a better option.
 
 <details>
 <summary>
-Raspotify configuration (outdated)
+Moode configuration
+</summary>
+
+Moode is a self-contained image including the operating system.
+
+[Download](https://moodeaudio.org/) the image and create an SD card.
+
+Configure Spotify to S32 320kbps in the Moode audio settings.
+
+<details>
+<summary>
+Raspotify configuration
 </summary>
 
 Follow the instructions from the [basic setup](https://github.com/dtcooper/raspotify/wiki/Basic-Setup-Guide)
 
-<!-- #/etc/asound.conf
-defaults.pcm.card 3
-defaults.ctl.card 3
-defaults.pcm.dmix.rate 32000
-defaults.pcm.dmix.format S16_LE -->
+Verify the installation with
+
+```bash
+systemctl status raspotify
+```
+
+The configuration lives in `/etc/raspotify/conf`.
+
+To list devices and their supported formats, run:
+
+```bash
+librespot --device ?
+```
+
+Update the relevant lines in the documentation according to the output of the previous command.
+
+```plain
+LIBRESPOT_BITRATE="320"
+LIBRESPOT_FORMAT="S32"
+LIBRESPOT_DEVICE="hw:CARD=PMA1700NE,DEV=0"
+#TMPDIR=/tmp
+```
+
 </details>
