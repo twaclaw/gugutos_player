@@ -6,6 +6,7 @@ const nextConfig = {
   },
   // This is only for 'npm run dev' (port 3000)
   // It proxies /list_server_tags -> http://localhost:8000/list_server_tags
+  /*
   async rewrites() {
     return [
       {
@@ -14,6 +15,7 @@ const nextConfig = {
       },
     ]
   },
+  */
 }
 
 module.exports = nextConfig
