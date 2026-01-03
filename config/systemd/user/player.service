@@ -5,7 +5,7 @@ After=default.target
 [Service]
 WorkingDirectory=/home/pi/guguto
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/home/pi/guguto/venv/bin/python -m app.main conf.json secrets.json cache.txt
+ExecStart=/home/pi/guguto/.venv/bin/python -m app.main --conf conf.json --secrets secrets.json --cache cache.txt
 Restart=always
 RestartSec=5s
 

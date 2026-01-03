@@ -4,7 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 parser = argparse.ArgumentParser()
-parser.add_argument("secrets", type=str, help="JSON secrets file")
+parser.add_argument("--secrets", type=str, help="JSON secrets file")
 
 try:
     args = parser.parse_args()

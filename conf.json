@@ -4,6 +4,10 @@
       "polling_delay_secs": 1,
       "restart_spotify": false
    },
+   "general": {
+      "use_touchscreen_control": true,
+      "use_rfid_control": false
+   },
    "tags": {
       "04bb9ca7100289": {
          "tracks": [
@@ -657,7 +661,6 @@
                   "spotify:track:6sauXsrrLyr9DqsNMyUc1W"
                ]
             }
-
          ]
       },
       "04b789a7100289": {
@@ -702,6 +705,75 @@
             {
                "name": "Offenbach, Olympia",
                "uri": "spotify:track:3yzAU86O09fpqmWGZditIh"
+            }
+         ]
+      }
+   },
+   "server_tags": {
+      "st_0001": {
+         "tracks": [
+            {
+               "name": "las ruedas del autobus",
+               "title": "Las ruedas del autobus",
+               "image": "./images/bus.jpg",
+               "uri": [
+                  "spotify:track:7JBgY8u5HOzhGb8YE55mSt",
+                  "spotify:track:1FG2CSLOJWhi0By1E3ZiD7",
+                  "spotify:track:6iejChnUHlIhrPsk2Ey4DT",
+                  "spotify:track:74mILoySpgyQbc4KWbFy2y",
+                  "spotify:track:46eMSa5DPDD2lAICGSg89E",
+                  "spotify:track:2fJEEolf9sDgNuquRTPZn1"
+               ]
+            }
+         ]
+      },
+      "st_0002": {
+         "tracks": [
+            {
+               "name": "yellow submarine",
+               "title": "Yellow Submarine",
+               "image": "./images/yellow_submarine.jpg",
+               "uri": "spotify:track:1tdltVUBkiBCW1C3yB4zyD"
+            }
+         ]
+      },
+      "st_0003": {
+         "tracks": [
+            {
+               "name": "Bicycle race",
+               "title": "Bicycle race",
+               "uri": "spotify:track:5FYslb39kAXnPmxSsJyzC5",
+               "image": "./images/bicycle.jpg"
+            }
+         ]
+      },
+      "st_0004": {
+         "tracks": [
+            {
+               "name": "Le crocodille",
+               "title": "Ah le crocodiles",
+               "uri": "spotify:track:77wWhEjur7FDECSlICjdJB",
+               "image": "./images/crocodille.jpg"
+            }
+         ]
+      },
+      "st_0005": {
+         "tracks": [
+            {
+               "name": "blue autobus",
+               "title": "Mėlynas autobusiukas",
+               "uri": "spotify:track:5Z3mYpou1gL3bQ7Ykzq8Yv",
+               "image": "./images/blue_bus.jpg"
+            }
+         ]
+      },
+      "st_0006": {
+         "tracks": [
+            {
+               "name": "Rinaldo",
+               "title": "Rinaldo",
+               "uri": "spotify:track:6xZGds6ClLaEPeyep1C8si",
+               "image": "./images/rinaldo.jpg"
             }
          ]
       }
