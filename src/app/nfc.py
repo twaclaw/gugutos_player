@@ -38,7 +38,7 @@ class PN532:
 
     def __init__(
         self,
-        port: str = "/dev/ttyAMA0",
+        port: str,
         baudrate: int = 115200,
         reset: int = 20,
         irq: Optional[int] = 16,

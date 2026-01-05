@@ -1,160 +1,158 @@
-# Python code
+# Detailed setup instructions
 
-## PN532 driver
+## Preparation
 
-**Make sure the jumpers in the PN532 NCF hat are in the "serial" configuration.**
-
-The Python code provided by [Waveshare](https://www.waveshare.com/wiki/PN532_NFC_HAT)
-is a bit buggy. I couldn't get the SPI version to work and I didn't want to spend too much time on it; basically, I wanted a working version without having to read a datasheet or spec. I ended up using their UART version but rewrote the low level part.
-
-I'd like to have an interrupt-driven setup, but that's something I'll look into in the future. Right now, I am polling, and some details of the implementation are rather brute force.
-
-In `/boot/firmware/config.txt`, make sure to enable the UART with the following line:
+- Create a Spotify app at [https://developer.spotify.com/](https://developer.spotify.com/), use `http://127.0.0.1:8888/callback` as Redirect URI.
+- Get the client ID and client secret, and populate the `secrets.json` file following [this template](../config/secrets-template.json).
+- Connecting to the Spotify API requires a one-time authentication token. Obtaining this token requires a desktop environment (maybe there is a workaround). If you have a headless RPi, you can run the script [get_cache](../src/scripts/get_cache.py) from your laptop to get the token and store it in `cache.txt`:
 
 ```bash
-dtoverlay=uart0
+# Install the non-RPi dependencies only
+git clone https://github.com/twaclaw/gugutos_player.git guguto
+cd guguto
+# You can use something different than uv if you want
+uv venv --python=3.13
+source .venv/bin/activate
+uv pip install . # Do not install the RPi dependencies (.[rpi])
+get_cache secrets.json # this will open the browser and creates .cache
+cp .cache cache.txt
 ```
 
-## Spotipy
+## Instructions
 
-[Spotipy](https://spotipy.readthedocs.io/en/latest/) is a Python library for the Spotify web API. To use this API, it is necessary to create an app at [https://developer.spotify.com/](https://developer.spotify.com/).
-
-Besides the credentials provided in the configuration file, Spotify requires additional tokens to authorize a device. The first time you access a device in `spotipy`, you get a URL to authorize the client device for the given scope. The problem is that doing that on headless systems is not straightfoward. What I did was:
-
-- Run the `spotipy` part of the application on my PC: `spotipy` will ask to follow a link. Open the link on a browser.
-- Once the authentication is done, a `.cache` file is created.
-- Copy the file to the raspberry pi to `cache.txt` (which is passed as an option to the script.)
-
-On your PC (not on the RPi) go through the following steps in the project directory:
+- Set up a Raspberry Pi with [moOde](https://moodeaudio.org/), this can be done directly using rpi-imager.
+- Using the moOde web interface (open a browser and go to `http://moode.local` or the corresponding IP), under `audio`, configure the audio output to use the desired sound card. Under `renderers` configure and enable `Spotify Connect` (for instance format: S32 and bitrate: 320kbps).
+- Install potentially required system packages:
 
 ```bash
-# Create a virtual environment, for instance
-virtualenv -p python3.11 venv
-
-# activate the venv
-. venv/bin/activate
-
-# install Spotipy (other dependendencies are not required)
-pip install spotipy
-
-# run the following script
-python src/scripts/get_cache.py secrets_file.json
-
-# the latter should create a .cache file
-```
-
-## Installation
-
-Clone this repo and install the Python dependencies.
-
-```bash
-git clone git@github.com:twaclaw/gugutos_player.git guguto
-
-cd guguto`
-
-# create a virtual env
-virtualenv venv
-. venv/bin/activate
-
-# install the dependencies
-
-# in case the systemd Python package cannot be installed
+sudo apt update
 sudo apt install libsystemd-dev
-
-pip install -e src/
+sudo apt install python3-lgpio liblgpio-dev
 ```
 
-Copy the configuration file and edit it (add the credentials, and edit the list of tags and their associated tags.)
+- Clone this repository in the RPi. From now on, I am assuming the repository is in `/home/pi/guguto`, adjust accordingly if you put it somewhere else.
 
 ```bash
-cp config/conf-template.json conf.json
+git clone https://github.com/twaclaw/gugutos_player.git guguto
+cd guguto
 ```
 
-Make sure this location, `/home/pi/guguto`, contains also the `cache.txt` file mentioned in the previous section.
+- Create a Python virtual environment and install the dependencies
 
-### Systemd service
+For instance using [uv](https://docs.astral.sh/uv/getting-started/installation/):
+
+```bash
+uv venv --python=3.13
+source .venv/bin/activate
+uv pip install -e .[rpi]
+```
+
+- Copy the `secrets.json` and `cache.txt` files to `/home/pi/guguto`
+- Create a [configuration file](../conf.json). Only the `general` section is required. The `tags` section can be filled later.
+- If `general.use_rfid_control` is set to `true`, the PN532 NFC hat must be connected.
+  - If the serial port is configured to the default: `/dev/ttyAMA0`
+  - Edit `/boot/firmware/config.txt` to enable the UART, adding the line `dtoverlay=uart0`
+  - Use `raspi-config` to enable the serial port and disable the serial console
+  - Reboot
+- Configure and start the systemd services
 
 ```bash
 cp /home/pi/guguto/config/systemd/user/player.service /home/pi/.config/systemd/user
 
-# enable the service
 systemctl --user enable player.service
-systemctl --user enable watchdog.service
 loginctl enable-linger
 
-# start the service
 systemctl --user start player.service
 
-# check the status with
 systemctl --user status player.service
 ```
 
-The status can also be checked with `journalctl`. For instance, new RFID tags can be identified by scanning the tag and looking at the log output with `journalctl -e`.
+### Control mechanism 1: RFID tags
 
-# System configuration
+The PN532 NFC hat must be connected and correctly configured. Make sure that the jumpers are in the "serial" configuration, the serial port is correctly configured, and the `systemd` service is running.
 
-Run `rasp-config` to configure the sound card and enable the serial port. The same serial port used by the NFC hat is also used for the console.
+The `systemd` status (`journalctl -e`) offers a mechanism to discover the UIDs of new tags. When a new tag is scanned, its UID is printed in the log output. Then add the corresponding entry in the `tags` section of the configuration file. Keep in mind that the UIDs in [conf.json](../conf.json) are only examples and will not work in your case.
 
-<details>
-<summary>
-Additional configuration (possibly not required)
-</summary>
+### Control mechanism 2: Web UI
 
-```bash
-sudo systemctl mask serial-getty@ttyS0.service
-```
+#### Installation
 
-To change the permissions of the port, add the following to a `.rules` file, for instance
+- Install Node.js and `npm` (TODO: add instructions)
+- cd `frontend`
 
 ```bash
-# /etc/udev/rules.d/99-com.rules
-ACTION=="add", KERNEL="tty", MODE="0660"
-ACTION=="add", KERNEL="ttyS0", MODE="0660"
+npm install
+npm run build
 ```
-
-</details>
-
-Regarding the software providing the spotify connect functionality, there are several options. I have been switching between [Moode](https://moodeaudio.org) and [Raspotify](https://github.com/dtcooper/raspotify). Moode is a very nice, self-contained audiophile project with a lot of features and a nice web user interface. If you want more control over the version of the operating system and packages, then Raspotify is a better option.
-
-<details>
-<summary>
-Moode configuration
-</summary>
-
-Moode is a self-contained image including the operating system.
-
-[Download](https://moodeaudio.org/) the image and create an SD card.
-
-Configure Spotify to S32 320kbps in the Moode audio settings.
-
-<details>
-<summary>
-Raspotify configuration
-</summary>
-
-Follow the instructions from the [basic setup](https://github.com/dtcooper/raspotify/wiki/Basic-Setup-Guide)
-
-Verify the installation with
 
 ```bash
-systemctl status raspotify
+cp /home/pi/guguto/config/systemd/user/ui.service /home/pi/.config/systemd/user
+
+systemctl --user enable ui.service
+loginctl enable-linger
+
+systemctl --user start ui.service
+
+systemctl --user status ui.service
 ```
 
-The configuration lives in `/etc/raspotify/conf`.
+#### Configuring autostart of the web UI
 
-To list devices and their supported formats, run:
+See [this tutorial](https://www.raspberrypi.com/tutorials/how-to-use-a-raspberry-pi-in-kiosk-mode/) for reference:
+
+```bash
+sudo apt update
+sudo apt -y full-upgrade
+sudo apt install wtype
+echo > .config/labwc/autostart <<EOL
+chromium localhost:3000 --kiosk --noerrdialogs --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-maximized
+
+EOL
+```
+
+TBD ...
+
+## Miscellaneous
+
+### PN532 driver
+
+**Note:** make sure the jumpers in the PN532 NCF hat are in the "serial" configuration.
+
+The RFID hat code is based on the code provided by [Waveshare](https://www.waveshare.com/wiki/PN532_NFC_HAT). I couldn't get the SPI version to work, nor could I get the serial IRQ to work (there is a branch where I attempted that but the IRQ pin is not raising). So, I ended up implementing an asynchronous polling driver based on the serial interface.
+
+### Spotify connect
+
+moOde uses `librespot` to provide Spotify Connect functionality. Here are some commands that might be useful to debug potential issues.
+
+Information about the available audio devices can be obtained with:
 
 ```bash
 librespot --device ?
 ```
 
-Update the relevant lines in the documentation according to the output of the previous command.
+To verify if `librespot` is advertising the device, run from a device in the same network:
 
-```plain
-LIBRESPOT_BITRATE="320"
-LIBRESPOT_FORMAT="S32"
-LIBRESPOT_DEVICE="hw:CARD=PMA1700NE,DEV=0"
-#TMPDIR=/tmp
+```bash
+dns-sd -B _spotify-connect._tcp
 ```
 
-</details>
+The `moodeutl` command can be used to control the spotify process:
+
+```bash
+moodeutl -R --spotify # restart
+moodeutl  -Ro --spotify on [off]
+```
+
+### Switching from a headless RPi to a desktop environment
+
+```bash
+sudo apt update
+sudo apt full-upgrade
+sudo apt install rpd-wayland-core
+# optionally
+sudo apt install rpd-theme rpd-preferences
+# select desktop interface
+sudo raspi-config
+# - Go to **1 System Options** -> **S5 Boot / Auto Login**.
+# - Select **B3 Desktop** (or **B4 Desktop Autologin**).
+```

@@ -193,7 +193,9 @@ async def async_main():
     if conf.get("general", {}).get("use_rfid_control", True):
         from app.nfc import PN532
 
-        pn532 = PN532()
+        port = conf.get("general").get("nfc_serial_port", "/dev/ttyAMA0")
+
+        pn532 = PN532(port=port)
         tasks.append(
             asyncio.create_task(nfc_worker(queue, pn532, tags, conf, track_manager))
         )

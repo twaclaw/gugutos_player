@@ -15,7 +15,7 @@ This project implements a system that enables young children to control the musi
 ## Requirements
 
 - This project requires Spotify Premium, but with some effort, that part should be optional. You can modify the project to play music from a different source (e.g., your local files).
-- If you use Spotify, you need a piece of software that implements [Spotify Connect](<(https://support.spotify.com/us/article/spotify-connect/)>). I recommend using [moOde](<(https://moodeaudio.org)>), an amazing audiophile project, but there are other options.
+- If you use Spotify, you need a piece of software that implements [Spotify Connect](<(https://support.spotify.com/us/article/spotify-connect/)>). I recommend using [moOde](https://moodeaudio.org), an amazing audiophile project whith in turn uses [librespot](https://github.com/librespot-org/librespot), but there are other options.
 - You require a Raspberry Pi to run the software and play music.
 - A mechanism to control which music to play (see below).
 
@@ -53,7 +53,7 @@ Tracks, albums, and playlists associated to each identifier are configured in a 
 ### Control mechanism 2: touchscreen
 
 - To enable this mechanism, set `general.use_touchscreen_control` to `true` in the [configuration file](./conf.json).
-- This option requires a desktop environment and a touchscreen connected to the Raspberry Pi. I am using the [official Raspberry Pi 7" touchscreen](https://www.raspberrypi.com/products/touch-display-2/).
+- This option requires a desktop environment and a touchscreen connected to the Raspberry Pi. I am using the [official Raspberry Pi 7" touchscreen](https://www.raspberrypi.com/products/touch-display-2/). A remote desktop should also work.
 - An additional `systemd` service runs the web interface. I configured my desktop environment to open the web interface in full-screen mode automatically when the Raspberry Pi boots (see details below).
 
 ## Implementation details
