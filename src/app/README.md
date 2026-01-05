@@ -77,10 +77,14 @@ The `systemd` status (`journalctl -e`) offers a mechanism to discover the UIDs o
 
 #### Installation
 
-- Install Node.js and `npm` (TODO: add instructions)
-- cd `frontend`
+- Install Node.js
 
 ```bash
+# https://nodejs.org/en/download
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+nvm install 24
+
+cd /home/pi/guguto/frontend
 npm install
 npm run build
 ```
@@ -104,13 +108,10 @@ See [this tutorial](https://www.raspberrypi.com/tutorials/how-to-use-a-raspberry
 sudo apt update
 sudo apt -y full-upgrade
 sudo apt install wtype
-echo > .config/labwc/autostart <<EOL
+cat > .config/labwc/autostart <<EOL
 chromium localhost:3000 --kiosk --noerrdialogs --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-maximized
-
 EOL
 ```
-
-TBD ...
 
 ## Miscellaneous
 

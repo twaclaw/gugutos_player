@@ -1,0 +1,14 @@
+[Unit]
+Description=Guguto's Player UI
+After=player.service
+Wants=player.service
+
+[Service]
+WorkingDirectory=/home/pi/guguto/frontend
+Environment=PATH=/home/pi/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/pi/.nvm/versions/node/v24.12.0/bin/npm start
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
