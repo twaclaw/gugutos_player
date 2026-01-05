@@ -6,7 +6,7 @@
    },
    "general": {
       "use_touchscreen_control": true,
-      "use_rfid_control": false,
+      "use_rfid_control": true,
       "nfc_serial_port": "/dev/ttyAMA0"
    },
    "tags": {
