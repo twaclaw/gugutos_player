@@ -777,6 +777,26 @@
                "image": "./images/rinaldo.jpg"
             }
          ]
+      },
+      "st_0007": {
+         "tracks": [
+            {
+               "name": "Monkeys",
+               "title": "Monkeys jumping on the bed",
+               "uri": "spotify:track:60NNjLCOHHZ0kHtuIJWV8a",
+               "image": "./images/monkeys.png"
+            }
+         ]
+      },
+      "st_0008": {
+         "tracks": [
+            {
+               "name": "die Maus",
+               "title": "Sendung mit der Maus",
+               "uri": "spotify:show:0j3oVELRmPoHbo1B15ITfr",
+               "image": "./images/maus.jpg"
+            }
+         ]
       }
    }
 }

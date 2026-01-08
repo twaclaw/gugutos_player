@@ -1,6 +1,6 @@
 [Unit]
 Description=Guguto's player (RFID + Spotify)
-After=default.target
+After=network.target
 
 [Service]
 WorkingDirectory=/home/pi/guguto

@@ -1,12 +1,12 @@
 [Unit]
 Description=Guguto's Player UI
-After=player.service
+After=network.target
 Wants=player.service
 
 [Service]
 WorkingDirectory=/home/pi/guguto/frontend
-Environment=PATH=/home/pi/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin:/bin
-ExecStart=/home/pi/.nvm/versions/node/v24.12.0/bin/npm start
+Environment=NODE_VERSION=default
+ExecStart=/home/pi/.nvm/nvm-exec npx -y serve out
 Restart=always
 RestartSec=5s
 

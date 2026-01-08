@@ -75,6 +75,7 @@ async def player_worker(queue: asyncio.Queue, sp, device_id, current_track_info:
                     device_id=device_id, context_uri=uris, offset={"position": offset}
                 )
             else:
+                uris = [uris] if isinstance(uris, str) else uris
                 sp.start_playback(device_id=device_id, uris=uris)
 
             await asyncio.sleep(1)

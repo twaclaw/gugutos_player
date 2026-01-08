@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-kid-blue: #4CC9F0;
+  --color-kid-pink: #F72585;
+  --color-kid-yellow: #FEE440;
+  --color-kid-purple: #7209B7;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

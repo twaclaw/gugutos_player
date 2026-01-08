@@ -3,8 +3,8 @@
 ## Preparation
 
 - Create a Spotify app at [https://developer.spotify.com/](https://developer.spotify.com/), use `http://127.0.0.1:8888/callback` as Redirect URI.
-- Get the client ID and client secret, and populate the `secrets.json` file following [this template](../config/secrets-template.json).
-- Connecting to the Spotify API requires a one-time authentication token. Obtaining this token requires a desktop environment (maybe there is a workaround). If you have a headless RPi, you can run the script [get_cache](../src/scripts/get_cache.py) from your laptop to get the token and store it in `cache.txt`:
+- Get the client ID and client secret, and populate the `secrets.json` file following [this template](../../config/secrets-template.json).
+- Connecting to the Spotify API requires a one-time authentication token. Obtaining this token requires a desktop environment (maybe there is a workaround). If you have a headless RPi, you can run the script [get_cache](../scripts/get_cache.py) from your laptop to get the token and store it in `cache.txt`:
 
 ```bash
 # Install the non-RPi dependencies only

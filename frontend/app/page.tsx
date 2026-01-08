@@ -1,17 +1,19 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import useSWR from 'swr'
-import { Music, BookOpen, Moon, Play, Sun, CloudRain, Leaf, Snowflake, Sprout, Clock, Type, Flower2, Umbrella, Wind, ThermometerSnowflake, Mountain, Waves } from 'lucide-react'
+import { Music, BookOpen, Moon, Sun, CloudRain, Leaf, Snowflake, Sprout, Clock, Type, Flower2, Umbrella, Wind, ThermometerSnowflake, Mountain, Waves } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const fetcher = (url: string) => {
-  const isDev = process.env.NODE_ENV === 'development';
-  const targetUrl = isDev ? `http://localhost:8000${url}` : url;
+const getBackendUrl = (path: string) => {
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+  return `http://${hostname}:8000${path}`;
+}
 
-  return fetch(targetUrl, { cache: 'no-store' }).then((res) => {
+const fetcher = (url: string) => {
+  return fetch(getBackendUrl(url), { cache: 'no-store' }).then((res) => {
     if (!res.ok) throw new Error('Network response was not ok')
     return res.json()
   })
@@ -60,38 +62,6 @@ export default function Home() {
   const [language, setLanguage] = useState<'ES' | 'LT' | 'EN' | 'DE'>('ES')
   const [allCaps, setAllCaps] = useState(true)
 
-  // Drag to scroll logic
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const isDragging = useRef(false)
-  const startY = useRef(0)
-  const scrollTop = useRef(0)
-
-  const onMouseDown = (e: React.MouseEvent) => {
-    isDragging.current = false
-    startY.current = e.pageY
-    if (scrollRef.current) {
-      scrollTop.current = scrollRef.current.scrollTop
-    }
-  }
-
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return
-    if (e.buttons !== 1) return
-    e.preventDefault()
-    const y = e.pageY
-    const walk = y - startY.current
-    if (Math.abs(walk) > 5) {
-      isDragging.current = true
-    }
-    scrollRef.current.scrollTop = scrollTop.current - walk
-  }
-
-  const handleTrackClick = (id: string) => {
-    if (!isDragging.current) {
-      playTrack(id)
-    }
-  }
-
   const { data: tags, error, isLoading } = useSWR(`/list_server_tags?all_caps=${allCaps}`, fetcher, {
     revalidateOnFocus: true,
     refreshInterval: 5000
@@ -111,7 +81,7 @@ export default function Home() {
 
   const playTrack = async (tagId: string) => {
     try {
-      await fetch(`/play/${tagId}`, { method: 'POST' })
+      await fetch(getBackendUrl(`/play/${tagId}`), { method: 'POST' })
     } catch (err) {
       console.error('Failed to play', err)
     }
@@ -125,7 +95,7 @@ export default function Home() {
 
   return (
     <main className="h-screen bg-slate-50 p-1 flex flex-col overflow-hidden">
-      <Tab.Group>
+      <Tab.Group as="div" className="flex flex-col h-full">
         <Tab.List className="flex-none flex space-x-1 rounded-xl bg-white p-1 shadow-lg mb-2 z-10">
           {tabs.map((tab) => (
             <Tab
@@ -146,14 +116,9 @@ export default function Home() {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="flex-1 overflow-hidden relative">
+        <Tab.Panels className="flex-1 overflow-hidden relative min-h-0">
           <Tab.Panel
-            ref={scrollRef}
-            onMouseDown={onMouseDown}
-            onMouseMove={onMouseMove}
-            onMouseUp={() => { isDragging.current = false }}
-            onMouseLeave={() => { isDragging.current = false }}
-            className="h-full overflow-y-auto space-y-4 pb-20 cursor-grab active:cursor-grabbing"
+            className="h-full overflow-y-auto space-y-4 pb-20"
           >
             <div className="flex justify-end px-2">
               <button
@@ -176,7 +141,7 @@ export default function Home() {
                 <motion.button
                   key={tag.id}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => handleTrackClick(tag.id)}
+                  onClick={() => playTrack(tag.id)}
                   className="w-full bg-white rounded-2xl p-2 shadow-sm border-2 border-slate-100 flex items-center gap-3 text-left select-none"
                 >
                   <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
