@@ -109,7 +109,7 @@ sudo apt update
 sudo apt -y full-upgrade
 sudo apt install wtype
 cat > .config/labwc/autostart <<EOL
-chromium localhost:3000 --kiosk --noerrdialogs --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-maximized
+sh -c 'until curl -s http://localhost:3000 > /dev/null; do sleep 1; done; chromium --noerrdialogs --kiosk --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-maximized http://localhost:3000' &
 EOL
 ```
 

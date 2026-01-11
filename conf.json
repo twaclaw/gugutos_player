@@ -848,6 +848,28 @@
                "image": "./images/cats.png"
             }
          ]
+      },
+      "st_0014": {
+         "tracks": [
+            {
+               "name": "emociones",
+               "shuffle": true,
+               "title": "Las emociones",
+               "image": "./images/monster.jpg",
+               "uri": [
+                  "spotify:track:6pWoP3mTpvxst9VrBKsCYg",
+                  "spotify:track:0vfPup52tue8Y2wkqm4GrZ",
+                  "spotify:track:5H4QWvy9vUJPuNdn0vwuZ1",
+                  "spotify:track:2hkFDdW7y61Ojv5ejO1QXg",
+                  "spotify:track:7oenWdkfvoEySYVc0rH6Cq",
+                  "spotify:track:3rL2blyeOBnUBq3yYA1KcE",
+                  "spotify:track:0y2gKMLMxCyn1hNEhvmmw8",
+                  "spotify:track:0vfPup52tue8Y2wkqm4GrZ",
+                  "spotify:track:3Nd9wTStUxHHBWkbrENCVL",
+                  "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
+               ]
+            }
+         ]
       }
    }
 }
