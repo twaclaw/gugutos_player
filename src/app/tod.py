@@ -257,8 +257,10 @@ def get_datetime(all_caps: bool = True, language: Literal["ES", "LT", "EN", "DE"
         day_str = number_to_lithuanian(day, all_caps)
         month = months_lithuanian[dt.month - 1]
 
-        date = f"{day_name.title()} {month} {day} d. Yra {seasons_lithuanian[season]}."
+        date = f"{day_name.title()} {month} {day} d. {seasons_lithuanian[season]}."
         dtime = f"yra {hour_str} ir {minute_str}"
+        if dt.minute == 0:
+            dtime = f"yra {hour_str}."
 
     elif language == "EN":
         days_english = [
@@ -281,6 +283,8 @@ def get_datetime(all_caps: bool = True, language: Literal["ES", "LT", "EN", "DE"
 
         date = f"{day_name}, {month} {day} ({day_str}). It is {seasons_english[season]}."
         dtime = f"It is {hour_str} {minute_str}"
+        if dt.minute == 0:
+            dtime = f"It is {hour_str} o'clock."
 
     elif language == "DE":
         days_german = [
@@ -302,8 +306,10 @@ def get_datetime(all_caps: bool = True, language: Literal["ES", "LT", "EN", "DE"
         day_str = number_to_german(day, all_caps)
         month = months_german[dt.month - 1]
 
-        date = f"{day_name}, {day} ({day_str}). {month}. Es ist {seasons_german[season]}."
-        dtime = f"Es ist {hour_str} Uhr {minute_str}"
+        date = f"{day_name}, {day} ({day_str}) {month}. Es ist {seasons_german[season]}."
+        dtime = f"Es ist {hour_str} Uhr"
+        if dt.minute != 0:
+            dtime += f" {minute_str}"
 
     else:  # Default to ES
         days_spanish = [
@@ -328,7 +334,9 @@ def get_datetime(all_caps: bool = True, language: Literal["ES", "LT", "EN", "DE"
 
         date = f"{day_name.title()} {day} ({day_str}) de {month}. Es {seasons[season]}."
         prefix = "Son las" if dt.hour != 1 else "Es la"
-        dtime = f"{prefix} {hour_str} Y {minute_str}"
+        dtime = f"{prefix} {hour_str} y {minute_str}"
+        if dt.minute == 0:
+            dtime = f"{prefix} {hour_str} en punto"
 
     return TimeOfDay(
         date=date.upper() if all_caps else date,

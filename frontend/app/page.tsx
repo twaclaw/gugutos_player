@@ -8,6 +8,13 @@ import { Music, BookOpen, Moon, Sun, CloudRain, Leaf, Snowflake, Sprout, Clock, 
 import { cn } from '@/lib/utils'
 
 const getBackendUrl = (path: string) => {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+
+  const configuredIp = process.env.NEXT_PUBLIC_SERVER_IP;
+  if (configuredIp) {
+    return `http://${configuredIp}:8000${path}`;
+  }
   const hostname = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
   return `http://${hostname}:8000${path}`;
 }
@@ -142,19 +149,20 @@ export default function Home() {
                   key={tag.id}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => playTrack(tag.id)}
-                  className="w-full bg-white rounded-2xl p-2 shadow-sm border-2 border-slate-100 flex items-center gap-3 text-left select-none"
+                  className="w-full bg-white rounded-2xl p-4 shadow-sm border-2 border-slate-100 flex items-center gap-6 text-left select-none"
                 >
-                  <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
+                  <div className="relative w-64 h-64 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
                     {tag.image ? (
-                      <img src={tag.image} alt={tag.title} className="w-full h-full object-cover" />
+                      <img src={getBackendUrl(tag.image)} alt={tag.title} className="w-full h-full object-cover" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400">
-                        <Music size={24} />
+                        <Music size={96} />
                       </div>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-black text-slate-800 leading-tight mb-1">
+                    {/* font songs list in first tab */}
+                    <h3 className="text-5xl font-black text-slate-800 leading-tight mb-2">
                       {tag.title}
                     </h3>
                   </div>
@@ -180,12 +188,12 @@ export default function Home() {
 
             {currentTrack && currentTrack.name ? (
               <>
-                <div className="relative w-40 h-40 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white">
+                <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white">
                   {currentTrack.image ? (
-                    <img src={currentTrack.image} alt={currentTrack.name} className="w-full h-full object-cover" />
+                    <img src={getBackendUrl(currentTrack.image)} alt={currentTrack.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400">
-                      <Music size={64} />
+                      <Music size={128} />
                     </div>
                   )}
                 </div>

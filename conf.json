@@ -91,7 +91,7 @@
          "figurine": "peresozo",
          "tracks": [
             {
-               "name": "Yellow Submarine",
+               "name": "Yellow submarine",
                "uri": "spotify:track:1tdltVUBkiBCW1C3yB4zyD"
             },
             {
@@ -716,6 +716,7 @@
             {
                "name": "las ruedas del autobus",
                "title": "Las ruedas del autobus",
+               "shuffle": true,
                "image": "./images/bus.jpg",
                "uri": [
                   "spotify:track:7JBgY8u5HOzhGb8YE55mSt",
@@ -732,7 +733,7 @@
          "tracks": [
             {
                "name": "yellow submarine",
-               "title": "Yellow Submarine",
+               "title": "Yellow submarine",
                "image": "./images/yellow_submarine.jpg",
                "uri": "spotify:track:1tdltVUBkiBCW1C3yB4zyD"
             }
@@ -763,7 +764,7 @@
             {
                "name": "blue autobus",
                "title": "Mėlynas autobusiukas",
-               "uri": "spotify:track:5Z3mYpou1gL3bQ7Ykzq8Yv",
+               "uri": "spotify:track:0ybyxBCfVrIOmpAsXsPtIz",
                "image": "./images/blue_bus.jpg"
             }
          ]
@@ -791,10 +792,60 @@
       "st_0008": {
          "tracks": [
             {
-               "name": "die Maus",
-               "title": "Sendung mit der Maus",
-               "uri": "spotify:show:0j3oVELRmPoHbo1B15ITfr",
-               "image": "./images/maus.jpg"
+               "name": "wind rises",
+               "title": "El viento se alza (風立ちぬ)",
+               "uri": "spotify:album:59U5FQ4kDEt11Q2UcFu1dK",
+               "image": "./images/wind_rises.jpg"
+            }
+         ]
+      },
+      "st_0009": {
+         "tracks": [
+            {
+               "name": "shihiro",
+               "title": "El viaje de Shihiro (千と千尋の神隠し)",
+               "uri": "spotify:album:766a5fKJYFy9ii4Kz2bQy9",
+               "image": "./images/shihiro.png"
+            }
+         ]
+      },
+      "st_0010": {
+         "tracks": [
+            {
+               "name": "Howl's moving castle",
+               "title": "El increible castillo vagabundo (ハウルの動く城)",
+               "uri": "spotify:album:5fqlZFKYqvkIe2jdDGt2nl",
+               "image": "./images/howls_castle.jpg"
+            }
+         ]
+      },
+      "st_0011": {
+         "tracks": [
+            {
+               "name": "El castillo en el cielo",
+               "title": "El castillo en el cielo (天空の城ラピュタ)",
+               "uri": "spotify:album:1gmwJD2H9nSka3uCAlGC4P",
+               "image": "./images/castle_in_the_sky.png"
+            }
+         ]
+      },
+      "st_0012": {
+         "tracks": [
+            {
+               "name": "piccolino",
+               "title": "Las canciones de Piccolino 🇨🇴",
+               "uri": "spotify:album:0SKE5hYhhFFWKTAYrRbtEF",
+               "image": "./images/cats.png"
+            }
+         ]
+      },
+      "st_0013": {
+         "tracks": [
+            {
+               "name": "piccolino",
+               "title": "Le canzioni di Piccolino 🇮🇹",
+               "uri": "spotify:album:4ym8xitzVtzcUDaOeWXiDm",
+               "image": "./images/cats.png"
             }
          ]
       }

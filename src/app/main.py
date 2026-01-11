@@ -204,7 +204,7 @@ async def async_main():
     if conf.get("general", {}).get("use_touchscreen_control", False):
         tasks.append(
             asyncio.create_task(
-                run_server(queue, conf, PlayRequest, current_track_info, track_manager)
+                run_server(queue, conf, PlayRequest, sp, track_manager)
             )
         )
 
