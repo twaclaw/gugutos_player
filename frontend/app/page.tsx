@@ -185,11 +185,11 @@ export default function Home() {
               <button
                 onClick={() => setAllCaps(!allCaps)}
                 className={cn(
-                  "p-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-bold",
+                  "p-4 rounded-xl transition-colors flex items-center gap-3 text-3xl font-bold",
                   allCaps ? "bg-kid-blue text-white" : "bg-slate-200 text-slate-600"
                 )}
               >
-                <Type size={20} />
+                <Type size={45} />
                 {allCaps ? "AA" : "Aa"}
               </button>
             </div>
@@ -232,23 +232,23 @@ export default function Home() {
               <button
                 onClick={() => setAllCaps(!allCaps)}
                 className={cn(
-                  "p-2 rounded-lg transition-colors flex items-center gap-2 text-xl font-bold",
+                  "p-4 rounded-xl transition-colors flex items-center gap-3 text-3xl font-bold",
                   allCaps ? "bg-kid-blue text-white" : "bg-slate-200 text-slate-600"
                 )}
               >
-                <Type size={30} />
+                <Type size={45} />
                 {allCaps ? "AA" : "Aa"}
               </button>
             </div>
 
             {currentTrack && currentTrack.name ? (
               <>
-                <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white">
+                <div className="relative w-[28rem] h-[28rem] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white">
                   {currentTrack.image ? (
                     <img src={getBackendUrl(currentTrack.image)} alt={currentTrack.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400">
-                      <Music size={128} />
+                      <Music size={180} />
                     </div>
                   )}
                 </div>
@@ -275,11 +275,11 @@ export default function Home() {
               <button
                 onClick={() => setAllCaps(!allCaps)}
                 className={cn(
-                  "p-2 rounded-lg transition-colors flex items-center gap-2 text-xl font-bold",
+                  "p-4 rounded-xl transition-colors flex items-center gap-3 text-3xl font-bold",
                   allCaps ? "bg-kid-blue text-white" : "bg-slate-200 text-slate-600"
                 )}
               >
-                <Type size={30} />
+                <Type size={45} />
                 {allCaps ? "AA" : "Aa"}
               </button>
             </div>
