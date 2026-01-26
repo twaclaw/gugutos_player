@@ -104,13 +104,24 @@ systemctl --user status ui.service
 
 See [this tutorial](https://www.raspberrypi.com/tutorials/how-to-use-a-raspberry-pi-in-kiosk-mode/) for reference:
 
+This script also configures the screen to turn off after 5 minutes of inactivity.
+
 ```bash
 sudo apt update
 sudo apt -y full-upgrade
 sudo apt install wtype
 cat > .config/labwc/autostart <<EOL
+WAYLAND_DISPLAY=wayland-0 swayidle -w timeout 300 'wlopm --off \*' resume 'wlopm --on \*' &
+
 sh -c 'until curl -s http://localhost:3000 > /dev/null; do sleep 1; done; chromium --noerrdialogs --kiosk --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-maximized http://localhost:3000' &
 EOL
+```
+
+```toml
+[idle]
+toggle = <super> KEY_Z
+screensaver_timeout = -1
+dpms_timeout = 300
 ```
 
 ## Miscellaneous

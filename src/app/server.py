@@ -1,5 +1,6 @@
 import logging
 import os
+import random
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -42,6 +43,8 @@ async def list_server_tags(all_caps: bool = True):
 
             result.append({"id": tag_id, "title": title, "image": image})
     logger.info(f"Returning {len(result)} tags")
+    # shuffle the tags in the result
+    random.shuffle(result)
     return result
 
 

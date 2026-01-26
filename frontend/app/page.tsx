@@ -67,6 +67,7 @@ const SeasonIcon = ({ season }: { season: number }) => {
 export default function Home() {
   const [language, setLanguage] = useState<'ES' | 'LT' | 'EN' | 'DE'>('ES')
   const [allCaps, setAllCaps] = useState(true)
+  const [previewId, setPreviewId] = useState<string | null>(null)
 
   // Drag Scroll Logic for Touchscreens acting as Mice
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -110,12 +111,15 @@ export default function Home() {
   // Wrapper for click to prevent triggering play when dragging
   const handleTrackClick = (id: string) => {
     if (isDragging.current) return;
+
+    setPreviewId(id);
     playTrack(id);
   }
 
   const { data: tags, error, isLoading } = useSWR(`/list_server_tags?all_caps=${allCaps}`, fetcher, {
-    revalidateOnFocus: true,
-    refreshInterval: 5000
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshInterval: 0
   })
 
   const { data: timeData } = useSWR(`/current_time?lang=${language}&all_caps=${allCaps}`, fetcher, {
@@ -206,11 +210,11 @@ export default function Home() {
                   style={{ touchAction: 'pan-y' }}
                 >
                   <div className="relative w-64 h-64 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
-                    {tag.image ? (
-                      <img src={getBackendUrl(tag.image)} alt={tag.title} className="w-full h-full object-cover" />
+                    {tag.image && previewId === tag.id ? (
+                      <img src={getBackendUrl(tag.image)} alt={tag.title} className="w-full h-full object-cover animate-in fade-in duration-300" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400">
-                        <Music size={96} />
+                        <Music size={160} />
                       </div>
                     )}
                   </div>

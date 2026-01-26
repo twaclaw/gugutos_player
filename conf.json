@@ -162,14 +162,6 @@
          "figurine": "totoro",
          "tracks": [
             {
-               "name": "Totoro",
-               "uri": "spotify:track:4IdQZXMOooaIRoP7N2qCn8"
-            },
-            {
-               "name": "Gato bus",
-               "uri": "spotify:track:0p4OoLTJu4VoAG4X9XYaoW"
-            },
-            {
                "name": "All totoro",
                "uri": "spotify:album:2Dn4ABFUYJbrlMF7K12RT3"
             }
@@ -719,8 +711,8 @@
                "shuffle": true,
                "image": "./images/bus.jpg",
                "uri": [
+                  "spotify:track:5VdrMz31SoHbb1IoqzR8VA",
                   "spotify:track:7JBgY8u5HOzhGb8YE55mSt",
-                  "spotify:track:1FG2CSLOJWhi0By1E3ZiD7",
                   "spotify:track:6iejChnUHlIhrPsk2Ey4DT",
                   "spotify:track:74mILoySpgyQbc4KWbFy2y",
                   "spotify:track:46eMSa5DPDD2lAICGSg89E",
@@ -868,6 +860,56 @@
                   "spotify:track:3Nd9wTStUxHHBWkbrENCVL",
                   "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
                ]
+            }
+         ]
+      },
+      "st_0015": {
+         "tracks": [
+            {
+               "name": "Over the rainbow",
+               "title": "Over the rainbow",
+               "uri": "spotify:track:4yDjzVhXig9tfO7Zv46FE8",
+               "image": "./images/rainbow.jpg"
+            }
+         ]
+      },
+      "st_0016": {
+         "tracks": [
+            {
+               "name": "The cat returns",
+               "title": "El regreso del gato (猫の恩返し)",
+               "uri": "spotify:album:1KDCap6BtIiJsmvilIA9oG",
+               "image": "./images/cat_returns.jpg"
+            }
+         ]
+      },
+      "st_0017": {
+         "tracks": [
+            {
+               "name": "Papageno",
+               "title": "Papageno y la flauta magica",
+               "uri": "spotify:track:4GvtPhsL5yqMljIeEW6hfu",
+               "image": "./images/papageno.jpg"
+            }
+         ]
+      },
+      "st_0018": {
+         "tracks": [
+            {
+               "name": "Porco Rosso",
+               "title": "Porco Rosso (紅の豚)",
+               "uri": "spotify:album:6NhWTFHoOj5n0UhbBkq5G3",
+               "image": "./images/porco_rosso.jpg"
+            }
+         ]
+      },
+      "st_0019": {
+         "tracks": [
+            {
+               "name": "Rouge no dengon",
+               "title": "Rouge no dengon (Kiki)",
+               "uri": "spotify:track:1jw992uwXhqJJ0H42ucTRL",
+               "image": "./images/kiki.jpg"
             }
          ]
       }
