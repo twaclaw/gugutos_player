@@ -912,6 +912,16 @@
                "image": "./images/kiki.jpg"
             }
          ]
+      },
+      "st_0020": {
+         "tracks": [
+            {
+               "name": "Whales",
+               "title": "Canto de las ballenas",
+               "uri": "spotify:playlist:37i9dQZF1DX60xkhEfNtud",
+               "image": "./images/whale.jpg"
+            }
+         ]
       }
    }
 }
