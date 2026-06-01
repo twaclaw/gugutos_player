@@ -876,10 +876,13 @@
       "st_0016": {
          "tracks": [
             {
-               "name": "The cat returns",
-               "title": "El regreso del gato (猫の恩返し)",
-               "uri": "spotify:album:1KDCap6BtIiJsmvilIA9oG",
-               "image": "./images/cat_returns.jpg"
+               "name": "Tom and Jerry",
+               "title": "Tom & Jerry",
+               "uri": [
+                  "spotify:track:3P2PPuxNTPw2V5Fenj6XYh",
+                  "spotify:track:1FajCxaLVDjoB6Xmr8TiVe"
+               ],
+               "image": "./images/tom_and_jerry.jpeg"
             }
          ]
       },
@@ -920,6 +923,16 @@
                "title": "Canto de las ballenas",
                "uri": "spotify:playlist:37i9dQZF1DX60xkhEfNtud",
                "image": "./images/whale.jpg"
+            }
+         ]
+      },
+      "st_0021": {
+         "tracks": [
+            {
+               "name": "Vivaldi, La follia",
+               "title": "Vivaldi, La follia",
+               "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn",
+               "image": "./images/violin.jpg"
             }
          ]
       }

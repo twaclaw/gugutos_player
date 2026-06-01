@@ -144,7 +144,7 @@ export default function Home() {
 
   const tabs = [
     { name: 'TOCAR MÚSICA', icon: Music, color: 'bg-kid-blue' },
-    { name: '¿QUÉ MÚSICA ES?', icon: BookOpen, color: 'bg-kid-pink' },
+    // { name: '¿QUÉ MÚSICA ES?', icon: BookOpen, color: 'bg-kid-pink' },
     { name: '¿QUÉ HORA ES?', icon: Moon, color: 'bg-kid-purple' },
   ]
 
@@ -231,7 +231,7 @@ export default function Home() {
             )}
             </div>
           </Tab.Panel>
-          <Tab.Panel className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 p-4 relative">
+          {/* <Tab.Panel className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 p-4 relative">
             <div className="absolute top-0 right-0 flex gap-4">
               <button
                 onClick={() => setAllCaps(!allCaps)}
@@ -273,7 +273,7 @@ export default function Home() {
                 Nothing playing right now
               </div>
             )}
-          </Tab.Panel>
+          </Tab.Panel> */}
           <Tab.Panel className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 p-4 relative">
             <div className="absolute top-0 left-0 flex gap-4">
               <button
