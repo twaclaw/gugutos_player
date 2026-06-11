@@ -1,3 +1,4 @@
+
 import logging
 import os
 import random
@@ -64,12 +65,12 @@ async def play(tag_id: str):
 
     tag_data = tags[tag_id]
 
-    piece = track_manager.select_next_piece(tag_id, tag_data)
+    plan = track_manager.prepare(tag_id, tag_data, conf.get("general", {}))
 
-    if not piece:
+    if not plan:
         raise HTTPException(status_code=404, detail="No tracks for this tag")
 
-    await queue.put(PlayRequest("server", piece))
+    await queue.put(PlayRequest("server", plan))
     return {"status": "queued", "tag_id": tag_id}
 
 

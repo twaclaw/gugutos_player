@@ -47,53 +47,154 @@ def get_type(uri: str | list[str]) -> str | None:
 
 
 class PlayRequest:
-    def __init__(self, source, track_info):
+    def __init__(self, source, plan: dict):
         self.source = source
-        self.track_info = track_info
+        self.autoplay = plan.get("autoplay", False)
+        self.shuffle = plan.get("shuffle", False)
+        self.pieces = plan.get("pieces")
+        self.track_info = plan.get("track_info")
 
 
-async def player_worker(queue: asyncio.Queue, sp, device_id, current_track_info: dict):
+def _enrich_current_track_info(sp, current_track_info: dict):
+    """Overlay the live Spotify "now playing" metadata onto current_track_info."""
+    track = sp.current_user_playing_track()
+    if track and track.get("item"):
+        item = track["item"]
+        current_track_info["name"] = item.get("name")
+        artists = item.get("artists", [])
+        current_track_info["artist"] = ", ".join([a["name"] for a in artists])
+
+        album = item.get("album", {})
+        images = album.get("images", [])
+        if images:
+            current_track_info["image"] = images[0].get("url")
+
+
+def _start_piece(sp, device_id, piece: dict):
+    """Start a single piece. Returns when playback has been requested."""
+    t = get_type(piece["uri"])
+    if t in ["playlist", "album", "show"]:
+        offset = piece.get("offset", 0)
+        sp.start_playback(
+            device_id=device_id,
+            context_uri=piece["uri"],
+            offset={"position": offset},
+        )
+    else:
+        sp.start_playback(device_id=device_id, uris=[piece["uri"]])
+
+
+async def _wait_until_stopped(sp, poll_delay: float, startup_timeout: float = 10.0):
+    """Block until the current playback finishes naturally.
+
+    Used to chain pieces in autoplay mode. The task is cancelled by the player
+    worker when a new request arrives, which interrupts the sleep below.
+    """
+    waited = 0.0
+    started = False
+    while waited < startup_timeout:
+        playback = sp.current_playback()
+        if playback and playback.get("is_playing"):
+            started = True
+            break
+        await asyncio.sleep(poll_delay)
+        waited += poll_delay
+
+    if not started:
+        return
+
+    while True:
+        playback = sp.current_playback()
+        if not playback or not playback.get("is_playing"):
+            return
+        await asyncio.sleep(poll_delay)
+
+
+async def _play_sequence(
+    pieces: list[dict],
+    shuffle: bool,
+    sp,
+    device_id,
+    current_track_info: dict,
+    poll_delay: float,
+):
+    """Play every piece in the list, one after another (autoplay).
+
+    Consecutive track pieces are handed to Spotify in a single call so it
+    auto-advances gaplessly; album/show/playlist pieces are played as a
+    context. After each segment we wait for it to finish before starting the
+    next one (unless it is the last segment).
+    """
+    pieces = list(pieces)
+    if shuffle and len(pieces) > 1:
+        pieces = random.sample(pieces, len(pieces))
+
+    i = 0
+    while i < len(pieces):
+        if get_type(pieces[i]["uri"]) == "track":
+            run = []
+            while i < len(pieces) and get_type(pieces[i]["uri"]) == "track":
+                run.append(pieces[i]["uri"])
+                i += 1
+            sp.start_playback(device_id=device_id, uris=run)
+        else:
+            _start_piece(sp, device_id, pieces[i])
+            i += 1
+
+        await asyncio.sleep(1)
+        _enrich_current_track_info(sp, current_track_info)
+
+        if i < len(pieces):
+            await _wait_until_stopped(sp, poll_delay)
+
+
+async def _handle_request(
+    req: "PlayRequest", sp, device_id, current_track_info, poll_delay
+):
+    try:
+        if req.autoplay and req.pieces:
+            logger.info(f"Autoplay {len(req.pieces)} pieces from {req.source}")
+            current_track_info.clear()
+            current_track_info.update(req.pieces[0])
+            await _play_sequence(
+                req.pieces, req.shuffle, sp, device_id, current_track_info, poll_delay
+            )
+        else:
+            piece = req.track_info
+            if not piece:
+                return
+            logger.info(f"Processing request from {req.source}: {piece.get('name')}")
+            current_track_info.clear()
+            current_track_info.update(piece)
+            _start_piece(sp, device_id, piece)
+            await asyncio.sleep(1)
+            _enrich_current_track_info(sp, current_track_info)
+    except asyncio.CancelledError:
+        raise
+    except Exception as e:
+        logger.error(f"Error playing track: {e}")
+
+
+async def player_worker(
+    queue: asyncio.Queue, sp, device_id, current_track_info: dict, poll_delay: float
+):
     logger.info("Player worker started")
+    current = None
     while True:
         req: PlayRequest = await queue.get()
-        piece = req.track_info
-        logger.info(f"Processing request from {req.source}: {piece.get('name')}")
 
-        current_track_info.clear()
-        current_track_info.update(piece)
+        # A new request supersedes anything in flight (e.g. an autoplay
+        # sequence still chaining pieces): cancel it and take over.
+        if current and not current.done():
+            current.cancel()
+            try:
+                await current
+            except asyncio.CancelledError:
+                pass
 
-        try:
-            t = get_type(piece["uri"])
-            uris = [piece["uri"]] if t == "track" else piece["uri"]
-            if piece.get("shuffle", False) and len(uris) > 1:
-                uris = random.sample(uris, len(uris))
-            logger.debug(f"Playing {piece['name']}: {len(uris)} pieces")
-
-            if t in ["playlist", "album", "show"]:
-                offset = piece.get("offset", 0)
-                sp.start_playback(
-                    device_id=device_id, context_uri=uris, offset={"position": offset}
-                )
-            else:
-                uris = [uris] if isinstance(uris, str) else uris
-                sp.start_playback(device_id=device_id, uris=uris)
-
-            await asyncio.sleep(1)
-            track = sp.current_user_playing_track()
-            if track and track.get("item"):
-                item = track["item"]
-                current_track_info["name"] = item.get("name")
-                artists = item.get("artists", [])
-                current_track_info["artist"] = ", ".join([a["name"] for a in artists])
-
-                album = item.get("album", {})
-                images = album.get("images", [])
-                if images:
-                    current_track_info["image"] = images[0].get("url")
-
-        except Exception as e:
-            logger.error(f"Error playing track: {e}")
-
+        current = asyncio.create_task(
+            _handle_request(req, sp, device_id, current_track_info, poll_delay)
+        )
         queue.task_done()
 
 
@@ -125,9 +226,9 @@ async def nfc_worker(
             tag_id = response.hex()
             tag = tags.get(tag_id)
             if tag and tag_id != prev_tag:
-                piece = track_manager.select_next_piece(tag_id, tag)
-                if piece:
-                    await queue.put(PlayRequest("nfc", piece))
+                plan = track_manager.prepare(tag_id, tag, conf.get("general", {}))
+                if plan:
+                    await queue.put(PlayRequest("nfc", plan))
                 prev_tag = tag_id
 
             if tag is None:
@@ -174,7 +275,7 @@ async def async_main():
             client_secret=secrets["client_secret"],
             scope=scope,
             open_browser=False,
-            redirect_uri="http://127.0.0.1:8888/callback", # must be the same one configured in the spotify app.
+            redirect_uri="http://127.0.0.1:8888/callback",  # must be the same one configured in the spotify app.
             cache_path=args.cache,
         )
     )
@@ -187,8 +288,12 @@ async def async_main():
 
     track_manager = TrackManager()
 
+    poll_delay = conf.get("sound", {}).get("polling_delay_secs", 1.0)
+
     tasks = [
-        asyncio.create_task(player_worker(queue, sp, device_id, current_track_info)),
+        asyncio.create_task(
+            player_worker(queue, sp, device_id, current_track_info, poll_delay)
+        ),
     ]
 
     if conf.get("general", {}).get("use_rfid_control", True):
@@ -203,9 +308,7 @@ async def async_main():
 
     if conf.get("general", {}).get("use_touchscreen_control", False):
         tasks.append(
-            asyncio.create_task(
-                run_server(queue, conf, PlayRequest, sp, track_manager)
-            )
+            asyncio.create_task(run_server(queue, conf, PlayRequest, sp, track_manager))
         )
 
     await asyncio.gather(*tasks)

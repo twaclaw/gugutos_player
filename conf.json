@@ -7,7 +7,11 @@
    "general": {
       "use_touchscreen_control": true,
       "use_rfid_control": true,
-      "nfc_serial_port": "/dev/ttyAMA0"
+      "nfc_serial_port": "/dev/ttyAMA0",
+      "track_selection": {
+         "shuffle": true,
+         "autoplay": true
+      }
    },
    "tags": {
       "04bb9ca7100289": {
@@ -365,14 +369,16 @@
       },
       "049270a7100289": {
          "figurine": "beethoven",
+         "shuffle": false,
          "tracks": [
             {
-               "name": "Gulda, Apassionata",
-               "uri": [
-                  "spotify:track:6GyzSMfMOusADIazIf4zBi",
-                  "spotify:track:62qPffousezPJUGtKfRiiH",
-                  "spotify:track:1OEco9Nzs2Ag1JOKPSQE92"
-               ]
+               "uri": "spotify:track:6GyzSMfMOusADIazIf4zBi"
+            },
+            {
+               "uri": "spotify:track:62qPffousezPJUGtKfRiiH"
+            },
+            {
+               "uri": "spotify:track:1OEco9Nzs2Ag1JOKPSQE92"
             }
          ]
       },
@@ -505,59 +511,151 @@
          "figurine": "bobo",
          "tracks": [
             {
-               "name": "Bobo",
-               "shuffle": true,
-               "uri": [
-                  "spotify:track:27Dm3OZ3ES3lmJTMISLXnm",
-                  "spotify:track:0GHLdlOSvYJ1wrdsaTHcNL",
-                  "spotify:track:3fZJ3wPPMtBrZDlBJJZP5p",
-                  "spotify:track:0kfGWq2U1Csvr0iDjaB8gg",
-                  "spotify:track:3GnEtNyLELovUrqIyeEJGm",
-                  "spotify:track:6nToJdXzbWQMNBj04cTwro",
-                  "spotify:track:0PWkLwyimrqrBtMnsk0tSn",
-                  "spotify:track:5YvA33JqovLlRmo5ScXRzO",
-                  "spotify:track:2PrhCOmhPHW72ICv7i87NC",
-                  "spotify:track:2pyr3aKLFT48ibTbaQzCO3",
-                  "spotify:track:3PV5tNe3nXkP2Zs3QJ9Fc6",
-                  "spotify:track:4tTqBp3OvTMW9qygZ38QSD",
-                  "spotify:track:4cgO1CORU1wjAJsol7eogm",
-                  "spotify:track:2AhpnvbHeDk9vUm5d3uxHA",
-                  "spotify:track:5GefxpsV7RtUt9oJbbjGO0",
-                  "spotify:track:1TN2BrFcQsWWfh6pq0ACJZ",
-                  "spotify:track:0ckVGuHp6ijkHJAawR4Wxd",
-                  "spotify:track:2QtpBu9yoClXiM0CA5Q2qo",
-                  "spotify:track:00Qt6WUKv45GhwASteqceK",
-                  "spotify:track:1gWoD3SHvAbCWd7sgNcEsA",
-                  "spotify:track:4a9wwVx03zBNolmWEjoShu",
-                  "spotify:track:03L4LwtLHhSy1xjzq9JBmF",
-                  "spotify:track:5PoWFXGjljNx8ubltOtZvJ",
-                  "spotify:track:33HNwVkJ37ya2Se0tZob0u",
-                  "spotify:track:5OtFmkTHaA4qrw8VG1LHOM",
-                  "spotify:track:2pogezIbGsrcTLN3Z23BgH",
-                  "spotify:track:2CJ06njCY1Mzl2tmVcdIOA",
-                  "spotify:track:73FjhM2cFkor0LvbTNhqZN",
-                  "spotify:track:6v688TWw040YUZzfmrl2ig",
-                  "spotify:track:33z8gTFzU7nE1k3gO1z6bi",
-                  "spotify:track:4VtQVWF2Z75wNqfsrV5fBK",
-                  "spotify:track:6alwsQMwnHs5OzjTtqX6Ya",
-                  "spotify:track:7kGVu9xmn6LTHhQAw50OMI",
-                  "spotify:track:3sxeLJj0oxlqqOP27KU4aP",
-                  "spotify:track:7A3bqc8ExWv8Y7sm1WubZ4",
-                  "spotify:track:5KMlN8mOMW0QJJDwErpi18",
-                  "spotify:track:43Qfs6tClaD2Mgchj7mx7C",
-                  "spotify:track:7pOOOsCzgmNOJ3qbSLMNlj",
-                  "spotify:track:6PYBb4Rfrt3iLsbROqUod6",
-                  "spotify:track:3x1tzAFtfWvy6Id07sWTCK",
-                  "spotify:track:5kkcH9XAlJB5w6WcOWDJlf",
-                  "spotify:track:13fY2SnXIGVaC0Mx0ldGm9",
-                  "spotify:track:0wZvz0r4Vyy3mAhjZRCAOd",
-                  "spotify:track:0lmWYMqAGPTCeeLN7B5PDE",
-                  "spotify:track:39c1zprgFKS2oDxe1KEfMY",
-                  "spotify:track:2l7L5DZp1LyDbcNyOfNXpu",
-                  "spotify:track:3dLSZFV5DdVaVMKS6LQW33",
-                  "spotify:track:1OdIoRriDkayTrG9husJaS",
-                  "spotify:track:2qrZHexwqdv3USF35HzEzb"
-               ]
+               "uri": "spotify:track:27Dm3OZ3ES3lmJTMISLXnm"
+            },
+            {
+               "uri": "spotify:track:0GHLdlOSvYJ1wrdsaTHcNL"
+            },
+            {
+               "uri": "spotify:track:3fZJ3wPPMtBrZDlBJJZP5p"
+            },
+            {
+               "uri": "spotify:track:0kfGWq2U1Csvr0iDjaB8gg"
+            },
+            {
+               "uri": "spotify:track:3GnEtNyLELovUrqIyeEJGm"
+            },
+            {
+               "uri": "spotify:track:6nToJdXzbWQMNBj04cTwro"
+            },
+            {
+               "uri": "spotify:track:0PWkLwyimrqrBtMnsk0tSn"
+            },
+            {
+               "uri": "spotify:track:5YvA33JqovLlRmo5ScXRzO"
+            },
+            {
+               "uri": "spotify:track:2PrhCOmhPHW72ICv7i87NC"
+            },
+            {
+               "uri": "spotify:track:2pyr3aKLFT48ibTbaQzCO3"
+            },
+            {
+               "uri": "spotify:track:3PV5tNe3nXkP2Zs3QJ9Fc6"
+            },
+            {
+               "uri": "spotify:track:4tTqBp3OvTMW9qygZ38QSD"
+            },
+            {
+               "uri": "spotify:track:4cgO1CORU1wjAJsol7eogm"
+            },
+            {
+               "uri": "spotify:track:2AhpnvbHeDk9vUm5d3uxHA"
+            },
+            {
+               "uri": "spotify:track:5GefxpsV7RtUt9oJbbjGO0"
+            },
+            {
+               "uri": "spotify:track:1TN2BrFcQsWWfh6pq0ACJZ"
+            },
+            {
+               "uri": "spotify:track:0ckVGuHp6ijkHJAawR4Wxd"
+            },
+            {
+               "uri": "spotify:track:2QtpBu9yoClXiM0CA5Q2qo"
+            },
+            {
+               "uri": "spotify:track:00Qt6WUKv45GhwASteqceK"
+            },
+            {
+               "uri": "spotify:track:1gWoD3SHvAbCWd7sgNcEsA"
+            },
+            {
+               "uri": "spotify:track:4a9wwVx03zBNolmWEjoShu"
+            },
+            {
+               "uri": "spotify:track:03L4LwtLHhSy1xjzq9JBmF"
+            },
+            {
+               "uri": "spotify:track:5PoWFXGjljNx8ubltOtZvJ"
+            },
+            {
+               "uri": "spotify:track:33HNwVkJ37ya2Se0tZob0u"
+            },
+            {
+               "uri": "spotify:track:5OtFmkTHaA4qrw8VG1LHOM"
+            },
+            {
+               "uri": "spotify:track:2pogezIbGsrcTLN3Z23BgH"
+            },
+            {
+               "uri": "spotify:track:2CJ06njCY1Mzl2tmVcdIOA"
+            },
+            {
+               "uri": "spotify:track:73FjhM2cFkor0LvbTNhqZN"
+            },
+            {
+               "uri": "spotify:track:6v688TWw040YUZzfmrl2ig"
+            },
+            {
+               "uri": "spotify:track:33z8gTFzU7nE1k3gO1z6bi"
+            },
+            {
+               "uri": "spotify:track:4VtQVWF2Z75wNqfsrV5fBK"
+            },
+            {
+               "uri": "spotify:track:6alwsQMwnHs5OzjTtqX6Ya"
+            },
+            {
+               "uri": "spotify:track:7kGVu9xmn6LTHhQAw50OMI"
+            },
+            {
+               "uri": "spotify:track:3sxeLJj0oxlqqOP27KU4aP"
+            },
+            {
+               "uri": "spotify:track:7A3bqc8ExWv8Y7sm1WubZ4"
+            },
+            {
+               "uri": "spotify:track:5KMlN8mOMW0QJJDwErpi18"
+            },
+            {
+               "uri": "spotify:track:43Qfs6tClaD2Mgchj7mx7C"
+            },
+            {
+               "uri": "spotify:track:7pOOOsCzgmNOJ3qbSLMNlj"
+            },
+            {
+               "uri": "spotify:track:6PYBb4Rfrt3iLsbROqUod6"
+            },
+            {
+               "uri": "spotify:track:3x1tzAFtfWvy6Id07sWTCK"
+            },
+            {
+               "uri": "spotify:track:5kkcH9XAlJB5w6WcOWDJlf"
+            },
+            {
+               "uri": "spotify:track:13fY2SnXIGVaC0Mx0ldGm9"
+            },
+            {
+               "uri": "spotify:track:0wZvz0r4Vyy3mAhjZRCAOd"
+            },
+            {
+               "uri": "spotify:track:0lmWYMqAGPTCeeLN7B5PDE"
+            },
+            {
+               "uri": "spotify:track:39c1zprgFKS2oDxe1KEfMY"
+            },
+            {
+               "uri": "spotify:track:2l7L5DZp1LyDbcNyOfNXpu"
+            },
+            {
+               "uri": "spotify:track:3dLSZFV5DdVaVMKS6LQW33"
+            },
+            {
+               "uri": "spotify:track:1OdIoRriDkayTrG9husJaS"
+            },
+            {
+               "uri": "spotify:track:2qrZHexwqdv3USF35HzEzb"
             }
          ]
       },
@@ -644,15 +742,19 @@
          "figurine": "cello",
          "tracks": [
             {
-               "name": "Cello pieces",
-               "shuffle": true,
-               "uri": [
-                  "spotify:track:2PSgNwpdMpQ3iDTckX7sSP",
-                  "spotify:track:0P7UwPB9vL74bD6gzYaKIu",
-                  "spotify:track:17i5jLpzndlQhbS4SrTd0B",
-                  "spotify:track:0ZlaTyVqZN0qCMOOnWigr8",
-                  "spotify:track:6sauXsrrLyr9DqsNMyUc1W"
-               ]
+               "uri": "spotify:track:2PSgNwpdMpQ3iDTckX7sSP"
+            },
+            {
+               "uri": "spotify:track:0P7UwPB9vL74bD6gzYaKIu"
+            },
+            {
+               "uri": "spotify:track:17i5jLpzndlQhbS4SrTd0B"
+            },
+            {
+               "uri": "spotify:track:0ZlaTyVqZN0qCMOOnWigr8"
+            },
+            {
+               "uri": "spotify:track:6sauXsrrLyr9DqsNMyUc1W"
             }
          ]
       },
@@ -706,18 +808,24 @@
       "st_0001": {
          "tracks": [
             {
-               "name": "las ruedas del autobus",
                "title": "Las ruedas del autobus",
-               "shuffle": true,
                "image": "./images/bus.jpg",
-               "uri": [
-                  "spotify:track:5VdrMz31SoHbb1IoqzR8VA",
-                  "spotify:track:7JBgY8u5HOzhGb8YE55mSt",
-                  "spotify:track:6iejChnUHlIhrPsk2Ey4DT",
-                  "spotify:track:74mILoySpgyQbc4KWbFy2y",
-                  "spotify:track:46eMSa5DPDD2lAICGSg89E",
-                  "spotify:track:2fJEEolf9sDgNuquRTPZn1"
-               ]
+               "uri": "spotify:track:5VdrMz31SoHbb1IoqzR8VA"
+            },
+            {
+               "uri": "spotify:track:7JBgY8u5HOzhGb8YE55mSt"
+            },
+            {
+               "uri": "spotify:track:6iejChnUHlIhrPsk2Ey4DT"
+            },
+            {
+               "uri": "spotify:track:74mILoySpgyQbc4KWbFy2y"
+            },
+            {
+               "uri": "spotify:track:46eMSa5DPDD2lAICGSg89E"
+            },
+            {
+               "uri": "spotify:track:2fJEEolf9sDgNuquRTPZn1"
             }
          ]
       },
@@ -844,22 +952,36 @@
       "st_0014": {
          "tracks": [
             {
-               "name": "emociones",
-               "shuffle": true,
                "title": "Las emociones",
                "image": "./images/monster.jpg",
-               "uri": [
-                  "spotify:track:6pWoP3mTpvxst9VrBKsCYg",
-                  "spotify:track:0vfPup52tue8Y2wkqm4GrZ",
-                  "spotify:track:5H4QWvy9vUJPuNdn0vwuZ1",
-                  "spotify:track:2hkFDdW7y61Ojv5ejO1QXg",
-                  "spotify:track:7oenWdkfvoEySYVc0rH6Cq",
-                  "spotify:track:3rL2blyeOBnUBq3yYA1KcE",
-                  "spotify:track:0y2gKMLMxCyn1hNEhvmmw8",
-                  "spotify:track:0vfPup52tue8Y2wkqm4GrZ",
-                  "spotify:track:3Nd9wTStUxHHBWkbrENCVL",
-                  "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
-               ]
+               "uri": "spotify:track:6pWoP3mTpvxst9VrBKsCYg"
+            },
+            {
+               "uri": "spotify:track:0vfPup52tue8Y2wkqm4GrZ"
+            },
+            {
+               "uri": "spotify:track:5H4QWvy9vUJPuNdn0vwuZ1"
+            },
+            {
+               "uri": "spotify:track:2hkFDdW7y61Ojv5ejO1QXg"
+            },
+            {
+               "uri": "spotify:track:7oenWdkfvoEySYVc0rH6Cq"
+            },
+            {
+               "uri": "spotify:track:3rL2blyeOBnUBq3yYA1KcE"
+            },
+            {
+               "uri": "spotify:track:0y2gKMLMxCyn1hNEhvmmw8"
+            },
+            {
+               "uri": "spotify:track:0vfPup52tue8Y2wkqm4GrZ"
+            },
+            {
+               "uri": "spotify:track:3Nd9wTStUxHHBWkbrENCVL"
+            },
+            {
+               "uri": "spotify:track:4Eev1NK5U0fm4ZADOu9KKq"
             }
          ]
       },
@@ -874,15 +996,15 @@
          ]
       },
       "st_0016": {
+         "shuffle": false,
          "tracks": [
             {
-               "name": "Tom and Jerry",
                "title": "Tom & Jerry",
-               "uri": [
-                  "spotify:track:3P2PPuxNTPw2V5Fenj6XYh",
-                  "spotify:track:1FajCxaLVDjoB6Xmr8TiVe"
-               ],
-               "image": "./images/tom_and_jerry.jpeg"
+               "image": "./images/tom_and_jerry.jpeg",
+               "uri": "spotify:track:3P2PPuxNTPw2V5Fenj6XYh"
+            },
+            {
+               "uri": "spotify:track:1FajCxaLVDjoB6Xmr8TiVe"
             }
          ]
       },
@@ -923,16 +1045,6 @@
                "title": "Canto de las ballenas",
                "uri": "spotify:playlist:37i9dQZF1DX60xkhEfNtud",
                "image": "./images/whale.jpg"
-            }
-         ]
-      },
-      "st_0021": {
-         "tracks": [
-            {
-               "name": "Vivaldi, La follia",
-               "title": "Vivaldi, La follia",
-               "uri": "spotify:track:31phRRDd6MwLhE88ZXt8hn",
-               "image": "./images/violin.jpg"
             }
          ]
       }
