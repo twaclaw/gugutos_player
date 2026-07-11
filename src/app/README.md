@@ -124,6 +124,25 @@ screensaver_timeout = -1
 dpms_timeout = 300
 ```
 
+#### Touchscreen orientation and input mapping
+
+The touchscreen input must be mapped to the (rotated) display so a vertical drag
+scrolls vertically and taps land where you touch. This is done with a `<touch>`
+rule in `~/.config/labwc/rc.xml`; a working copy lives in
+[`config/labwc/rc.xml`](../../config/labwc/rc.xml).
+
+The rule matches on the device's **libinput name**, which kernel/driver updates (`moode` updates) may change.
+If this happens, check the current name and update `deviceName` to match:
+
+```bash
+libinput list-devices | grep -A1 -i touch   # -> "Goodix Capacitive TouchScreen"
+# edit deviceName in ~/.config/labwc/rc.xml, then reload:
+killall -HUP labwc
+```
+
+Use `mouseEmulation="no"` - the web UI handles native touch events, and mouse
+emulation warps the pointer on tap which breaks track selection.
+
 ## Miscellaneous
 
 ### PN532 driver

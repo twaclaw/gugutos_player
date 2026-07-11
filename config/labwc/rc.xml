@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
+	<!--
+	  Touch input mapping for the official Raspberry Pi touch display.
+
+	  mapToOutput="DSI-1" makes the touchscreen inherit the output's rotation
+	  (the panel is native portrait 720x1280 and rotated 270 to landscape), so
+	  a vertical finger drag scrolls vertically and taps land where you touch.
+
+	  deviceName MUST match the device's current libinput name. Check it with:
+	      libinput list-devices | grep -A1 -i touch
+	  Kernel/driver updates have renamed this device before (e.g. the 6.18
+	  Goodix driver dropped the "10-005d " i2c-address prefix); if scrolling
+	  and tab taps break but full-width track taps still work, the name drifted
+	  and this rule stopped matching.
+
+	  mouseEmulation="no": the web UI handles native touch events directly.
+	  Leaving emulation on warps the pointer on tap and breaks track selection.
+	-->
+	<touch deviceName="Goodix Capacitive TouchScreen" mapToOutput="DSI-1" mouseEmulation="no"/>
+	<theme><font place="ActiveWindow"><name>Nunito Sans</name><size>16</size><weight>Light</weight><slant>Normal</slant></font><font place="InactiveWindow"><name>Nunito Sans</name><size>16</size><weight>Light</weight><slant>Normal</slant></font><name>PiXtrix_l</name></theme>
+</openbox_config>
